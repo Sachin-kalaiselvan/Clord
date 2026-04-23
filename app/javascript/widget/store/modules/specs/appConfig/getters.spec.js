@@ -9,8 +9,8 @@ describe('#getters', () => {
   });
   describe('#getReferrerHost', () => {
     it('returns correct value', () => {
-      const state = { referrerHost: 'www.Clord.com' };
-      expect(getters.getReferrerHost(state)).toEqual('www.Clord.com');
+      const state = { referrerHost: 'www.clord.com' };
+      expect(getters.getReferrerHost(state)).toEqual('www.clord.com');
     });
   });
   describe('#getShowUnreadMessagesDialog', () => {

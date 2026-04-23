@@ -52,7 +52,7 @@ const onConfirm = dialog => {};
           <Input
             id="portal-name"
             type="text"
-            placeholder="User Guide | Clord"
+            placeholder="User Guide | clord"
             label="Name"
             message="This will be the name of your public facing portal"
           />
@@ -61,7 +61,7 @@ const onConfirm = dialog => {};
             type="text"
             placeholder="user-guide"
             label="Slug"
-            message="app.Clord.com/hc/my-portal/en-US/categories/my-slug"
+            message="app.clord.com/hc/my-portal/en-US/categories/my-slug"
           />
         </div>
       </Dialog>

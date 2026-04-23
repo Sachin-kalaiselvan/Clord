@@ -1,10 +1,10 @@
 require 'rails_helper'
 
-describe ClordHub do
+describe clordHub do
   describe '.base_url' do
     it 'uses the static hub url' do
-      expect(described_class::DEFAULT_BASE_URL).to eq('https://hub.2.Clord.com')
-      expect(described_class.base_url).to eq('https://hub.2.Clord.com')
+      expect(described_class::DEFAULT_BASE_URL).to eq('https://hub.2.clord.com')
+      expect(described_class.base_url).to eq('https://hub.2.clord.com')
     end
   end
 
@@ -15,7 +15,7 @@ describe ClordHub do
   end
 
   context 'when fetching sync_with_hub' do
-    it 'get latest version from Clord hub' do
+    it 'get latest version from clord hub' do
       version = '1.1.1'
       allow(RestClient).to receive(:post).and_return({ version: version }.to_json)
       expect(described_class.sync_with_hub['version']).to eq version
@@ -33,7 +33,7 @@ describe ClordHub do
       end
     end
 
-    it 'returns nil when Clord hub is down' do
+    it 'returns nil when clord hub is down' do
       allow(RestClient).to receive(:post).and_raise(ExceptionList::REST_CLIENT_EXCEPTIONS.sample)
       expect(described_class.sync_with_hub).to be_nil
     end

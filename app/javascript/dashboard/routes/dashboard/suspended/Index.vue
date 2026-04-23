@@ -3,13 +3,13 @@ import EmptyState from 'dashboard/components/widgets/EmptyState.vue';
 import { onMounted } from 'vue';
 
 const toggleSupportWidgetVisibility = () => {
-  if (window.$Clord) {
-    window.$Clord.toggleBubbleVisibility('show');
+  if (window.$clord) {
+    window.$clord.toggleBubbleVisibility('show');
   }
 };
 
 const setupListenerForWidgetEvent = () => {
-  window.addEventListener('Clord:on-message', () => {
+  window.addEventListener('clord:on-message', () => {
     toggleSupportWidgetVisibility();
   });
 };

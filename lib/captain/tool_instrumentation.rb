@@ -6,7 +6,7 @@ module Captain::ToolInstrumentation
 
   # Custom instrumentation for tool flows - outputs just the message (not full hash)
   def instrument_tool_session(params)
-    return yield unless ClordApp.otel_enabled?
+    return yield unless clordApp.otel_enabled?
 
     response = nil
     executed = false
@@ -19,7 +19,7 @@ module Captain::ToolInstrumentation
     end
     response
   rescue StandardError => e
-    ClordExceptionTracker.new(e, account: account).capture_exception
+    clordExceptionTracker.new(e, account: account).capture_exception
     executed ? response : yield
   end
 
@@ -39,7 +39,7 @@ module Captain::ToolInstrumentation
   end
 
   def record_generation(chat, message, model)
-    return unless ClordApp.otel_enabled?
+    return unless clordApp.otel_enabled?
     return unless message.respond_to?(:role) && message.role.to_s == 'assistant'
 
     tracer.in_span("llm.#{event_name}.generation") do |span|

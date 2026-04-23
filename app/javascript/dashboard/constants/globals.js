@@ -37,11 +37,11 @@ export default {
     CONDENSED: 'condensed',
     EXPANDED: 'expanded',
   },
-  DOCS_URL: 'https://www.Clord.com/docs/product/',
+  DOCS_URL: 'https://www.clord.com/docs/product/',
   HELP_CENTER_DOCS_URL:
-    'https://www.Clord.com/docs/product/others/help-center',
+    'https://www.clord.com/docs/product/others/help-center',
   TESTIMONIAL_URL:
-    'https://testimonials.cdn.Clord.com/testimonial-content.json',
+    'https://testimonials.cdn.clord.com/testimonial-content.json',
   WHATSAPP_EMBEDDED_SIGNUP_DOCS_URL:
     'https://developers.facebook.com/docs/whatsapp/embedded-signup/custom-flows/onboarding-business-app-users#limitations',
   SMALL_SCREEN_BREAKPOINT: 768,

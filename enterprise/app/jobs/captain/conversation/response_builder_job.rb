@@ -171,7 +171,7 @@ class Captain::Conversation::ResponseBuilderJob < ApplicationJob
   end
 
   def log_error(error)
-    ClordExceptionTracker.new(error, account: account).capture_exception
+    clordExceptionTracker.new(error, account: account).capture_exception
   end
 
   def captain_v2_enabled?

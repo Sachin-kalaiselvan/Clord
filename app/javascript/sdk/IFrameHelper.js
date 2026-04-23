@@ -23,9 +23,9 @@ import {
 import { isWidgetColorLighter } from 'shared/helpers/colorHelper';
 import { dispatchWindowEvent } from 'shared/helpers/CustomEventHelper';
 import {
-  Clord_ERROR,
-  Clord_POSTBACK,
-  Clord_READY,
+  clord_ERROR,
+  clord_POSTBACK,
+  clord_READY,
 } from '../widget/constants/sdkEvents';
 import { SET_USER_ERROR } from '../widget/constants/errorTypes';
 import { getUserCookieName, setCookieWithDomain } from './cookieHelpers';
@@ -69,14 +69,14 @@ export const IFrameHelper = {
     iframe.src = widgetUrl;
     iframe.allow =
       'camera;microphone;fullscreen;display-capture;picture-in-picture;clipboard-write;';
-    iframe.id = 'Clord_live_chat_widget';
+    iframe.id = 'clord_live_chat_widget';
     iframe.style.visibility = 'hidden';
 
-    let holderClassName = `woot-widget-holder woot--hide woot-elements--${window.$Clord.position}`;
-    if (window.$Clord.hideMessageBubble) {
+    let holderClassName = `woot-widget-holder woot--hide woot-elements--${window.$clord.position}`;
+    if (window.$clord.hideMessageBubble) {
       holderClassName += ` woot-widget--without-bubble`;
     }
-    if (isFlatWidgetStyle(window.$Clord.widgetStyle)) {
+    if (isFlatWidgetStyle(window.$clord.widgetStyle)) {
       holderClassName += ` woot-widget-holder--flat`;
     }
 
@@ -89,12 +89,12 @@ export const IFrameHelper = {
     IFrameHelper.initWindowSizeListener();
     IFrameHelper.preventDefaultScroll();
   },
-  getAppFrame: () => document.getElementById('Clord_live_chat_widget'),
+  getAppFrame: () => document.getElementById('clord_live_chat_widget'),
   getBubbleHolder: () => document.getElementsByClassName('woot--bubble-holder'),
   sendMessage: (key, value) => {
     const element = IFrameHelper.getAppFrame();
     element.contentWindow.postMessage(
-      `Clord-widget:${JSON.stringify({ event: key, ...value })}`,
+      `clord-widget:${JSON.stringify({ event: key, ...value })}`,
       '*'
     );
   },
@@ -102,11 +102,11 @@ export const IFrameHelper = {
     window.onmessage = e => {
       if (
         typeof e.data !== 'string' ||
-        e.data.indexOf('Clord-widget:') !== 0
+        e.data.indexOf('clord-widget:') !== 0
       ) {
         return;
       }
-      const message = JSON.parse(e.data.replace('Clord-widget:', ''));
+      const message = JSON.parse(e.data.replace('clord-widget:', ''));
       if (typeof IFrameHelper.events[message.event] === 'function') {
         IFrameHelper.events[message.event](message);
       }
@@ -140,7 +140,7 @@ export const IFrameHelper = {
   },
 
   setupAudioListeners: () => {
-    const { baseUrl = '' } = window.$Clord;
+    const { baseUrl = '' } = window.$clord;
     getAlertAudio(baseUrl, { type: 'widget', alertTone: 'ding' }).then(() =>
       initOnEvents.forEach(event => {
         document.removeEventListener(
@@ -154,33 +154,33 @@ export const IFrameHelper = {
 
   events: {
     loaded: message => {
-      updateAuthCookie(message.config.authToken, window.$Clord.baseDomain);
-      window.$Clord.hasLoaded = true;
+      updateAuthCookie(message.config.authToken, window.$clord.baseDomain);
+      window.$clord.hasLoaded = true;
       const campaignsSnoozedTill = Cookies.get('cw_snooze_campaigns_till');
       IFrameHelper.sendMessage('config-set', {
-        locale: window.$Clord.locale,
-        position: window.$Clord.position,
-        hideMessageBubble: window.$Clord.hideMessageBubble,
-        showPopoutButton: window.$Clord.showPopoutButton,
-        widgetStyle: window.$Clord.widgetStyle,
-        darkMode: window.$Clord.darkMode,
-        showUnreadMessagesDialog: window.$Clord.showUnreadMessagesDialog,
+        locale: window.$clord.locale,
+        position: window.$clord.position,
+        hideMessageBubble: window.$clord.hideMessageBubble,
+        showPopoutButton: window.$clord.showPopoutButton,
+        widgetStyle: window.$clord.widgetStyle,
+        darkMode: window.$clord.darkMode,
+        showUnreadMessagesDialog: window.$clord.showUnreadMessagesDialog,
         campaignsSnoozedTill,
-        welcomeTitle: window.$Clord.welcomeTitle,
-        welcomeDescription: window.$Clord.welcomeDescription,
-        availableMessage: window.$Clord.availableMessage,
-        unavailableMessage: window.$Clord.unavailableMessage,
-        enableFileUpload: window.$Clord.enableFileUpload,
-        enableEmojiPicker: window.$Clord.enableEmojiPicker,
-        enableEndConversation: window.$Clord.enableEndConversation,
+        welcomeTitle: window.$clord.welcomeTitle,
+        welcomeDescription: window.$clord.welcomeDescription,
+        availableMessage: window.$clord.availableMessage,
+        unavailableMessage: window.$clord.unavailableMessage,
+        enableFileUpload: window.$clord.enableFileUpload,
+        enableEmojiPicker: window.$clord.enableEmojiPicker,
+        enableEndConversation: window.$clord.enableEndConversation,
       });
       IFrameHelper.onLoad({
         widgetColor: message.config.channelConfig.widgetColor,
       });
       IFrameHelper.toggleCloseButton();
 
-      if (window.$Clord.user) {
-        IFrameHelper.sendMessage('set-user', window.$Clord.user);
+      if (window.$clord.user) {
+        IFrameHelper.sendMessage('set-user', window.$clord.user);
       }
 
       window.playAudioAlert = () => {};
@@ -189,12 +189,12 @@ export const IFrameHelper = {
         document.addEventListener(e, IFrameHelper.setupAudioListeners, false);
       });
 
-      if (!window.$Clord.resetTriggered) {
-        dispatchWindowEvent({ eventName: Clord_READY });
+      if (!window.$clord.resetTriggered) {
+        dispatchWindowEvent({ eventName: clord_READY });
       }
     },
     error: ({ errorType, data }) => {
-      dispatchWindowEvent({ eventName: Clord_ERROR, data: data });
+      dispatchWindowEvent({ eventName: clord_ERROR, data: data });
 
       if (errorType === SET_USER_ERROR) {
         Cookies.remove(getUserCookieName());
@@ -204,20 +204,20 @@ export const IFrameHelper = {
       dispatchWindowEvent({ eventName, data });
     },
     setBubbleLabel(message) {
-      setBubbleText(window.$Clord.launcherTitle || message.label);
+      setBubbleText(window.$clord.launcherTitle || message.label);
     },
 
     setAuthCookie({ data: { widgetAuthToken } }) {
-      updateAuthCookie(widgetAuthToken, window.$Clord.baseDomain);
+      updateAuthCookie(widgetAuthToken, window.$clord.baseDomain);
     },
 
     setCampaignReadOn() {
-      updateCampaignReadStatus(window.$Clord.baseDomain);
+      updateCampaignReadStatus(window.$clord.baseDomain);
     },
 
     postback(data) {
       dispatchWindowEvent({
-        eventName: Clord_POSTBACK,
+        eventName: clord_POSTBACK,
         data,
       });
     },
@@ -235,7 +235,7 @@ export const IFrameHelper = {
 
     popoutChatWindow: ({ baseUrl, websiteToken, locale }) => {
       const cwCookie = Cookies.get('cw_conversation');
-      window.$Clord.toggle('close');
+      window.$clord.toggle('close');
       popoutChatWindow(baseUrl, websiteToken, locale, cwCookie);
     },
 
@@ -269,7 +269,7 @@ export const IFrameHelper = {
 
     resetUnreadMode: () => removeUnreadClass(),
     handleNotificationDot: event => {
-      if (window.$Clord.hideMessageBubble) {
+      if (window.$clord.hideMessageBubble) {
         return;
       }
 
@@ -299,18 +299,18 @@ export const IFrameHelper = {
   onLoad: ({ widgetColor }) => {
     const iframe = IFrameHelper.getAppFrame();
     iframe.style.visibility = '';
-    iframe.setAttribute('id', `Clord_live_chat_widget`);
+    iframe.setAttribute('id', `clord_live_chat_widget`);
 
     if (IFrameHelper.getBubbleHolder().length) {
       return;
     }
-    createBubbleHolder(window.$Clord.hideMessageBubble);
+    createBubbleHolder(window.$clord.hideMessageBubble);
     onLocationChangeListener();
 
     let className = 'woot-widget-bubble';
-    let closeBtnClassName = `woot-elements--${window.$Clord.position} woot-widget-bubble woot--close woot--hide`;
+    let closeBtnClassName = `woot-elements--${window.$clord.position} woot-widget-bubble woot--close woot--hide`;
 
-    if (isFlatWidgetStyle(window.$Clord.widgetStyle)) {
+    if (isFlatWidgetStyle(window.$clord.widgetStyle)) {
       className += ' woot-widget-bubble--flat';
       closeBtnClassName += ' woot-widget-bubble--flat';
     }

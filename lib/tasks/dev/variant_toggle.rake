@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 # rubocop:disable Metrics/BlockLength
-namespace :Clord do
+namespace :clord do
   namespace :dev do
-    desc 'Toggle between Clord variants with interactive menu'
+    desc 'Toggle between clord variants with interactive menu'
     task toggle_variant: :environment do
       # Only allow in development environment
       return unless Rails.env.development?
@@ -13,7 +13,7 @@ namespace :Clord do
       handle_user_selection
     end
 
-    desc 'Show current Clord variant status'
+    desc 'Show current clord variant status'
     task show_variant: :environment do
       return unless Rails.env.development?
 
@@ -24,7 +24,7 @@ namespace :Clord do
 
     def show_current_variant
       puts "\n#{('=' * 50)}"
-      puts '🚀 Clord VARIANT MANAGER'
+      puts '🚀 clord VARIANT MANAGER'
       puts '=' * 50
 
       # Check InstallationConfig

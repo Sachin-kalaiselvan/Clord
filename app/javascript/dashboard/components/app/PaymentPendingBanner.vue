@@ -23,7 +23,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      isOnClordCloud: 'globalConfig/isOnClordCloud',
+      isOnclordCloud: 'globalConfig/isOnclordCloud',
       getAccount: 'accounts/getAccount',
     }),
     bannerMessage() {
@@ -33,7 +33,7 @@ export default {
       return this.$t('GENERAL_SETTINGS.OPEN_BILLING');
     },
     shouldShowBanner() {
-      if (!this.isOnClordCloud) {
+      if (!this.isOnclordCloud) {
         return false;
       }
 

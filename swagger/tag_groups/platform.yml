@@ -1,16 +1,16 @@
 openapi: '3.1.0'
 info:
-  title: Clord - Platform API
-  description: Platform API endpoints for Clord
+  title: clord - Platform API
+  description: Platform API endpoints for clord
   version: 1.1.0
-  termsOfService: https://www.Clord.com/terms-of-service/
+  termsOfService: https://www.clord.com/terms-of-service/
   contact:
-    email: hello@Clord.com
+    email: hello@clord.com
   license:
     name: MIT License
     url: https://opensource.org/licenses/MIT
 servers:
-  - url: https://app.Clord.com/
+  - url: https://app.clord.com/
 tags:
   - name: Accounts
     description: Platform account management

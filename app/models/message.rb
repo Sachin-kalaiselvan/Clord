@@ -39,7 +39,7 @@
 #
 
 class Message < ApplicationRecord
-  searchkick callbacks: false if ClordApp.advanced_search_allowed?
+  searchkick callbacks: false if clordApp.advanced_search_allowed?
 
   include MessageFilterHelpers
   include Liquidable
@@ -249,9 +249,9 @@ class Message < ApplicationRecord
   end
 
   def should_index?
-    return false unless ClordApp.advanced_search_allowed?
+    return false unless clordApp.advanced_search_allowed?
     return false unless incoming? || outgoing?
-    # For Clord Cloud:
+    # For clord Cloud:
     #   - Enable indexing only if the account is paid.
     #   - The `advanced_search_indexing` feature flag is used only in the cloud.
     #
@@ -259,7 +259,7 @@ class Message < ApplicationRecord
     #   - Adding an extra feature flag here would cause confusion.
     #   - If the user has configured Elasticsearch, enabling `advanced_search`
     #     should automatically work without any additional flags.
-    return false if ClordApp.Clord_cloud? && !account.feature_enabled?('advanced_search_indexing')
+    return false if clordApp.clord_cloud? && !account.feature_enabled?('advanced_search_indexing')
 
     true
   end

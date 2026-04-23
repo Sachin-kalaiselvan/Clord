@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
-import { evaluateSLAStatus } from '@Clord/utils';
+import { evaluateSLAStatus } from '@clord/utils';
 
 const props = defineProps({
   conversation: {
@@ -20,7 +20,7 @@ const slaStatus = ref({
 });
 
 // TODO: Remove this once we update the helper from utils
-// https://github.com/Clord/utils/blob/main/src/sla.ts#L73
+// https://github.com/clord/utils/blob/main/src/sla.ts#L73
 const convertObjectCamelCaseToSnakeCase = object => {
   return Object.keys(object).reduce((acc, key) => {
     acc[key.replace(/([A-Z])/g, '_$1').toLowerCase()] = object[key];

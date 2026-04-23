@@ -2,8 +2,8 @@ import {
   messageSchema,
   MessageMarkdownTransformer,
   MessageMarkdownSerializer,
-} from '@Clord/prosemirror-schema';
-import { replaceVariablesInMessage } from '@Clord/utils';
+} from '@clord/prosemirror-schema';
+import { replaceVariablesInMessage } from '@clord/utils';
 import * as Sentry from '@sentry/vue';
 import { FORMATTING, MARKDOWN_PATTERNS } from 'dashboard/constants/editor';
 import { INBOX_TYPES, TWILIO_CHANNEL_MEDIUM } from 'dashboard/helper/inbox';

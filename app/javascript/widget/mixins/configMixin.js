@@ -6,13 +6,13 @@ export default {
       );
     },
     hasAConnectedAgentBot() {
-      return !!window.ClordWebChannel.hasAConnectedAgentBot;
+      return !!window.clordWebChannel.hasAConnectedAgentBot;
     },
     inboxAvatarUrl() {
-      return window.ClordWebChannel.avatarUrl;
+      return window.clordWebChannel.avatarUrl;
     },
     channelConfig() {
-      return window.ClordWebChannel;
+      return window.clordWebChannel;
     },
     hasEmojiPickerEnabled() {
       return this.channelConfig.enabledFeatures.includes('emoji_picker');
@@ -24,11 +24,11 @@ export default {
       return this.channelConfig.enabledFeatures.includes('end_conversation');
     },
     preChatFormEnabled() {
-      return window.ClordWebChannel.preChatFormEnabled;
+      return window.clordWebChannel.preChatFormEnabled;
     },
     preChatFormOptions() {
       let preChatMessage = '';
-      const options = window.ClordWebChannel.preChatFormOptions || {};
+      const options = window.clordWebChannel.preChatFormOptions || {};
       preChatMessage = options.pre_chat_message;
       const { pre_chat_fields: preChatFields = [] } = options;
       return {

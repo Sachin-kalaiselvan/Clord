@@ -7,10 +7,10 @@ import NextButton from 'dashboard/components-next/button/Button.vue';
 import Auth from 'dashboard/api/auth';
 
 const { t } = useI18n();
-const isOnClordCloud = useMapGetter('globalConfig/isOnClordCloud');
+const isOnclordCloud = useMapGetter('globalConfig/isOnclordCloud');
 
 const message = computed(() => {
-  if (isOnClordCloud.value) {
+  if (isOnclordCloud.value) {
     return t('APP_GLOBAL.NO_ACCOUNTS.MESSAGE_CLOUD');
   }
   return t('APP_GLOBAL.NO_ACCOUNTS.MESSAGE_SELF_HOSTED');

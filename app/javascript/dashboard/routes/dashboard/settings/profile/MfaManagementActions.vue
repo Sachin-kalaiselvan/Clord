@@ -41,12 +41,12 @@ const copyBackupCodes = async () => {
 };
 
 const downloadBackupCodes = () => {
-  const codesText = `Clord Two-Factor Authentication Backup Codes\n\n${props.backupCodes.join('\n')}\n\nKeep these codes in a safe place.`;
+  const codesText = `clord Two-Factor Authentication Backup Codes\n\n${props.backupCodes.join('\n')}\n\nKeep these codes in a safe place.`;
   const blob = new Blob([codesText], { type: 'text/plain' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = 'Clord-backup-codes.txt';
+  a.download = 'clord-backup-codes.txt';
   a.click();
   URL.revokeObjectURL(url);
 };

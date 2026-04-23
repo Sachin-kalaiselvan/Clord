@@ -1,6 +1,6 @@
 [Unit]
-Description=Clord Background Worker
-Wants=Clord-worker.1.service
+Description=clord Background Worker
+Wants=clord-worker.1.service
 
 [Install]
 WantedBy=multi-user.target

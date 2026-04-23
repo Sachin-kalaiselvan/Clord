@@ -23,7 +23,7 @@ describe('#actions', () => {
       await actions.fetchAvailableAgents({ commit }, websiteToken);
 
       expect(getFromCache).toHaveBeenCalledWith(
-        `Clord_available_agents_${websiteToken}`
+        `clord_available_agents_${websiteToken}`
       );
       expect(getAvailableAgents).not.toHaveBeenCalled();
       expect(setCache).not.toHaveBeenCalled();
@@ -39,11 +39,11 @@ describe('#actions', () => {
       await actions.fetchAvailableAgents({ commit }, websiteToken);
 
       expect(getFromCache).toHaveBeenCalledWith(
-        `Clord_available_agents_${websiteToken}`
+        `clord_available_agents_${websiteToken}`
       );
       expect(getAvailableAgents).toHaveBeenCalledWith(websiteToken);
       expect(setCache).toHaveBeenCalledWith(
-        `Clord_available_agents_${websiteToken}`,
+        `clord_available_agents_${websiteToken}`,
         agents
       );
       expect(commit).toHaveBeenCalledWith('setAgents', agents);

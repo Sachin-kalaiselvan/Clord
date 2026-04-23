@@ -14,7 +14,7 @@ class MessageTemplates::Template::OutOfOffice
       conversation.messages.create!(out_of_office_message_params)
     end
   rescue StandardError => e
-    ClordExceptionTracker.new(e, account: conversation.account).capture_exception
+    clordExceptionTracker.new(e, account: conversation.account).capture_exception
     true
   end
 

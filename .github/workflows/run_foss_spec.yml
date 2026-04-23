@@ -1,4 +1,4 @@
-name: Run Clord CE spec
+name: Run clord CE spec
 permissions:
   contents: read
 on:

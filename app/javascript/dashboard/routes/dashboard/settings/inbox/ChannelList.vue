@@ -17,7 +17,7 @@ const globalConfig = useMapGetter('globalConfig/get');
 const enabledFeatures = ref({});
 
 const hasTiktokConfigured = computed(() => {
-  return window.ClordConfig?.tiktokAppId;
+  return window.clordConfig?.tiktokAppId;
 });
 
 const channelList = computed(() => {

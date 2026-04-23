@@ -43,7 +43,7 @@ class AdministratorNotifications::AccountComplianceMailer < AdministratorNotific
   end
 
   def instance_admin_email
-    GlobalConfig.get('Clord_INSTANCE_ADMIN_EMAIL')['Clord_INSTANCE_ADMIN_EMAIL']
+    GlobalConfig.get('clord_INSTANCE_ADMIN_EMAIL')['clord_INSTANCE_ADMIN_EMAIL']
   end
 
   def instance_url

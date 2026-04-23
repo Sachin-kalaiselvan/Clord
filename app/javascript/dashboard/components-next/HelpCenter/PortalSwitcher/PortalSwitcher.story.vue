@@ -4,23 +4,23 @@ import PortalSwitcher from './PortalSwitcher.vue';
 const portals = [
   {
     id: 1,
-    name: 'Clord Help Center',
+    name: 'clord Help Center',
     articles: 67,
-    domain: 'Clord.help',
+    domain: 'clord.help',
     slug: 'help-center',
   },
   {
     id: 2,
-    name: 'Clord Handbook',
+    name: 'clord Handbook',
     articles: 42,
-    domain: 'Clord.help',
+    domain: 'clord.help',
     slug: 'handbook',
   },
   {
     id: 3,
     name: 'Developer Documentation',
     articles: 89,
-    domain: 'dev.Clord.com',
+    domain: 'dev.clord.com',
     slug: 'docs',
   },
 ];

@@ -1,6 +1,6 @@
 {
   "LOGIN": {
-    "TITLE": "Kirjaudu sisään Clordiin",
+    "TITLE": "Kirjaudu sisään clordiin",
     "EMAIL": {
       "LABEL": "Sähköposti",
       "PLACEHOLDER": "example{'@'}companyname.com",

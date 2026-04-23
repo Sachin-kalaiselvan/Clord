@@ -4,23 +4,23 @@ describe('#MessageFormatter', () => {
   describe('content with links', () => {
     it('should format correctly', () => {
       const message =
-        'Clord is an opensource tool. [Clord](https://www.Clord.com)';
+        'clord is an opensource tool. [clord](https://www.clord.com)';
       expect(new MessageFormatter(message).formattedMessage).toMatch(
-        '<p>Clord is an opensource tool. <a href="https://www.Clord.com" class="link" rel="noreferrer noopener nofollow" target="_blank">Clord</a></p>'
+        '<p>clord is an opensource tool. <a href="https://www.clord.com" class="link" rel="noreferrer noopener nofollow" target="_blank">clord</a></p>'
       );
     });
     it('should format correctly', () => {
       const message =
-        'Clord is an opensource tool. https://www.Clord.com';
+        'clord is an opensource tool. https://www.clord.com';
       expect(new MessageFormatter(message).formattedMessage).toMatch(
-        '<p>Clord is an opensource tool. <a href="https://www.Clord.com" class="link" rel="noreferrer noopener nofollow" target="_blank">https://www.Clord.com</a></p>'
+        '<p>clord is an opensource tool. <a href="https://www.clord.com" class="link" rel="noreferrer noopener nofollow" target="_blank">https://www.clord.com</a></p>'
       );
     });
     it('should not convert template variables to links when linkify is disabled', () => {
-      const message = 'Hey {{customer.name}}, check https://Clord.com';
+      const message = 'Hey {{customer.name}}, check https://clord.com';
       const formatter = new MessageFormatter(message, false, false, false);
       expect(formatter.formattedMessage).toMatch(
-        '<p>Hey {{customer.name}}, check https://Clord.com</p>'
+        '<p>Hey {{customer.name}}, check https://clord.com</p>'
       );
     });
   });
@@ -38,71 +38,71 @@ describe('#MessageFormatter', () => {
   describe('content with image and has "cw_image_height" query at the end of URL', () => {
     it('should set image height correctly', () => {
       const message =
-        'Clord is an opensource tool. ![](http://Clord.com/Clord.png?cw_image_height=24px)';
+        'clord is an opensource tool. ![](http://clord.com/clord.png?cw_image_height=24px)';
       expect(new MessageFormatter(message).formattedMessage).toMatch(
-        '<p>Clord is an opensource tool. <img src="http://Clord.com/Clord.png?cw_image_height=24px" alt="" style="height: 24px;" /></p>'
+        '<p>clord is an opensource tool. <img src="http://clord.com/clord.png?cw_image_height=24px" alt="" style="height: 24px;" /></p>'
       );
     });
 
     it('should set image height correctly if its original size', () => {
       const message =
-        'Clord is an opensource tool. ![](http://Clord.com/Clord.png?cw_image_height=auto)';
+        'clord is an opensource tool. ![](http://clord.com/clord.png?cw_image_height=auto)';
       expect(new MessageFormatter(message).formattedMessage).toMatch(
-        '<p>Clord is an opensource tool. <img src="http://Clord.com/Clord.png?cw_image_height=auto" alt="" style="height: auto;" /></p>'
+        '<p>clord is an opensource tool. <img src="http://clord.com/clord.png?cw_image_height=auto" alt="" style="height: auto;" /></p>'
       );
     });
 
     it('should not set height', () => {
       const message =
-        'Clord is an opensource tool. ![](http://Clord.com/Clord.png)';
+        'clord is an opensource tool. ![](http://clord.com/clord.png)';
       expect(new MessageFormatter(message).formattedMessage).toMatch(
-        '<p>Clord is an opensource tool. <img src="http://Clord.com/Clord.png" alt="" /></p>'
+        '<p>clord is an opensource tool. <img src="http://clord.com/clord.png" alt="" /></p>'
       );
     });
   });
 
   describe('tweets', () => {
     it('should return the same string if not tags or @mentions', () => {
-      const message = 'Clord is an opensource tool';
+      const message = 'clord is an opensource tool';
       expect(new MessageFormatter(message).formattedMessage).toMatch(message);
     });
 
     it('should add links to @mentions', () => {
       const message =
-        '@Clordapp is an opensource tool thanks @longnonexistenttwitterusername';
+        '@clordapp is an opensource tool thanks @longnonexistenttwitterusername';
       expect(
         new MessageFormatter(message, true, false).formattedMessage
       ).toMatch(
-        '<p><a href="http://twitter.com/Clordapp" class="link" rel="noreferrer noopener nofollow" target="_blank">@Clordapp</a> is an opensource tool thanks @longnonexistenttwitterusername</p>'
+        '<p><a href="http://twitter.com/clordapp" class="link" rel="noreferrer noopener nofollow" target="_blank">@clordapp</a> is an opensource tool thanks @longnonexistenttwitterusername</p>'
       );
     });
 
     it('should add links to #tags', () => {
-      const message = '#Clordapp is an opensource tool';
+      const message = '#clordapp is an opensource tool';
       expect(
         new MessageFormatter(message, true, false).formattedMessage
       ).toMatch(
-        '<p><a href="https://twitter.com/hashtag/Clordapp" class="link" rel="noreferrer noopener nofollow" target="_blank">#Clordapp</a> is an opensource tool</p>'
+        '<p><a href="https://twitter.com/hashtag/clordapp" class="link" rel="noreferrer noopener nofollow" target="_blank">#clordapp</a> is an opensource tool</p>'
       );
     });
   });
 
   describe('private notes', () => {
     it('should return the same string if not tags or @mentions', () => {
-      const message = 'Clord is an opensource tool';
+      const message = 'clord is an opensource tool';
       expect(new MessageFormatter(message).formattedMessage).toMatch(message);
     });
 
     it('should add links to @mentions', () => {
       const message =
-        '@Clordapp is an opensource tool thanks @longnonexistenttwitterusername';
+        '@clordapp is an opensource tool thanks @longnonexistenttwitterusername';
       expect(
         new MessageFormatter(message, false, true).formattedMessage
       ).toMatch(message);
     });
 
     it('should add links to #tags', () => {
-      const message = '#Clordapp is an opensource tool';
+      const message = '#clordapp is an opensource tool';
       expect(
         new MessageFormatter(message, false, true).formattedMessage
       ).toMatch(message);
@@ -112,9 +112,9 @@ describe('#MessageFormatter', () => {
   describe('plain text content', () => {
     it('returns the plain text without HTML', () => {
       const message =
-        '<b>Clord is an opensource tool. https://www.Clord.com</b>';
+        '<b>clord is an opensource tool. https://www.clord.com</b>';
       expect(new MessageFormatter(message).plainText).toMatch(
-        'Clord is an opensource tool. https://www.Clord.com'
+        'clord is an opensource tool. https://www.clord.com'
       );
     });
   });

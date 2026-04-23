@@ -15,7 +15,7 @@ const getters = useStoreGetters();
 const { t } = useI18n();
 
 const globalConfig = getters['globalConfig/get'];
-const isAClordInstance = getters['globalConfig/isAClordInstance'];
+const isAclordInstance = getters['globalConfig/isAclordInstance'];
 
 const emailProviderList = computed(() => {
   return [
@@ -29,7 +29,7 @@ const emailProviderList = computed(() => {
     {
       title: t('INBOX_MGMT.EMAIL_PROVIDERS.GOOGLE.TITLE'),
       description: t('INBOX_MGMT.EMAIL_PROVIDERS.GOOGLE.DESCRIPTION'),
-      isEnabled: !!window.ClordConfig.googleOAuthClientId,
+      isEnabled: !!window.clordConfig.googleOAuthClientId,
       key: 'google',
       icon: 'i-woot-gmail',
     },
@@ -41,7 +41,7 @@ const emailProviderList = computed(() => {
       icon: 'i-woot-mail',
     },
   ].filter(providerConfig => {
-    if (isAClordInstance.value) {
+    if (isAclordInstance.value) {
       return true;
     }
     return providerConfig.isEnabled;

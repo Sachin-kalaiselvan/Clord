@@ -7,7 +7,7 @@ class OauthCallbackController < ApplicationController
 
     handle_response
   rescue StandardError => e
-    ClordExceptionTracker.new(e).capture_exception
+    clordExceptionTracker.new(e).capture_exception
     redirect_to '/'
   end
 

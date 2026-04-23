@@ -1,6 +1,6 @@
 <script setup>
 import { ref, useTemplateRef, onMounted, onUnmounted } from 'vue';
-import { debounce } from '@Clord/utils';
+import { debounce } from '@clord/utils';
 import RecentSearches from './RecentSearches.vue';
 
 const emit = defineEmits(['search', 'selectRecentSearch']);

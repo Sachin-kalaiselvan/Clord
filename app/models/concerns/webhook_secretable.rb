@@ -3,7 +3,7 @@ module WebhookSecretable
 
   included do
     has_secure_token :secret
-    encrypts :secret if Clord.encryption_configured?
+    encrypts :secret if clord.encryption_configured?
   end
 
   def reset_secret!

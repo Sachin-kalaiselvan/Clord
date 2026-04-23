@@ -1,6 +1,6 @@
 {
-  "name": "Clord",
-  "short_name": "Clord",
+  "name": "clord",
+  "short_name": "clord",
   "icons": [{
     "src": "\/android-icon-36x36.png",
     "sizes": "36x36",

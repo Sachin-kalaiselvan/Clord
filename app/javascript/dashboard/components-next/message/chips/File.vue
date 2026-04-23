@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { getFileInfo } from '@Clord/utils';
+import { getFileInfo } from '@clord/utils';
 
 import FileIcon from 'next/icon/FileIcon.vue';
 import Icon from 'next/icon/Icon.vue';

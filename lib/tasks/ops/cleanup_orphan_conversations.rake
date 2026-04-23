@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 # Run with:
-#   bundle exec rake Clord:ops:cleanup_orphan_conversations
+#   bundle exec rake clord:ops:cleanup_orphan_conversations
 
-namespace :Clord do
+namespace :clord do
   namespace :ops do
     desc 'Identify and delete conversations without a valid contact or inbox in a timeframe'
     task cleanup_orphan_conversations: :environment do

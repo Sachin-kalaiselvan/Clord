@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Description: Install and manage a Clord installation.
+# Description: Install and manage a clord installation.
 # OS: Ubuntu 20.04 LTS, 22.04 LTS, 24.04 LTS
 # Script Version: 3.5.0
 # Run this script as root
@@ -21,7 +21,7 @@ LONGOPTS=console,debug,help,install,Install:,logs:,restart,ssl,upgrade,Upgrade:,
 OPTIONS=cdhiI:l:rsuU:wvWK
 CWCTL_VERSION="3.5.0"
 pg_pass=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 15 ; echo '')
-Clord_HUB_URL="https://hub.2.Clord.com/events"
+clord_HUB_URL="https://hub.2.clord.com/events"
 
 # if user does not specify an option
 if [ "$#" -eq 0 ]; then
@@ -166,7 +166,7 @@ trap exit_handler EXIT
 ##############################################################################
 function exit_handler() {
   if [ "$?" -ne 0 ] && [ "$u" == "n" ]; then
-   echo -en "\nSome error has occured. Check '/var/log/Clord-setup.log' for details.\n"
+   echo -en "\nSome error has occured. Check '/var/log/clord-setup.log' for details.\n"
    exit 1
   fi
 }
@@ -182,12 +182,12 @@ function exit_handler() {
 #   None
 ##############################################################################
 function get_domain_info() {
-  read -rp 'Enter the domain/subdomain for Clord (e.g., Clord.domain.com): ' domain_name
+  read -rp 'Enter the domain/subdomain for clord (e.g., clord.domain.com): ' domain_name
   read -rp 'Enter an email address for LetsEncrypt to send reminders when your SSL certificate is up for renewal: ' le_email
   cat << EOF
 
 This script will generate SSL certificates via LetsEncrypt and
-serve Clord at https://$domain_name.
+serve clord at https://$domain_name.
 Proceed further once you have pointed your DNS to the IP of the instance.
 
 EOF
@@ -259,7 +259,7 @@ function install_webserver() {
 }
 
 ##############################################################################
-# Create Clord linux user
+# Create clord linux user
 # Globals:
 #   None
 # Arguments:
@@ -268,8 +268,8 @@ function install_webserver() {
 #   None
 ##############################################################################
 function create_cw_user() {
-  if ! id -u "Clord"; then
-    adduser --disabled-password --gecos "" Clord
+  if ! id -u "clord"; then
+    adduser --disabled-password --gecos "" clord
   fi
 }
 
@@ -288,7 +288,7 @@ function configure_rvm() {
   gpg --keyserver hkp://keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
   gpg2 --keyserver hkp://keyserver.ubuntu.com --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
   curl -sSL https://get.rvm.io | bash -s stable
-  adduser Clord rvm
+  adduser clord rvm
 }
 
 ##############################################################################
@@ -301,10 +301,10 @@ function configure_rvm() {
 #   None
 ##############################################################################
 function save_pgpass() {
-  mkdir -p /opt/Clord/config
-  file="/opt/Clord/config/.pg_pass"
+  mkdir -p /opt/clord/config
+  file="/opt/clord/config/.pg_pass"
   if ! test -f "$file"; then
-    echo $pg_pass > /opt/Clord/config/.pg_pass
+    echo $pg_pass > /opt/clord/config/.pg_pass
   fi
 }
 
@@ -319,7 +319,7 @@ function save_pgpass() {
 #   None
 ##############################################################################
 function get_pgpass() {
-  file="/opt/Clord/config/.pg_pass"
+  file="/opt/clord/config/.pg_pass"
   if test -f "$file"; then
     pg_pass=$(cat $file)
   fi
@@ -327,7 +327,7 @@ function get_pgpass() {
 }
 
 ##############################################################################
-# Configure postgres to create Clord db user.
+# Configure postgres to create clord db user.
 # Enable postgres and redis systemd services.
 # Globals:
 #   None
@@ -341,9 +341,9 @@ function configure_db() {
   get_pgpass
   sudo -i -u postgres psql << EOF
     \set pass `echo $pg_pass`
-    CREATE USER Clord CREATEDB;
-    ALTER USER Clord PASSWORD :'pass';
-    ALTER ROLE Clord SUPERUSER;
+    CREATE USER clord CREATEDB;
+    ALTER USER clord PASSWORD :'pass';
+    ALTER ROLE clord SUPERUSER;
     UPDATE pg_database SET datistemplate = FALSE WHERE datname = 'template1';
     DROP DATABASE template1;
     CREATE DATABASE template1 WITH TEMPLATE = template0 ENCODING = 'UNICODE';
@@ -357,7 +357,7 @@ EOF
 }
 
 ##############################################################################
-# Install Clord
+# Install clord
 # This includes setting up ruby, cloning repo and installing dependencies.
 # Globals:
 #   pg_pass
@@ -366,19 +366,19 @@ EOF
 # Outputs:
 #   None
 ##############################################################################
-function setup_Clord() {
+function setup_clord() {
   local secret=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 63 ; echo '')
   local RAILS_ENV=production
   get_pgpass
 
-  sudo -i -u Clord << EOF
+  sudo -i -u clord << EOF
   rvm --version
   rvm autolibs disable
   rvm install "ruby-3.4.4"
   rvm use 3.4.4 --default
 
-  git clone https://github.com/Clord/Clord.git
-  cd Clord
+  git clone https://github.com/clord/clord.git
+  cd clord
   git checkout "$BRANCH"
   bundle
   pnpm i
@@ -387,7 +387,7 @@ function setup_Clord() {
   sed -i -e "/SECRET_KEY_BASE/ s/=.*/=$secret/" .env
   sed -i -e '/REDIS_URL/ s/=.*/=redis:\/\/localhost:6379/' .env
   sed -i -e '/POSTGRES_HOST/ s/=.*/=localhost/' .env
-  sed -i -e '/POSTGRES_USERNAME/ s/=.*/=Clord/' .env
+  sed -i -e '/POSTGRES_USERNAME/ s/=.*/=clord/' .env
   sed -i -e "/POSTGRES_PASSWORD/ s/=.*/=$pg_pass/" .env
   sed -i -e '/RAILS_ENV/ s/=.*/=$RAILS_ENV/' .env
   echo -en "\nINSTALLATION_ENV=linux_script" >> ".env"
@@ -406,14 +406,14 @@ EOF
 #   None
 ##############################################################################
 function run_db_migrations(){
-  sudo -i -u Clord << EOF
-  cd Clord
-  RAILS_ENV=production POSTGRES_STATEMENT_TIMEOUT=600s bundle exec rails db:Clord_prepare
+  sudo -i -u clord << EOF
+  cd clord
+  RAILS_ENV=production POSTGRES_STATEMENT_TIMEOUT=600s bundle exec rails db:clord_prepare
 EOF
 }
 
 ##############################################################################
-# Setup Clord systemd services and cwctl CLI
+# Setup clord systemd services and cwctl CLI
 # Globals:
 #   DEPLOYMENT_TYPE
 # Arguments:
@@ -424,7 +424,7 @@ EOF
 function configure_systemd_services() {
   # Check if this is a conversion from existing deployment
   local existing_full_deployment=false
-  if [ -f "/etc/systemd/system/Clord.target" ]; then
+  if [ -f "/etc/systemd/system/clord.target" ]; then
     existing_full_deployment=true
   fi
 
@@ -434,25 +434,25 @@ function configure_systemd_services() {
     # Stop and disable existing services if converting
     if [ "$existing_full_deployment" = true ]; then
       echo "Converting from full deployment to web-only"
-      systemctl stop Clord.target || true
-      systemctl disable Clord.target || true
-      systemctl stop Clord-worker.1.service || true
-      systemctl disable Clord-worker.1.service || true
+      systemctl stop clord.target || true
+      systemctl disable clord.target || true
+      systemctl stop clord-worker.1.service || true
+      systemctl disable clord-worker.1.service || true
     fi
 
     # Stop and disable worker target if converting from worker-only
-    if [ -f "/etc/systemd/system/Clord-worker.target" ]; then
+    if [ -f "/etc/systemd/system/clord-worker.target" ]; then
       echo "Converting from worker-only to web-only"
-      systemctl stop Clord-worker.target || true
-      systemctl disable Clord-worker.target || true
+      systemctl stop clord-worker.target || true
+      systemctl disable clord-worker.target || true
     fi
 
-    cp /home/Clord/Clord/deployment/Clord-web.1.service /etc/systemd/system/Clord-web.1.service
-    cp /home/Clord/Clord/deployment/Clord-web.target /etc/systemd/system/Clord-web.target
+    cp /home/clord/clord/deployment/clord-web.1.service /etc/systemd/system/clord-web.1.service
+    cp /home/clord/clord/deployment/clord-web.target /etc/systemd/system/clord-web.target
 
     systemctl daemon-reload
-    systemctl enable Clord-web.target
-    systemctl start Clord-web.target
+    systemctl enable clord-web.target
+    systemctl start clord-web.target
 
   elif [ "$DEPLOYMENT_TYPE" == "worker" ]; then
     echo "Setting up worker-only deployment"
@@ -460,52 +460,52 @@ function configure_systemd_services() {
     # Stop and disable existing services if converting
     if [ "$existing_full_deployment" = true ]; then
       echo "Converting from full deployment to worker-only"
-      systemctl stop Clord.target || true
-      systemctl disable Clord.target || true
-      systemctl stop Clord-web.1.service || true
-      systemctl disable Clord-web.1.service || true
+      systemctl stop clord.target || true
+      systemctl disable clord.target || true
+      systemctl stop clord-web.1.service || true
+      systemctl disable clord-web.1.service || true
     fi
 
     # Stop and disable web target if converting from web-only
-    if [ -f "/etc/systemd/system/Clord-web.target" ]; then
+    if [ -f "/etc/systemd/system/clord-web.target" ]; then
       echo "Converting from web-only to worker-only"
-      systemctl stop Clord-web.target || true
-      systemctl disable Clord-web.target || true
+      systemctl stop clord-web.target || true
+      systemctl disable clord-web.target || true
     fi
 
-    cp /home/Clord/Clord/deployment/Clord-worker.1.service /etc/systemd/system/Clord-worker.1.service
-    cp /home/Clord/Clord/deployment/Clord-worker.target /etc/systemd/system/Clord-worker.target
+    cp /home/clord/clord/deployment/clord-worker.1.service /etc/systemd/system/clord-worker.1.service
+    cp /home/clord/clord/deployment/clord-worker.target /etc/systemd/system/clord-worker.target
 
     systemctl daemon-reload
-    systemctl enable Clord-worker.target
-    systemctl start Clord-worker.target
+    systemctl enable clord-worker.target
+    systemctl start clord-worker.target
 
   else
     echo "Setting up full deployment (web + worker)"
 
     # Stop existing specialized deployments if converting back to full
-    if [ -f "/etc/systemd/system/Clord-web.target" ]; then
+    if [ -f "/etc/systemd/system/clord-web.target" ]; then
       echo "Converting from web-only to full deployment"
-      systemctl stop Clord-web.target || true
-      systemctl disable Clord-web.target || true
+      systemctl stop clord-web.target || true
+      systemctl disable clord-web.target || true
     fi
-    if [ -f "/etc/systemd/system/Clord-worker.target" ]; then
+    if [ -f "/etc/systemd/system/clord-worker.target" ]; then
       echo "Converting from worker-only to full deployment"
-      systemctl stop Clord-worker.target || true
-      systemctl disable Clord-worker.target || true
+      systemctl stop clord-worker.target || true
+      systemctl disable clord-worker.target || true
     fi
 
-    cp /home/Clord/Clord/deployment/Clord-web.1.service /etc/systemd/system/Clord-web.1.service
-    cp /home/Clord/Clord/deployment/Clord-worker.1.service /etc/systemd/system/Clord-worker.1.service
-    cp /home/Clord/Clord/deployment/Clord.target /etc/systemd/system/Clord.target
+    cp /home/clord/clord/deployment/clord-web.1.service /etc/systemd/system/clord-web.1.service
+    cp /home/clord/clord/deployment/clord-worker.1.service /etc/systemd/system/clord-worker.1.service
+    cp /home/clord/clord/deployment/clord.target /etc/systemd/system/clord.target
 
     systemctl daemon-reload
-    systemctl enable Clord.target
-    systemctl start Clord.target
+    systemctl enable clord.target
+    systemctl start clord.target
   fi
 
-  cp /home/Clord/Clord/deployment/Clord /etc/sudoers.d/Clord
-  cp /home/Clord/Clord/deployment/setup_20.04.sh /usr/local/bin/cwctl
+  cp /home/clord/clord/deployment/clord /etc/sudoers.d/clord
+  cp /home/clord/clord/deployment/setup_20.04.sh /usr/local/bin/cwctl
   chmod +x /usr/local/bin/cwctl
 }
 
@@ -528,24 +528,24 @@ function setup_ssl() {
     echo "debug: letsencrypt email: $le_email"
   fi
   curl https://ssl-config.mozilla.org/ffdhe4096.txt >> /etc/ssl/dhparam
-  wget https://raw.githubusercontent.com/Clord/Clord/develop/deployment/nginx_Clord.conf
-  cp nginx_Clord.conf /etc/nginx/sites-available/nginx_Clord.conf
+  wget https://raw.githubusercontent.com/clord/clord/develop/deployment/nginx_clord.conf
+  cp nginx_clord.conf /etc/nginx/sites-available/nginx_clord.conf
   certbot certonly --non-interactive --agree-tos --nginx -m "$le_email" -d "$domain_name"
-  sed -i "s/Clord.domain.com/$domain_name/g" /etc/nginx/sites-available/nginx_Clord.conf
-  ln -s /etc/nginx/sites-available/nginx_Clord.conf /etc/nginx/sites-enabled/nginx_Clord.conf
+  sed -i "s/clord.domain.com/$domain_name/g" /etc/nginx/sites-available/nginx_clord.conf
+  ln -s /etc/nginx/sites-available/nginx_clord.conf /etc/nginx/sites-enabled/nginx_clord.conf
   systemctl restart nginx
-  sudo -i -u Clord << EOF
-  cd Clord
+  sudo -i -u clord << EOF
+  cd clord
   sed -i "s/http:\/\/0.0.0.0:3000/https:\/\/$domain_name/g" .env
 EOF
 
-  # Restart the appropriate Clord target
-  if [ -f "/etc/systemd/system/Clord-web.target" ]; then
-    systemctl restart Clord-web.target
-  elif [ -f "/etc/systemd/system/Clord-worker.target" ]; then
-    systemctl restart Clord-worker.target
+  # Restart the appropriate clord target
+  if [ -f "/etc/systemd/system/clord-web.target" ]; then
+    systemctl restart clord-web.target
+  elif [ -f "/etc/systemd/system/clord-worker.target" ]; then
+    systemctl restart clord-worker.target
   else
-    systemctl restart Clord.target
+    systemctl restart clord.target
   fi
 }
 
@@ -559,25 +559,25 @@ EOF
 #   None
 ##############################################################################
 function setup_logging() {
-  touch /var/log/Clord-setup.log
-  LOG_FILE="/var/log/Clord-setup.log"
+  touch /var/log/clord-setup.log
+  LOG_FILE="/var/log/clord-setup.log"
 }
 
 function ssl_success_message() {
     cat << EOF
 
 ***************************************************************************
-Woot! Woot!! Clord server installation is complete.
+Woot! Woot!! clord server installation is complete.
 The server will be accessible at https://$domain_name
 
-Join the community at https://Clord.com/community?utm_source=cwctl
+Join the community at https://clord.com/community?utm_source=cwctl
 ***************************************************************************
 
 EOF
 }
 
 function cwctl_message() {
-  echo $'\U0001F680 Try out the all new Clord CLI tool to manage your installation.'
+  echo $'\U0001F680 Try out the all new clord CLI tool to manage your installation.'
   echo $'\U0001F680 Type "cwctl --help" to learn more.'
 }
 
@@ -592,7 +592,7 @@ function cwctl_message() {
 #   None
 ##############################################################################
 function get_cw_version() {
-  CW_VERSION=$(curl -s https://app.Clord.com/api | python3 -c 'import sys,json;data=json.loads(sys.stdin.read()); print(data["version"])')
+  CW_VERSION=$(curl -s https://app.clord.com/api | python3 -c 'import sys,json;data=json.loads(sys.stdin.read()); print(data["version"])')
 }
 
 ##############################################################################
@@ -610,16 +610,16 @@ function install() {
   cat << EOF
 
 ***************************************************************************
-              Clord Installation (v$CW_VERSION)
+              clord Installation (v$CW_VERSION)
 ***************************************************************************
 
 For more verbose logs, open up a second terminal and follow along using,
-'tail -f /var/log/Clord-setup.log'.
+'tail -f /var/log/clord-setup.log'.
 
 EOF
 
   sleep 3
-  read -rp 'Would you like to configure a domain and SSL for Clord?(yes or no): ' configure_webserver
+  read -rp 'Would you like to configure a domain and SSL for clord?(yes or no): ' configure_webserver
 
   if [ "$configure_webserver" == "yes" ]; then
     get_domain_info
@@ -655,8 +655,8 @@ EOF
     echo "➥ 5/9 Skipping database setup."
   fi
 
-  echo "➥ 6/9 Installing Clord. This takes a long while."
-  setup_Clord &>> "${LOG_FILE}"
+  echo "➥ 6/9 Installing clord. This takes a long while."
+  setup_clord &>> "${LOG_FILE}"
 
   if [ "$install_pg_redis" != "no" ]; then
     echo "➥ 7/9 Running database migrations."
@@ -676,13 +676,13 @@ EOF
 ➥ 9/9 Skipping SSL/TLS setup.
 
 ***************************************************************************
-Woot! Woot!! Clord server installation is complete.
+Woot! Woot!! clord server installation is complete.
 The server will be accessible at http://$public_ip:3000
 
 To configure a domain and SSL certificate, follow the guide at
-https://www.Clord.com/docs/deployment/deploy-Clord-in-linux-vm?utm_source=cwctl
+https://www.clord.com/docs/deployment/deploy-clord-in-linux-vm?utm_source=cwctl
 
-Join the community at https://Clord.com/community?utm_source=cwctl
+Join the community at https://clord.com/community?utm_source=cwctl
 ***************************************************************************
 
 EOF
@@ -703,7 +703,7 @@ The database migrations had not run as Postgres and Redis were not installed
 as part of the installation process. After modifying the environment
 variables (in the .env file) with your external database credentials, run
 the database migrations using the below command.
-'RAILS_ENV=production POSTGRES_STATEMENT_TIMEOUT=600s bundle exec rails db:Clord_prepare'.
+'RAILS_ENV=production POSTGRES_STATEMENT_TIMEOUT=600s bundle exec rails db:clord_prepare'.
 ***************************************************************************
 
 EOF
@@ -724,7 +724,7 @@ exit 0
 #   None
 ##############################################################################
 function get_console() {
-  sudo -i -u Clord bash -c " cd Clord && RAILS_ENV=production bundle exec rails c"
+  sudo -i -u clord bash -c " cd clord && RAILS_ENV=production bundle exec rails c"
 }
 
 ##############################################################################
@@ -740,7 +740,7 @@ function help() {
 
   cat <<EOF
 Usage: cwctl [OPTION]...
-Install and manage your Clord installation.
+Install and manage your clord installation.
 
 Example: cwctl -i master
 Example: cwctl -i --web-only     (for web server ASG)
@@ -755,10 +755,10 @@ Example: cwctl --logs worker
 Example: cwctl -c
 
 Installation/Upgrade:
-  -i, --install             Install the latest stable version of Clord
-  -I BRANCH                 Install Clord from a git branch
-  -u, --upgrade             Upgrade Clord to the latest stable version
-  -U BRANCH                 Upgrade Clord from a git branch (EXPERIMENTAL)
+  -i, --install             Install the latest stable version of clord
+  -I BRANCH                 Install clord from a git branch
+  -u, --upgrade             Upgrade clord to the latest stable version
+  -U BRANCH                 Upgrade clord from a git branch (EXPERIMENTAL)
   -s, --ssl                 Fetch and install SSL certificates using LetsEncrypt
   -w, --webserver           Install and configure Nginx webserver with SSL
   -W, --web-only            Install only the web server (for ASG deployment)
@@ -767,8 +767,8 @@ Installation/Upgrade:
 
 Management:
   -c, --console             Open ruby console
-  -l, --logs                View logs from Clord. Supported values include web/worker.
-  -r, --restart             Restart Clord server
+  -l, --logs                View logs from clord. Supported values include web/worker.
+  -r, --restart             Restart clord server
 
 Miscellaneous:
   -d, --debug               Show debug messages
@@ -778,14 +778,14 @@ Miscellaneous:
 Exit status:
 Returns 0 if successful; non-zero otherwise.
 
-Report bugs at https://github.com/Clord/Clord/issues
-Get help, https://Clord.com/community?utm_source=cwctl
+Report bugs at https://github.com/clord/clord/issues
+Get help, https://clord.com/community?utm_source=cwctl
 
 EOF
 }
 
 ##############################################################################
-# Get Clord web/worker logs (-l/--logs)
+# Get clord web/worker logs (-l/--logs)
 # Globals:
 #   None
 # Arguments:
@@ -795,10 +795,10 @@ EOF
 ##############################################################################
 function get_logs() {
   if [ "$SERVICE" == "worker" ]; then
-    journalctl -u Clord-worker.1.service -f
+    journalctl -u clord-worker.1.service -f
   fi
   if [ "$SERVICE" == "web" ]; then
-    journalctl -u Clord-web.1.service -f
+    journalctl -u clord-web.1.service -f
   fi
 }
 
@@ -835,8 +835,8 @@ function ssl() {
 #   None
 ##############################################################################
 function upgrade_prereq() {
-  sudo -i -u Clord << "EOF"
-  cd Clord
+  sudo -i -u clord << "EOF"
+  cd clord
   git update-index --refresh
   git diff-index --quiet HEAD --
   if [ "$?" -eq 1 ]; then
@@ -880,7 +880,7 @@ function upgrade_redis() {
     return
   fi
 
-  echo "Upgrading Redis to v7+ for Rails 7 support(Clord v2.17+)"
+  echo "Upgrading Redis to v7+ for Rails 7 support(clord v2.17+)"
 
   curl -fsSL https://packages.redis.io/gpg | sudo gpg --dearmor --yes -o /usr/share/keyrings/redis-archive-keyring.gpg
   echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
@@ -925,7 +925,7 @@ function upgrade_node() {
 }
 
 ##############################################################################
-# Install pnpm - this replaces yarn starting from Clord 4.0
+# Install pnpm - this replaces yarn starting from clord 4.0
 # Globals:
 #   None
 # Arguments:
@@ -942,8 +942,8 @@ function get_pnpm() {
   echo "pnpm is not installed. Installing pnpm..."
   npm install -g pnpm
   echo "Cleaning up existing node_modules directory..."
-  sudo -i -u Clord << "EOF"
-  cd Clord
+  sudo -i -u clord << "EOF"
+  cd clord
   rm -rf node_modules
 EOF
 }
@@ -960,7 +960,7 @@ EOF
 function upgrade() {
   cwctl_upgrade_check
   get_cw_version
-  echo "Upgrading Clord to v$CW_VERSION (branch: $BRANCH)"
+  echo "Upgrading clord to v$CW_VERSION (branch: $BRANCH)"
 
   # Warning for non-master branch upgrades
   if [ "$BRANCH" != "master" ]; then
@@ -989,7 +989,7 @@ EOF
 
    # Check if CW_VERSION is 4.0 or above
   if [[ "$(printf '%s\n' "$CW_VERSION" "4.0" | sort -V | head -n 1)" == "4.0" ]]; then
-    echo "Clord v4.0 and above requires pgvector support in PostgreSQL."
+    echo "clord v4.0 and above requires pgvector support in PostgreSQL."
     read -p "Does your postgres support pgvector and want to proceed with the upgrade? [y/N]: " user_input
     user_input=${user_input:-Y}
     if [[ "$user_input" =~ ^([yY][eE][sS]|[yY])$ ]]; then
@@ -1006,10 +1006,10 @@ EOF
   upgrade_node
   get_pnpm
 
-  sudo -i -u Clord << EOF
+  sudo -i -u clord << EOF
 
-  # Navigate to the Clord directory
-  cd Clord
+  # Navigate to the clord directory
+  cd clord
 
   # Pull the latest version of the specified branch
   git fetch
@@ -1034,39 +1034,39 @@ EOF
 EOF
 
   # Copy the updated services and targets based on existing deployment
-  if [ -f "/etc/systemd/system/Clord-web.target" ]; then
+  if [ -f "/etc/systemd/system/clord-web.target" ]; then
     echo "Updating web-only deployment"
-    cp /home/Clord/Clord/deployment/Clord-web.1.service /etc/systemd/system/Clord-web.1.service
-    cp /home/Clord/Clord/deployment/Clord-web.target /etc/systemd/system/Clord-web.target
-  elif [ -f "/etc/systemd/system/Clord-worker.target" ]; then
+    cp /home/clord/clord/deployment/clord-web.1.service /etc/systemd/system/clord-web.1.service
+    cp /home/clord/clord/deployment/clord-web.target /etc/systemd/system/clord-web.target
+  elif [ -f "/etc/systemd/system/clord-worker.target" ]; then
     echo "Updating worker-only deployment"
-    cp /home/Clord/Clord/deployment/Clord-worker.1.service /etc/systemd/system/Clord-worker.1.service
-    cp /home/Clord/Clord/deployment/Clord-worker.target /etc/systemd/system/Clord-worker.target
+    cp /home/clord/clord/deployment/clord-worker.1.service /etc/systemd/system/clord-worker.1.service
+    cp /home/clord/clord/deployment/clord-worker.target /etc/systemd/system/clord-worker.target
   else
     echo "Updating full deployment"
-    cp /home/Clord/Clord/deployment/Clord-web.1.service /etc/systemd/system/Clord-web.1.service
-    cp /home/Clord/Clord/deployment/Clord-worker.1.service /etc/systemd/system/Clord-worker.1.service
-    cp /home/Clord/Clord/deployment/Clord.target /etc/systemd/system/Clord.target
+    cp /home/clord/clord/deployment/clord-web.1.service /etc/systemd/system/clord-web.1.service
+    cp /home/clord/clord/deployment/clord-worker.1.service /etc/systemd/system/clord-worker.1.service
+    cp /home/clord/clord/deployment/clord.target /etc/systemd/system/clord.target
   fi
 
-  cp /home/Clord/Clord/deployment/Clord /etc/sudoers.d/Clord
+  cp /home/clord/clord/deployment/clord /etc/sudoers.d/clord
   # TODO:(@vn) handle cwctl updates
 
   systemctl daemon-reload
 
-  # Restart the appropriate Clord target
-  if [ -f "/etc/systemd/system/Clord-web.target" ]; then
-    systemctl restart Clord-web.target
-  elif [ -f "/etc/systemd/system/Clord-worker.target" ]; then
-    systemctl restart Clord-worker.target
+  # Restart the appropriate clord target
+  if [ -f "/etc/systemd/system/clord-web.target" ]; then
+    systemctl restart clord-web.target
+  elif [ -f "/etc/systemd/system/clord-worker.target" ]; then
+    systemctl restart clord-worker.target
   else
-    systemctl restart Clord.target
+    systemctl restart clord.target
   fi
 
 }
 
 ##############################################################################
-# Restart Clord server (-r/--restart)
+# Restart clord server (-r/--restart)
 # Globals:
 #   None
 # Arguments:
@@ -1075,20 +1075,20 @@ EOF
 #   None
 ##############################################################################
 function restart() {
-  if [ -f "/etc/systemd/system/Clord-web.target" ]; then
-    systemctl restart Clord-web.target
-    systemctl status Clord-web.target
-  elif [ -f "/etc/systemd/system/Clord-worker.target" ]; then
-    systemctl restart Clord-worker.target
-    systemctl status Clord-worker.target
+  if [ -f "/etc/systemd/system/clord-web.target" ]; then
+    systemctl restart clord-web.target
+    systemctl status clord-web.target
+  elif [ -f "/etc/systemd/system/clord-worker.target" ]; then
+    systemctl restart clord-worker.target
+    systemctl status clord-worker.target
   else
-    systemctl restart Clord.target
-    systemctl status Clord.target
+    systemctl restart clord.target
+    systemctl status clord.target
   fi
 }
 
 ##############################################################################
-# Convert existing Clord deployment to different type (--convert)
+# Convert existing clord deployment to different type (--convert)
 # Globals:
 #   DEPLOYMENT_TYPE
 # Arguments:
@@ -1097,11 +1097,11 @@ function restart() {
 #   None
 ##############################################################################
 function convert_deployment() {
-  echo "Converting Clord deployment to: $DEPLOYMENT_TYPE"
+  echo "Converting clord deployment to: $DEPLOYMENT_TYPE"
 
-  # Check if Clord is installed
-  if [ ! -d "/home/Clord/Clord" ]; then
-    echo "Clord installation not found. Use --install first."
+  # Check if clord is installed
+  if [ ! -d "/home/clord/clord" ]; then
+    echo "clord installation not found. Use --install first."
     exit 1
   fi
 
@@ -1133,7 +1133,7 @@ function webserver() {
 ##############################################################################
 # Report cwctl events to hub
 # Globals:
-#   Clord_HUB_URL
+#   clord_HUB_URL
 # Arguments:
 # event_name: Name of the event to report
 # event_data: Data to report
@@ -1145,7 +1145,7 @@ function report_event() {
   local event_name="$1"
   local event_data="$2"
 
-  Clord_HUB_URL="https://hub.2.Clord.com/events"
+  clord_HUB_URL="https://hub.2.clord.com/events"
 
   # get installation identifier
   local installation_identifier=$(get_installation_identifier)
@@ -1154,7 +1154,7 @@ function report_event() {
   local data="{\"installation_identifier\":\"$installation_identifier\",\"event_name\":\"$event_name\",\"event_data\":{\"action\":\"$event_data\"}}"
 
   # Make the curl request to report the event
-  curl -X POST -H "Content-Type: application/json" -d "$data" "$Clord_HUB_URL" -s -o /dev/null
+  curl -X POST -H "Content-Type: application/json" -d "$data" "$clord_HUB_URL" -s -o /dev/null
 }
 
 
@@ -1171,8 +1171,8 @@ function get_installation_identifier() {
 
   local installation_identifier
 
-  installation_identifier=$(sudo -i -u Clord << "EOF"
-  cd Clord
+  installation_identifier=$(sudo -i -u clord << "EOF"
+  cd clord
   RAILS_ENV=production bundle exec rake instance_id:get_installation_identifier
 EOF
 )
@@ -1205,7 +1205,7 @@ function version() {
 function cwctl_upgrade_check() {
     echo "Checking for cwctl updates..."
 
-    local remote_version_url="https://raw.githubusercontent.com/Clord/Clord/master/VERSION_CWCTL"
+    local remote_version_url="https://raw.githubusercontent.com/clord/clord/master/VERSION_CWCTL"
     local remote_version=$(curl -s "$remote_version_url")
 
     #Check if pip is not installed, and install it if not
@@ -1266,7 +1266,7 @@ function install_packaging() {
 #   None
 ##############################################################################
 function upgrade_cwctl() {
-    wget https://get.Clord.app/linux/install.sh -O /usr/local/bin/cwctl > /dev/null 2>&1 && chmod +x /usr/local/bin/cwctl
+    wget https://get.clord.app/linux/install.sh -O /usr/local/bin/cwctl > /dev/null 2>&1 && chmod +x /usr/local/bin/cwctl
 }
 
 ##############################################################################

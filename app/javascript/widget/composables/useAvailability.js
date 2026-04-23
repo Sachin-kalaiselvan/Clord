@@ -20,7 +20,7 @@ export function useAvailability(agents = []) {
   // (e.g., after API response updates the Vuex store).
   const availableAgents = computed(() => unref(agents));
 
-  const channelConfig = computed(() => window.ClordWebChannel || {});
+  const channelConfig = computed(() => window.clordWebChannel || {});
 
   const inboxConfig = computed(() => ({
     workingHours: channelConfig.value.workingHours?.map(useCamelCase) || [],

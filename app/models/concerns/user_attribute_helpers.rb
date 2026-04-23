@@ -43,9 +43,9 @@ module UserAttributeHelpers
     current_account_user&.role
   end
 
-  # Used internally for Clord in Clord
+  # Used internally for clord in clord
   def hmac_identifier
-    hmac_key = GlobalConfig.get('Clord_INBOX_HMAC_KEY')['Clord_INBOX_HMAC_KEY']
+    hmac_key = GlobalConfig.get('clord_INBOX_HMAC_KEY')['clord_INBOX_HMAC_KEY']
     return OpenSSL::HMAC.hexdigest('sha256', hmac_key, email) if hmac_key.present?
 
     ''

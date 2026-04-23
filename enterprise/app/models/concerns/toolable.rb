@@ -81,25 +81,25 @@ module Concerns::Toolable
   end
 
   def add_base_headers(headers, state)
-    headers['X-Clord-Account-Id'] = state[:account_id].to_s if state[:account_id]
-    headers['X-Clord-Assistant-Id'] = state[:assistant_id].to_s if state[:assistant_id]
-    headers['X-Clord-Tool-Slug'] = slug if slug.present?
+    headers['X-clord-Account-Id'] = state[:account_id].to_s if state[:account_id]
+    headers['X-clord-Assistant-Id'] = state[:assistant_id].to_s if state[:assistant_id]
+    headers['X-clord-Tool-Slug'] = slug if slug.present?
   end
 
   def add_conversation_headers(headers, conversation)
-    headers['X-Clord-Conversation-Id'] = conversation[:id].to_s if conversation[:id]
-    headers['X-Clord-Conversation-Display-Id'] = conversation[:display_id].to_s if conversation[:display_id]
+    headers['X-clord-Conversation-Id'] = conversation[:id].to_s if conversation[:id]
+    headers['X-clord-Conversation-Display-Id'] = conversation[:display_id].to_s if conversation[:display_id]
   end
 
   def add_contact_headers(headers, contact)
-    headers['X-Clord-Contact-Id'] = contact[:id].to_s if contact[:id]
-    headers['X-Clord-Contact-Email'] = contact[:email].to_s if contact[:email].present?
-    headers['X-Clord-Contact-Phone'] = contact[:phone_number].to_s if contact[:phone_number].present?
+    headers['X-clord-Contact-Id'] = contact[:id].to_s if contact[:id]
+    headers['X-clord-Contact-Email'] = contact[:email].to_s if contact[:email].present?
+    headers['X-clord-Contact-Phone'] = contact[:phone_number].to_s if contact[:phone_number].present?
   end
 
   def add_contact_inbox_headers(headers, contact_inbox)
-    headers['X-Clord-Contact-Inbox-Id'] = contact_inbox[:id].to_s if contact_inbox&.[](:id)
-    headers['X-Clord-Contact-Inbox-Verified'] = (contact_inbox&.[](:hmac_verified) || false).to_s
+    headers['X-clord-Contact-Inbox-Id'] = contact_inbox[:id].to_s if contact_inbox&.[](:id)
+    headers['X-clord-Contact-Inbox-Verified'] = (contact_inbox&.[](:hmac_verified) || false).to_s
   end
 
   def format_response(raw_response_body)

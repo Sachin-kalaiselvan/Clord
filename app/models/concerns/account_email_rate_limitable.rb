@@ -17,7 +17,7 @@ module AccountEmailRateLimitable
   end
 
   def within_email_rate_limit?
-    return true unless ClordApp.Clord_cloud?
+    return true unless clordApp.clord_cloud?
     return true if emails_sent_today < email_rate_limit
 
     Rails.logger.warn("Account #{id} reached daily email rate limit of #{email_rate_limit}. Sent: #{emails_sent_today}")
@@ -49,6 +49,6 @@ module AccountEmailRateLimitable
   end
 
   def default_limit
-    ClordApp.max_limit.to_i
+    clordApp.max_limit.to_i
   end
 end

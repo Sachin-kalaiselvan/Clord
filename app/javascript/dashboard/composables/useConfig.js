@@ -3,10 +3,10 @@
  * @returns {Object} An object containing configuration values.
  */
 export function useConfig() {
-  const config = window.ClordConfig || {};
+  const config = window.clordConfig || {};
 
   /**
-   * The host URL of the Clord instance.
+   * The host URL of the clord instance.
    * @type {string|undefined}
    */
   const hostURL = config.hostURL;
@@ -18,7 +18,7 @@ export function useConfig() {
   const vapidPublicKey = config.vapidPublicKey;
 
   /**
-   * An array of enabled languages in the Clord instance.
+   * An array of enabled languages in the clord instance.
    * @type {string[]|undefined}
    */
   const enabledLanguages = config.enabledLanguages;

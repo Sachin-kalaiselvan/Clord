@@ -85,7 +85,7 @@ class Public::Api::V1::Portals::ArticlesController < Public::Api::V1::Portals::B
   end
 
   def render_article_content(content)
-    ClordMarkdownRenderer.new(content).render_article
+    clordMarkdownRenderer.new(content).render_article
   end
 end
 

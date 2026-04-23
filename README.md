@@ -3,28 +3,28 @@
 
 ___
 
-# Clord
+# clord
 
 The modern customer support platform, an open-source alternative to Intercom, Zendesk, Salesforce Service Cloud etc.
 
 <p>
-  <img src="https://img.shields.io/circleci/build/github/Clord/Clord" alt="CircleCI Badge">
-    <a href="https://hub.docker.com/r/Clord/Clord/"><img src="https://img.shields.io/docker/pulls/Clord/Clord" alt="Docker Pull Badge"></a>
-  <a href="https://hub.docker.com/r/Clord/Clord/"><img src="https://img.shields.io/docker/cloud/build/Clord/Clord" alt="Docker Build Badge"></a>
-  <img src="https://img.shields.io/github/commit-activity/m/Clord/Clord" alt="Commits-per-month">
-  <a title="Crowdin" target="_self" href="https://Clord.crowdin.com/Clord"><img src="https://badges.crowdin.net/e/37ced7eba411064bd792feb3b7a28b16/localized.svg"></a>
+  <img src="https://img.shields.io/circleci/build/github/clord/clord" alt="CircleCI Badge">
+    <a href="https://hub.docker.com/r/clord/clord/"><img src="https://img.shields.io/docker/pulls/clord/clord" alt="Docker Pull Badge"></a>
+  <a href="https://hub.docker.com/r/clord/clord/"><img src="https://img.shields.io/docker/cloud/build/clord/clord" alt="Docker Build Badge"></a>
+  <img src="https://img.shields.io/github/commit-activity/m/clord/clord" alt="Commits-per-month">
+  <a title="Crowdin" target="_self" href="https://clord.crowdin.com/clord"><img src="https://badges.crowdin.net/e/37ced7eba411064bd792feb3b7a28b16/localized.svg"></a>
   <a href="https://discord.gg/cJXdrwS"><img src="https://img.shields.io/discord/647412545203994635" alt="Discord"></a>
-  <a href="https://status.Clord.com"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FClord%2Fstatus%2Fmaster%2Fapi%2FClord%2Fuptime.json" alt="uptime"></a>
-  <a href="https://status.Clord.com"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2FClord%2Fstatus%2Fmaster%2Fapi%2FClord%2Fresponse-time.json" alt="response time"></a>
-  <a href="https://artifacthub.io/packages/helm/Clord/Clord"><img src="https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/artifact-hub" alt="Artifact HUB"></a>
+  <a href="https://status.clord.com"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fclord%2Fstatus%2Fmaster%2Fapi%2Fclord%2Fuptime.json" alt="uptime"></a>
+  <a href="https://status.clord.com"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fraw.githubusercontent.com%2Fclord%2Fstatus%2Fmaster%2Fapi%2Fclord%2Fresponse-time.json" alt="response time"></a>
+  <a href="https://artifacthub.io/packages/helm/clord/clord"><img src="https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/artifact-hub" alt="Artifact HUB"></a>
 </p>
 
 
 <p>
-  <a href="https://heroku.com/deploy?template=https://github.com/Clord/Clord/tree/master" alt="Deploy to Heroku">
+  <a href="https://heroku.com/deploy?template=https://github.com/clord/clord/tree/master" alt="Deploy to Heroku">
      <img width="150" alt="Deploy" src="https://www.herokucdn.com/deploy/button.svg"/>
   </a>
-  <a href="https://marketplace.digitalocean.com/apps/Clord?refcode=f2238426a2a8" alt="Deploy to DigitalOcean">
+  <a href="https://marketplace.digitalocean.com/apps/clord?refcode=f2238426a2a8" alt="Deploy to DigitalOcean">
      <img width="200" alt="Deploy to DO" src="https://www.deploytodo.com/do-btn-blue.svg"/>
   </a>
 </p>
@@ -34,15 +34,15 @@ The modern customer support platform, an open-source alternative to Intercom, Ze
 
 ---
 
-Clord is the modern, open-source, and self-hosted customer support platform designed to help businesses deliver exceptional customer support experience. Built for scale and flexibility, Clord gives you full control over your customer data while providing powerful tools to manage conversations across channels.
+clord is the modern, open-source, and self-hosted customer support platform designed to help businesses deliver exceptional customer support experience. Built for scale and flexibility, clord gives you full control over your customer data while providing powerful tools to manage conversations across channels.
 
 ### ✨ Captain – AI Agent for Support
 
-Supercharge your support with Captain, Clord’s AI agent. Captain helps automate responses, handle common queries, and reduce agent workload—ensuring customers get instant, accurate answers. With Captain, your team can focus on complex conversations while routine questions are resolved automatically. Read more about Captain [here](https://chwt.app/captain-docs).
+Supercharge your support with Captain, clord’s AI agent. Captain helps automate responses, handle common queries, and reduce agent workload—ensuring customers get instant, accurate answers. With Captain, your team can focus on complex conversations while routine questions are resolved automatically. Read more about Captain [here](https://chwt.app/captain-docs).
 
 ### 💬 Omnichannel Support Desk
 
-Clord centralizes all customer conversations into one powerful inbox, no matter where your customers reach out from. It supports live chat on your website, email, Facebook, Instagram, Twitter, WhatsApp, Telegram, Line, SMS etc.
+clord centralizes all customer conversations into one powerful inbox, no matter where your customers reach out from. It supports live chat on your website, email, Facebook, Instagram, Twitter, WhatsApp, Telegram, Line, SMS etc.
 
 ### 📚 Help center portal
 
@@ -73,10 +73,10 @@ Publish help articles, FAQs, and guides through the built-in Help Center Portal.
 #### Integrations
 - Slack Integration to manage conversations directly from Slack.
 - Dialogflow Integration for chatbot automation.
-- Dashboard Apps to embed internal tools within Clord.
-- Shopify Integration to view and manage customer orders right within Clord.
+- Dashboard Apps to embed internal tools within clord.
+- Shopify Integration to view and manage customer orders right within clord.
 - Use Google Translate to translate messages from your customers in realtime.
-- Create and manage Linear tickets within Clord.
+- Create and manage Linear tickets within clord.
 
 #### Reports & Insights
 - Live View of ongoing conversations for real-time monitoring.
@@ -87,11 +87,11 @@ Publish help articles, FAQs, and guides through the built-in Help Center Portal.
 
 ## Documentation
 
-Detailed documentation is available at [Clord.com/help-center](https://www.Clord.com/help-center).
+Detailed documentation is available at [clord.com/help-center](https://www.clord.com/help-center).
 
 ## Translation process
 
-The translation process for Clord web and mobile app is managed at [https://translate.Clord.com](https://translate.Clord.com) using Crowdin. Please read the [translation guide](https://www.Clord.com/docs/contributing/translating-Clord-to-your-language) for contributing to Clord.
+The translation process for clord web and mobile app is managed at [https://translate.clord.com](https://translate.clord.com) using Crowdin. Please read the [translation guide](https://www.clord.com/docs/contributing/translating-clord-to-your-language) for contributing to clord.
 
 ## Branching model
 
@@ -102,24 +102,24 @@ If you are looking for a stable version, please use the `master` or tags labelle
 
 ### Heroku one-click deploy
 
-Deploying Clord to Heroku is a breeze. It's as simple as clicking this button:
+Deploying clord to Heroku is a breeze. It's as simple as clicking this button:
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Clord/Clord/tree/master)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/clord/clord/tree/master)
 
-Follow this [link](https://www.Clord.com/docs/environment-variables) to understand setting the correct environment variables for the app to work with all the features. There might be breakages if you do not set the relevant environment variables.
+Follow this [link](https://www.clord.com/docs/environment-variables) to understand setting the correct environment variables for the app to work with all the features. There might be breakages if you do not set the relevant environment variables.
 
 
 ### DigitalOcean 1-Click Kubernetes deployment
 
-Clord now supports 1-Click deployment to DigitalOcean as a kubernetes app.
+clord now supports 1-Click deployment to DigitalOcean as a kubernetes app.
 
-<a href="https://marketplace.digitalocean.com/apps/Clord?refcode=f2238426a2a8" alt="Deploy to DigitalOcean">
+<a href="https://marketplace.digitalocean.com/apps/clord?refcode=f2238426a2a8" alt="Deploy to DigitalOcean">
   <img width="200" alt="Deploy to DO" src="https://www.deploytodo.com/do-btn-blue.svg"/>
 </a>
 
 ### Other deployment options
 
-For other supported options, checkout our [deployment page](https://Clord.com/deploy).
+For other supported options, checkout our [deployment page](https://clord.com/deploy).
 
 ## Security
 
@@ -131,9 +131,9 @@ If you need help or just want to hang out, come, say hi on our [Discord](https:/
 
 ## Contributors
 
-Thanks goes to all these [wonderful people](https://www.Clord.com/docs/contributors):
+Thanks goes to all these [wonderful people](https://www.clord.com/docs/contributors):
 
-<a href="https://github.com/Clord/Clord/graphs/contributors"><img src="https://opencollective.com/Clord/contributors.svg?width=890&button=false" /></a>
+<a href="https://github.com/clord/clord/graphs/contributors"><img src="https://opencollective.com/clord/contributors.svg?width=890&button=false" /></a>
 
 
-*Clord* &copy; 2017-2026, Clord Inc - Released under the MIT License.
+*clord* &copy; 2017-2026, clord Inc - Released under the MIT License.

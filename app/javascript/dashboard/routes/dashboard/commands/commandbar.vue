@@ -1,5 +1,5 @@
 <script setup>
-import '@Clord/ninja-keys';
+import '@clord/ninja-keys';
 import { ref, computed, watchEffect, onMounted } from 'vue';
 import { useStore } from 'dashboard/composables/store';
 import { useTrack } from 'dashboard/composables';

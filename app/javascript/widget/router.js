@@ -60,7 +60,7 @@ const router = createRouter({
  * Handling it globally, so that we can use it across all components
  * to ensure consistent UI behavior during all route transitions.
  *
- * @see https://github.com/Clord/Clord/issues/10736
+ * @see https://github.com/clord/clord/issues/10736
  */
 
 router.beforeEach(async (to, from, next) => {

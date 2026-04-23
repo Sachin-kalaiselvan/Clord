@@ -18,8 +18,8 @@ import {
   stripInlineBase64Images,
 } from '../editorHelper';
 import { FORMATTING } from 'dashboard/constants/editor';
-import { EditorState } from '@Clord/prosemirror-schema';
-import { EditorView } from '@Clord/prosemirror-schema';
+import { EditorState } from '@clord/prosemirror-schema';
+import { EditorView } from '@clord/prosemirror-schema';
 import { Schema } from 'prosemirror-model';
 
 // Define a basic ProseMirror schema
@@ -915,7 +915,7 @@ describe('stripUnsupportedFormatting', () => {
     });
 
     it('preserves email autolinks', () => {
-      const content = 'Contact us at <support@Clord.com>';
+      const content = 'Contact us at <support@clord.com>';
       expect(stripUnsupportedFormatting(content, fullSchema)).toBe(content);
     });
 
@@ -953,10 +953,10 @@ describe('stripUnsupportedFormatting', () => {
       // Underscores in URLs should not be stripped as italic formatting
       expect(
         stripUnsupportedFormatting(
-          'https://www.Clord.com/new_first_second-third/ssd',
+          'https://www.clord.com/new_first_second-third/ssd',
           emptySchema
         )
-      ).toBe('https://www.Clord.com/new_first_second-third/ssd');
+      ).toBe('https://www.clord.com/new_first_second-third/ssd');
 
       // Underscores in variable names should not be stripped
       expect(
@@ -1011,8 +1011,8 @@ describe('stripUnsupportedFormatting', () => {
     });
 
     it('converts email autolinks to plain text', () => {
-      const content = 'Reach us at <admin@Clord.com> for help';
-      const expected = 'Reach us at admin@Clord.com for help';
+      const content = 'Reach us at <admin@clord.com> for help';
+      const expected = 'Reach us at admin@clord.com for help';
       expect(stripUnsupportedFormatting(content, emptySchema)).toBe(expected);
     });
 

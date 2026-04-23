@@ -6,7 +6,7 @@ module OpentelemetryConfig
   class << self
     def tracer
       initialize! unless initialized?
-      OpenTelemetry.tracer_provider.tracer('Clord')
+      OpenTelemetry.tracer_provider.tracer('clord')
     end
 
     def initialized?
@@ -81,7 +81,7 @@ module OpentelemetryConfig
 
     def configure_opentelemetry
       OpenTelemetry::SDK.configure do |c|
-        c.service_name = 'Clord'
+        c.service_name = 'clord'
         exporter = OpenTelemetry::Exporter::OTLP::Exporter.new(**exporter_config)
         c.add_span_processor(OpenTelemetry::SDK::Trace::Export::BatchSpanProcessor.new(exporter))
         Rails.logger.info 'OpenTelemetry initialized and configured to export to Langfuse'

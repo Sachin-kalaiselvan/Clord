@@ -254,14 +254,14 @@ RSpec.describe ConversationReplyMailer do
         end
 
         it 'includes CSAT survey URL in outgoing_content' do
-          with_modified_env 'FRONTEND_URL' => 'https://app.Clord.com' do
+          with_modified_env 'FRONTEND_URL' => 'https://app.clord.com' do
             mail = described_class.email_reply(csat_message).deliver_now
-            expect(mail.decoded).to include "https://app.Clord.com/survey/responses/#{conversation.uuid}"
+            expect(mail.decoded).to include "https://app.clord.com/survey/responses/#{conversation.uuid}"
           end
         end
 
         it 'uses outgoing_content for CSAT message body' do
-          with_modified_env 'FRONTEND_URL' => 'https://app.Clord.com' do
+          with_modified_env 'FRONTEND_URL' => 'https://app.clord.com' do
             mail = described_class.email_reply(csat_message).deliver_now
             expect(mail.decoded).to include csat_message.outgoing_content
           end
@@ -653,7 +653,7 @@ RSpec.describe ConversationReplyMailer do
     end
 
     context 'when inbox email address is available' do
-      let(:inbox) { create(:inbox, account: account, email_address: 'noreply@Clord.com') }
+      let(:inbox) { create(:inbox, account: account, email_address: 'noreply@clord.com') }
       let(:conversation) { create(:conversation, assignee: agent, inbox: inbox, account: account) }
       let!(:message) { create(:message, conversation: conversation, account: account) }
       let(:mail) { described_class.reply_with_summary(message.conversation, message.id).deliver_now }

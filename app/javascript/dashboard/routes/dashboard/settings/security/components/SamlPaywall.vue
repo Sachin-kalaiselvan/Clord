@@ -12,10 +12,10 @@ const currentUser = useMapGetter('getCurrentUser');
 const isSuperAdmin = computed(() => {
   return currentUser.value.type === 'SuperAdmin';
 });
-const { accountId, isOnClordCloud } = useAccount();
+const { accountId, isOnclordCloud } = useAccount();
 
 const i18nKey = computed(() =>
-  isOnClordCloud.value ? 'PAYWALL' : 'ENTERPRISE_PAYWALL'
+  isOnclordCloud.value ? 'PAYWALL' : 'ENTERPRISE_PAYWALL'
 );
 const openBilling = () => {
   router.push({
@@ -34,7 +34,7 @@ const openBilling = () => {
       feature-prefix="SECURITY_SETTINGS.SAML"
       :i18n-key="i18nKey"
       :is-super-admin="isSuperAdmin"
-      :is-on-Clord-cloud="isOnClordCloud"
+      :is-on-clord-cloud="isOnclordCloud"
       @upgrade="openBilling"
     />
   </div>

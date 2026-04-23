@@ -7,33 +7,33 @@ import {
 describe('PortalHelper', () => {
   describe('buildPortalURL', () => {
     it('returns the correct url', () => {
-      window.ClordConfig = {
-        hostURL: 'https://app.Clord.com',
-        helpCenterURL: 'https://help.Clord.com',
+      window.clordConfig = {
+        hostURL: 'https://app.clord.com',
+        helpCenterURL: 'https://help.clord.com',
       };
       expect(buildPortalURL('handbook')).toEqual(
-        'https://help.Clord.com/hc/handbook'
+        'https://help.clord.com/hc/handbook'
       );
-      window.ClordConfig = {};
+      window.clordConfig = {};
     });
   });
 
   describe('buildPortalArticleURL', () => {
     it('returns the correct url', () => {
-      window.ClordConfig = {
-        hostURL: 'https://app.Clord.com',
-        helpCenterURL: 'https://help.Clord.com',
+      window.clordConfig = {
+        hostURL: 'https://app.clord.com',
+        helpCenterURL: 'https://help.clord.com',
       };
       expect(
         buildPortalArticleURL('handbook', 'culture', 'fr', 'article-slug')
-      ).toEqual('https://help.Clord.com/hc/handbook/articles/article-slug');
-      window.ClordConfig = {};
+      ).toEqual('https://help.clord.com/hc/handbook/articles/article-slug');
+      window.clordConfig = {};
     });
 
     it('returns the correct url with custom domain', () => {
-      window.ClordConfig = {
-        hostURL: 'https://app.Clord.com',
-        helpCenterURL: 'https://help.Clord.com',
+      window.clordConfig = {
+        hostURL: 'https://app.clord.com',
+        helpCenterURL: 'https://help.clord.com',
       };
       expect(
         buildPortalArticleURL(
@@ -47,9 +47,9 @@ describe('PortalHelper', () => {
     });
 
     it('handles https in custom domain correctly', () => {
-      window.ClordConfig = {
-        hostURL: 'https://app.Clord.com',
-        helpCenterURL: 'https://help.Clord.com',
+      window.clordConfig = {
+        hostURL: 'https://app.clord.com',
+        helpCenterURL: 'https://help.clord.com',
       };
       expect(
         buildPortalArticleURL(
@@ -63,13 +63,13 @@ describe('PortalHelper', () => {
     });
 
     it('uses hostURL when helpCenterURL is not available', () => {
-      window.ClordConfig = {
-        hostURL: 'https://app.Clord.com',
+      window.clordConfig = {
+        hostURL: 'https://app.clord.com',
         helpCenterURL: '',
       };
       expect(
         buildPortalArticleURL('handbook', 'culture', 'fr', 'article-slug')
-      ).toEqual('https://app.Clord.com/hc/handbook/articles/article-slug');
+      ).toEqual('https://app.clord.com/hc/handbook/articles/article-slug');
     });
   });
 

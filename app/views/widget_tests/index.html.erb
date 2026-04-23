@@ -13,7 +13,7 @@
 %>
 <script>
 
-window.ClordSettings = {
+window.clordSettings = {
   hideMessageBubble: false,
   // showUnreadMessagesDialog: false,
   // baseDomain: '.loca.lt',
@@ -33,17 +33,17 @@ window.ClordSettings = {
   g.async = true;
   s.parentNode.insertBefore(g,s);
   g.onload=function(){
-    window.ClordSDK.run({
+    window.clordSDK.run({
       websiteToken: '<%= @web_widget.website_token %>',
       baseUrl: BASE_URL
     })
   }
 })(document,"script");
 
-window.addEventListener('Clord:ready', function() {
-  console.log('Clord:ready', window.$Clord);
+window.addEventListener('clord:ready', function() {
+  console.log('clord:ready', window.$clord);
   if (window.location.search.includes('setUser')) {
-    window.$Clord.setUser('<%= user_id %>', {
+    window.$clord.setUser('<%= user_id %>', {
       identifier_hash: '<%= user_hash %>',
       email: 'jane@example.com',
       name: 'Jane Doe',
@@ -52,28 +52,28 @@ window.addEventListener('Clord:ready', function() {
   }
 })
 
-window.addEventListener('Clord:error', function(e) {
-  console.log('Clord:error', e.detail)
+window.addEventListener('clord:error', function(e) {
+  console.log('clord:error', e.detail)
 })
 
 
-window.addEventListener('Clord:on-message', function(e) {
-  console.log('Clord:on-message', e.detail)
+window.addEventListener('clord:on-message', function(e) {
+  console.log('clord:on-message', e.detail)
 })
 
-window.addEventListener('Clord:postback', function(e) {
-  console.log('Clord:postback', e.detail)
+window.addEventListener('clord:postback', function(e) {
+  console.log('clord:postback', e.detail)
 })
 
-window.addEventListener('Clord:opened', function() {
-  console.log('Clord:opened')
+window.addEventListener('clord:opened', function() {
+  console.log('clord:opened')
 })
 
-window.addEventListener('Clord:closed', function() {
-  console.log('Clord:closed')
+window.addEventListener('clord:closed', function() {
+  console.log('clord:closed')
 })
 
-window.addEventListener('Clord:on-start-conversation', function(e) {
-  console.log('Clord:on-start-conversation', e.detail)
+window.addEventListener('clord:on-start-conversation', function(e) {
+  console.log('clord:on-start-conversation', e.detail)
 })
 </script>

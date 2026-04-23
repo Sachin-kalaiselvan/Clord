@@ -42,7 +42,7 @@ const dummyCustomRolesData = [
 
 const router = useRouter();
 
-const isOnClordCloud = useMapGetter('globalConfig/isOnClordCloud');
+const isOnclordCloud = useMapGetter('globalConfig/isOnclordCloud');
 
 const currentUser = useMapGetter('getCurrentUser');
 const currentAccountId = useMapGetter('getCurrentAccountId');
@@ -51,7 +51,7 @@ const isSuperAdmin = computed(() => {
   return currentUser.value.type === 'SuperAdmin';
 });
 const i18nKey = computed(() =>
-  isOnClordCloud.value ? 'PAYWALL' : 'ENTERPRISE_PAYWALL'
+  isOnclordCloud.value ? 'PAYWALL' : 'ENTERPRISE_PAYWALL'
 );
 
 const goToBillingSettings = () => {
@@ -98,7 +98,7 @@ const tableHeaders = computed(() => {
       <BasePaywallModal
         feature-prefix="CUSTOM_ROLE"
         :i18n-key="i18nKey"
-        :is-on-Clord-cloud="isOnClordCloud"
+        :is-on-clord-cloud="isOnclordCloud"
         :is-super-admin="isSuperAdmin"
         @upgrade="goToBillingSettings"
       />

@@ -85,7 +85,7 @@ export default {
     avatarUrl() {
       const displayImage = this.useInboxAvatarForBot
         ? this.inboxAvatarUrl
-        : '/assets/images/Clord_bot.png';
+        : '/assets/images/clord_bot.png';
 
       if (this.message.message_type === MESSAGE_TYPE.TEMPLATE) {
         return displayImage;

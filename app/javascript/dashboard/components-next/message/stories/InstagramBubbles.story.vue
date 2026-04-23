@@ -29,7 +29,7 @@ const getMessage = overrides => {
 
   return {
     id: 5272,
-    content: 'Hey, how are ya, I had a few questions about Clord?',
+    content: 'Hey, how are ya, I had a few questions about clord?',
     inboxId: 475,
     conversationId: 43,
     messageType: 0,

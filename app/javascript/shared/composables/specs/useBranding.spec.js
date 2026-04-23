@@ -24,17 +24,17 @@ describe('useBranding', () => {
   });
 
   describe('replaceInstallationName', () => {
-    it('should replace "Clord" with installation name when both text and installation name are provided', () => {
+    it('should replace "clord" with installation name when both text and installation name are provided', () => {
       const { replaceInstallationName } = useBranding();
-      const result = replaceInstallationName('Welcome to Clord');
+      const result = replaceInstallationName('Welcome to clord');
 
       expect(result).toBe('Welcome to MyCompany');
     });
 
-    it('should replace multiple occurrences of "Clord"', () => {
+    it('should replace multiple occurrences of "clord"', () => {
       const { replaceInstallationName } = useBranding();
       const result = replaceInstallationName(
-        'Clord is great! Use Clord today.'
+        'clord is great! Use clord today.'
       );
 
       expect(result).toBe('MyCompany is great! Use MyCompany today.');
@@ -44,18 +44,18 @@ describe('useBranding', () => {
       mockGlobalConfig.value = {};
 
       const { replaceInstallationName } = useBranding();
-      const result = replaceInstallationName('Welcome to Clord');
+      const result = replaceInstallationName('Welcome to clord');
 
-      expect(result).toBe('Welcome to Clord');
+      expect(result).toBe('Welcome to clord');
     });
 
     it('should return original text when globalConfig is not available', () => {
       mockGlobalConfig.value = undefined;
 
       const { replaceInstallationName } = useBranding();
-      const result = replaceInstallationName('Welcome to Clord');
+      const result = replaceInstallationName('Welcome to clord');
 
-      expect(result).toBe('Welcome to Clord');
+      expect(result).toBe('Welcome to clord');
     });
 
     it('should return original text when text is empty or null', () => {
@@ -66,20 +66,20 @@ describe('useBranding', () => {
       expect(replaceInstallationName(undefined)).toBe(undefined);
     });
 
-    it('should handle text without "Clord" gracefully', () => {
+    it('should handle text without "clord" gracefully', () => {
       const { replaceInstallationName } = useBranding();
       const result = replaceInstallationName('Welcome to our platform');
 
       expect(result).toBe('Welcome to our platform');
     });
 
-    it('should be case-sensitive for "Clord"', () => {
+    it('should be case-sensitive for "clord"', () => {
       const { replaceInstallationName } = useBranding();
       const result = replaceInstallationName(
-        'Welcome to Clord and Clord'
+        'Welcome to clord and clord'
       );
 
-      expect(result).toBe('Welcome to Clord and Clord');
+      expect(result).toBe('Welcome to clord and clord');
     });
 
     it('should handle special characters in installation name', () => {
@@ -88,7 +88,7 @@ describe('useBranding', () => {
       };
 
       const { replaceInstallationName } = useBranding();
-      const result = replaceInstallationName('Welcome to Clord');
+      const result = replaceInstallationName('Welcome to clord');
 
       expect(result).toBe('Welcome to My-Company & Co.');
     });

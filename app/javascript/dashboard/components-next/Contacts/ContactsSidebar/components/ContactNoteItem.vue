@@ -56,7 +56,7 @@ onMounted(() => {
           :src="
             note?.user?.name
               ? note?.user?.thumbnail
-              : '/assets/images/Clord_bot.png'
+              : '/assets/images/clord_bot.png'
           "
           :size="16"
           rounded-full

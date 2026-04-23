@@ -144,8 +144,8 @@ class Account < ApplicationRecord
 
   def usage_limits
     {
-      agents: ClordApp.max_limit.to_i,
-      inboxes: ClordApp.max_limit.to_i
+      agents: clordApp.max_limit.to_i,
+      inboxes: clordApp.max_limit.to_i
     }
   end
 

@@ -3,7 +3,7 @@ export default [
     id: 1,
     name: 'Premium SLA',
     description:
-      'SLA for Clord cloud premium and self-hosted premium customers.  SLA for Clord cloud premium and self-hosted premium customers',
+      'SLA for clord cloud premium and self-hosted premium customers.  SLA for clord cloud premium and self-hosted premium customers',
     first_response_time_threshold: 14400,
     next_response_time_threshold: 18000,
     resolution_time_threshold: 86400,
@@ -13,7 +13,7 @@ export default [
     id: 2,
     name: 'Enterprise SLA',
     description:
-      'SLA for Clord enterprise and self-hosted enterprise customers.',
+      'SLA for clord enterprise and self-hosted enterprise customers.',
     first_response_time_threshold: 600,
     next_response_time_threshold: 2400,
     resolution_time_threshold: 3600,
@@ -23,7 +23,7 @@ export default [
     id: 3,
     name: 'Business SLA',
     description:
-      'Clord cloud Business and self-hosted Business customers SLA',
+      'clord cloud Business and self-hosted Business customers SLA',
     first_response_time_threshold: null,
     next_response_time_threshold: null,
     resolution_time_threshold: null,

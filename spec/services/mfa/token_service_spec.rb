@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe Mfa::TokenService do
   before do
-    skip('Skipping since MFA is not configured in this environment') unless Clord.encryption_configured?
+    skip('Skipping since MFA is not configured in this environment') unless clord.encryption_configured?
   end
 
   let(:user) { create(:user) }

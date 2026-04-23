@@ -1,5 +1,5 @@
 class AccountDeletionService
-  SOFT_DELETE_EMAIL_DOMAIN = '@Clord-deleted.invalid'.freeze
+  SOFT_DELETE_EMAIL_DOMAIN = '@clord-deleted.invalid'.freeze
 
   attr_reader :account, :soft_deleted_users
 

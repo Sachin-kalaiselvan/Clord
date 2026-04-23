@@ -15,7 +15,7 @@ vi.mock('dashboard/composables/useTransformKeys', () => ({
 }));
 
 describe('useAvailability', () => {
-  const originalWindow = window.ClordWebChannel;
+  const originalWindow = window.clordWebChannel;
 
   beforeEach(() => {
     vi.clearAllMocks();
@@ -25,7 +25,7 @@ describe('useAvailability', () => {
     mockIsInWorkingHours.mockReturnValue(true);
     mockUseCamelCase.mockImplementation(obj => obj);
 
-    window.ClordWebChannel = {
+    window.clordWebChannel = {
       workingHours: [],
       workingHoursEnabled: false,
       timezone: 'UTC',
@@ -35,7 +35,7 @@ describe('useAvailability', () => {
   });
 
   afterEach(() => {
-    window.ClordWebChannel = originalWindow;
+    window.clordWebChannel = originalWindow;
   });
 
   describe('initial state', () => {
@@ -74,7 +74,7 @@ describe('useAvailability', () => {
     const workingHours = [{ dayOfWeek: 1, openHour: 9, closeHour: 17 }];
 
     beforeEach(() => {
-      window.ClordWebChannel = {
+      window.clordWebChannel = {
         workingHours,
         workingHoursEnabled: true,
         utcOffset: '+05:30',
@@ -111,11 +111,11 @@ describe('useAvailability', () => {
   });
 
   describe('config changes', () => {
-    it('should react to window.ClordWebChannel changes', () => {
+    it('should react to window.clordWebChannel changes', () => {
       const { inboxConfig } = useAvailability();
 
-      window.ClordWebChannel = {
-        ...window.ClordWebChannel,
+      window.clordWebChannel = {
+        ...window.clordWebChannel,
         replyTime: 'in_a_day',
       };
 

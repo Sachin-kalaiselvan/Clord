@@ -2,7 +2,7 @@ FactoryBot.define do
   factory :webhook do
     account_id { 1 }
     inbox_id { 1 }
-    url { 'https://api.Clord.com' }
+    url { 'https://api.clord.com' }
     name { 'My Webhook' }
     subscriptions do
       %w[

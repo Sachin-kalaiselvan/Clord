@@ -1,6 +1,6 @@
 {
   "LOGIN": {
-    "TITLE": "Inloggen bij Clord",
+    "TITLE": "Inloggen bij clord",
     "EMAIL": {
       "LABEL": "E-mailadres",
       "PLACEHOLDER": "example{'@'}companyname.com",

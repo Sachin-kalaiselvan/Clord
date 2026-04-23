@@ -87,7 +87,7 @@ module PortalHelper
   end
 
   def render_category_content(content)
-    ClordMarkdownRenderer.new(content).render_markdown_to_plain_text
+    clordMarkdownRenderer.new(content).render_markdown_to_plain_text
   end
 
   def thumbnail_bg_color(username)

@@ -1,7 +1,7 @@
 <script setup>
 import OverviewReportFilters from './OverviewReportFilters.vue';
 import Spinner from 'dashboard/components-next/spinner/Spinner.vue';
-import { formatTime } from '@Clord/utils';
+import { formatTime } from '@clord/utils';
 import { useStore, useMapGetter } from 'dashboard/composables/store';
 import { useAlert } from 'dashboard/composables';
 import Table from 'dashboard/components/table/Table.vue';

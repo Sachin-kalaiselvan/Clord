@@ -54,14 +54,14 @@ export const sendRegistrationToServer = subscription => {
 };
 
 export const registerSubscription = (onSuccess = () => {}) => {
-  if (!window.ClordConfig.vapidPublicKey) {
+  if (!window.clordConfig.vapidPublicKey) {
     return;
   }
   navigator.serviceWorker.ready
     .then(serviceWorkerRegistration =>
       serviceWorkerRegistration.pushManager.subscribe({
         userVisibleOnly: true,
-        applicationServerKey: window.ClordConfig.vapidPublicKey,
+        applicationServerKey: window.clordConfig.vapidPublicKey,
       })
     )
     .then(sendRegistrationToServer)

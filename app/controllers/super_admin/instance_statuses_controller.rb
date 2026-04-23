@@ -1,18 +1,18 @@
 class SuperAdmin::InstanceStatusesController < SuperAdmin::ApplicationController
   def show
     @metrics = {}
-    Clord_version
+    clord_version
     sha
     postgres_status
     redis_metrics
-    Clord_edition
+    clord_edition
     instance_meta
   end
 
-  def Clord_edition
-    @metrics['Clord edition'] = if ClordApp.enterprise?
+  def clord_edition
+    @metrics['clord edition'] = if clordApp.enterprise?
                                      'Enterprise'
-                                   elsif ClordApp.custom?
+                                   elsif clordApp.custom?
                                      'Custom'
                                    else
                                      'Community'
@@ -23,8 +23,8 @@ class SuperAdmin::InstanceStatusesController < SuperAdmin::ApplicationController
     @metrics['Database Migrations'] = ActiveRecord::Base.connection.migration_context.needs_migration? ? 'pending' : 'completed'
   end
 
-  def Clord_version
-    @metrics['Clord version'] = Clord.config[:version]
+  def clord_version
+    @metrics['clord version'] = clord.config[:version]
   end
 
   def sha

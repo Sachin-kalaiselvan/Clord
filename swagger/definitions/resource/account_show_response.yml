@@ -2,11 +2,11 @@ allOf:
   - $ref: '#/components/schemas/account_detail'
   - type: object
     properties:
-      latest_Clord_version:
+      latest_clord_version:
         type:
           - string
           - 'null'
-        description: Latest version of Clord available
+        description: Latest version of clord available
         example: "3.0.0"
       subscribed_features:
         type: array

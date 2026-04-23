@@ -85,7 +85,7 @@ export default {
   methods: {
     async copyLinkToMessage() {
       const fullConversationURL =
-        window.ClordConfig.hostURL +
+        window.clordConfig.hostURL +
         frontendURL(
           conversationUrl({
             id: this.conversationId,

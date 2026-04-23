@@ -4,14 +4,14 @@ import GroupedStackedChangelogCard from './GroupedStackedChangelogCard.vue';
 
 const sampleCards = [
   {
-    id: 'Clord-captain',
-    title: 'Clord Captain',
-    meta_title: 'Clord Captain',
+    id: 'clord-captain',
+    title: 'clord Captain',
+    meta_title: 'clord Captain',
     meta_description:
       'Watch how our latest feature can transform your workflow with powerful automation tools.',
-    slug: 'Clord-captain',
+    slug: 'clord-captain',
     feature_image:
-      'https://www.Clord.com/images/captain/captain_thumbnail.jpg',
+      'https://www.clord.com/images/captain/captain_thumbnail.jpg',
   },
   {
     id: 'smart-routing',
@@ -20,7 +20,7 @@ const sampleCards = [
     meta_description:
       'Screen bookers with intelligent forms and route them to the right team member.',
     slug: 'smart-routing',
-    feature_image: 'https://www.Clord.com/images/dashboard-dark.webp',
+    feature_image: 'https://www.clord.com/images/dashboard-dark.webp',
   },
   {
     id: 'instant-meetings',

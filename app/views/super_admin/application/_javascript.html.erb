@@ -21,7 +21,7 @@ by providing a `content_for(:javascript)` block.
 <% end %>
 
 <script>
-window.ClordSettings = {
+window.clordSettings = {
   hideMessageBubble: true,
 };
 
@@ -32,16 +32,16 @@ window.ClordSettings = {
   g.async = true;
   s.parentNode.insertBefore(g,s);
   g.onload=function(){
-    window.ClordSDK.run({
-      websiteToken: '<%= ClordHub.support_config[:support_website_token] %>',
-      baseUrl: '<%= ClordHub.support_config[:support_script_url] %>'
+    window.clordSDK.run({
+      websiteToken: '<%= clordHub.support_config[:support_website_token] %>',
+      baseUrl: '<%= clordHub.support_config[:support_script_url] %>'
     })
   }
 })(document,"script");
 
-window.addEventListener('Clord:ready', function() {
-  window.$Clord.setUser('<%= ClordHub.installation_identifier %>', {
-    identifier_hash: '<%= ClordHub.support_config[:support_identifier_hash] %>',
+window.addEventListener('clord:ready', function() {
+  window.$clord.setUser('<%= clordHub.installation_identifier %>', {
+    identifier_hash: '<%= clordHub.support_config[:support_identifier_hash] %>',
     email: '<%= SuperAdmin.first.email %>',
     name: '<%= SuperAdmin.first.name %>'
   });

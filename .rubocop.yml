@@ -42,7 +42,7 @@ Style/SymbolArray:
 Style/OpenStructUse:
   Enabled: false
 
-Clord/AttachmentDownload:
+clord/AttachmentDownload:
   Enabled: true
   Exclude:
     - 'spec/**/*'

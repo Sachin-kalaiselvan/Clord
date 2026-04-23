@@ -28,7 +28,7 @@ class Captain::Llm::ContactNotesService < Llm::BaseAiService
     end
     parse_response(response.content)
   rescue RubyLLM::Error => e
-    ClordExceptionTracker.new(e, account: @conversation.account).capture_exception
+    clordExceptionTracker.new(e, account: @conversation.account).capture_exception
     []
   end
 

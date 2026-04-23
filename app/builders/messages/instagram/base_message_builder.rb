@@ -190,7 +190,7 @@ class Messages::Instagram::BaseMessageBuilder < Messages::Messenger::MessageBuil
   end
 
   def handle_error(error)
-    ClordExceptionTracker.new(error, account: @inbox.account).capture_exception
+    clordExceptionTracker.new(error, account: @inbox.account).capture_exception
     true
   end
 

@@ -14,18 +14,18 @@ default: &default
 
 development:
   <<: *default
-  database: "<%= ENV.fetch('POSTGRES_DATABASE', 'Clord_dev') %>"
+  database: "<%= ENV.fetch('POSTGRES_DATABASE', 'clord_dev') %>"
   username: "<%= ENV.fetch('POSTGRES_USERNAME', 'postgres') %>"
   password: "<%= ENV.fetch('POSTGRES_PASSWORD', '') %>"
 
 test:
   <<: *default
-  database: "<%= ENV.fetch('POSTGRES_DATABASE', 'Clord_test') %>"
+  database: "<%= ENV.fetch('POSTGRES_DATABASE', 'clord_test') %>"
   username: "<%= ENV.fetch('POSTGRES_USERNAME', 'postgres') %>"
   password: "<%= ENV.fetch('POSTGRES_PASSWORD', '') %>"
 
 production:
   <<: *default
-  database: "<%= ENV.fetch('POSTGRES_DATABASE', 'Clord_production') %>"
-  username: "<%= ENV.fetch('POSTGRES_USERNAME', 'Clord_prod') %>"
-  password: "<%= ENV.fetch('POSTGRES_PASSWORD', 'Clord_prod') %>"
+  database: "<%= ENV.fetch('POSTGRES_DATABASE', 'clord_production') %>"
+  username: "<%= ENV.fetch('POSTGRES_USERNAME', 'clord_prod') %>"
+  password: "<%= ENV.fetch('POSTGRES_PASSWORD', 'clord_prod') %>"

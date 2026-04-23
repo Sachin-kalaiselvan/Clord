@@ -2,7 +2,7 @@
 
 require 'pathname'
 
-module ClordApp
+module clordApp
   def self.root
     Pathname.new(File.expand_path('..', __dir__))
   end
@@ -17,12 +17,12 @@ module ClordApp
     @enterprise ||= root.join('enterprise').exist?
   end
 
-  def self.Clord_cloud?
+  def self.clord_cloud?
     enterprise? && GlobalConfig.get_value('DEPLOYMENT_ENV') == 'cloud'
   end
 
   def self.self_hosted_enterprise?
-    enterprise? && !Clord_cloud? && GlobalConfig.get_value('INSTALLATION_PRICING_PLAN') == 'enterprise'
+    enterprise? && !clord_cloud? && GlobalConfig.get_value('INSTALLATION_PRICING_PLAN') == 'enterprise'
   end
 
   def self.custom?

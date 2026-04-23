@@ -12,7 +12,7 @@ const formatCustomDomain = customDomain =>
  * @throws {Error} If no valid base URL is found
  */
 const getDefaultBaseURL = () => {
-  const { hostURL, helpCenterURL } = window.ClordConfig || {};
+  const { hostURL, helpCenterURL } = window.clordConfig || {};
   const baseURL = helpCenterURL || hostURL || '';
 
   if (!baseURL) {

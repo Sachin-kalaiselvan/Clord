@@ -1,4 +1,4 @@
-import { parseBoolean } from '@Clord/utils';
+import { parseBoolean } from '@clord/utils';
 import { resolveMaximumFileUploadSize } from 'shared/helpers/FileHelper';
 
 const {
@@ -7,7 +7,7 @@ const {
   APP_VERSION: appVersion,
   AZURE_APP_ID: azureAppId,
   BRAND_NAME: brandName,
-  Clord_INBOX_TOKEN: ClordInboxToken,
+  clord_INBOX_TOKEN: clordInboxToken,
   CREATE_NEW_ACCOUNT_FROM_DASHBOARD: createNewAccountFromDashboard,
   DIRECT_UPLOADS_ENABLED: directUploadsEnabled,
   DISPLAY_MANIFEST: displayManifest,
@@ -32,7 +32,7 @@ const state = {
   appVersion,
   azureAppId,
   brandName,
-  ClordInboxToken,
+  clordInboxToken,
   deploymentEnv,
   createNewAccountFromDashboard,
   directUploadsEnabled: parseBoolean(directUploadsEnabled),
@@ -53,9 +53,9 @@ const state = {
 
 export const getters = {
   get: $state => $state,
-  isOnClordCloud: $state => $state.deploymentEnv === 'cloud',
-  isACustomBrandedInstance: $state => $state.installationName !== 'Clord',
-  isAClordInstance: $state => $state.installationName === 'Clord',
+  isOnclordCloud: $state => $state.deploymentEnv === 'cloud',
+  isACustomBrandedInstance: $state => $state.installationName !== 'clord',
+  isAclordInstance: $state => $state.installationName === 'clord',
 };
 
 export const actions = {};

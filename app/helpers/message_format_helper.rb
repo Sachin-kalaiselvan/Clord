@@ -11,6 +11,6 @@ module MessageFormatHelper
   end
 
   def render_message_content(message_content)
-    ClordMarkdownRenderer.new(message_content).render_message
+    clordMarkdownRenderer.new(message_content).render_message
   end
 end

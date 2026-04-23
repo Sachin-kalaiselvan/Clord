@@ -1,6 +1,6 @@
 <script>
 import { mapGetters } from 'vuex';
-import { getContrastingTextColor } from '@Clord/utils';
+import { getContrastingTextColor } from '@clord/utils';
 import { IFrameHelper } from 'widget/helpers/utils';
 
 export default {

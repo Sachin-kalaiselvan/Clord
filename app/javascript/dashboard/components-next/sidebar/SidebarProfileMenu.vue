@@ -39,8 +39,8 @@ const showChatSupport = computed(() => {
   return (
     isFeatureEnabledonAccount.value(
       accountId.value,
-      FEATURE_FLAGS.CONTACT_Clord_SUPPORT_TEAM
-    ) && globalConfig.value.ClordInboxToken
+      FEATURE_FLAGS.CONTACT_clord_SUPPORT_TEAM
+    ) && globalConfig.value.clordInboxToken
   );
 });
 
@@ -52,7 +52,7 @@ const menuItems = computed(() => {
       label: t('SIDEBAR_ITEMS.CONTACT_SUPPORT'),
       icon: 'i-lucide-life-buoy',
       click: () => {
-        window.$Clord.toggle();
+        window.$clord.toggle();
       },
     },
     {
@@ -86,7 +86,7 @@ const menuItems = computed(() => {
       showOnCustomBrandedInstance: false,
       label: t('SIDEBAR_ITEMS.DOCS'),
       icon: 'i-lucide-book',
-      link: 'https://www.Clord.com/hc/user-guide/en',
+      link: 'https://www.clord.com/hc/user-guide/en',
       nativeLink: true,
       target: '_blank',
     },
@@ -95,7 +95,7 @@ const menuItems = computed(() => {
       showOnCustomBrandedInstance: false,
       label: t('SIDEBAR_ITEMS.CHANGELOG'),
       icon: 'i-lucide-scroll-text',
-      link: 'https://www.Clord.com/changelog/',
+      link: 'https://www.clord.com/changelog/',
       nativeLink: true,
       target: '_blank',
     },

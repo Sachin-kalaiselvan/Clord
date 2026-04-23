@@ -28,12 +28,12 @@ describe('#FBChannel', () => {
     });
 
     it('#create', () => {
-      fbChannel.create({ omniauthToken: 'ASFM131CSF@#@$', appId: 'Clord' });
+      fbChannel.create({ omniauthToken: 'ASFM131CSF@#@$', appId: 'clord' });
       expect(axiosMock.post).toHaveBeenCalledWith(
         '/api/v1/callbacks/register_facebook_page',
         {
           omniauthToken: 'ASFM131CSF@#@$',
-          appId: 'Clord',
+          appId: 'clord',
         }
       );
     });

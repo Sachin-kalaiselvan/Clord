@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { evaluateSLAStatus } from '@Clord/utils';
+import { evaluateSLAStatus } from '@clord/utils';
 import SLAPopoverCard from './SLAPopoverCard.vue';
 
 const props = defineProps({

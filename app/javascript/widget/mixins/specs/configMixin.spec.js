@@ -21,7 +21,7 @@ const preChatFields = [
   },
 ];
 
-global.ClordWebChannel = {
+global.clordWebChannel = {
   avatarUrl: 'https://test.url',
   hasAConnectedAgentBot: 'AgentBot',
   enabledFeatures: [
@@ -40,7 +40,7 @@ describe('configMixin', () => {
       mixins: [configMixin],
       data() {
         return {
-          channelConfig: reactive(global.ClordWebChannel),
+          channelConfig: reactive(global.clordWebChannel),
         };
       },
       template: '<div />', // Render a simple div as the template

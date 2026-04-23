@@ -7,7 +7,7 @@ import { useVuelidate } from '@vuelidate/core';
 import { useRoute } from 'vue-router';
 import { useAlert, useTrack } from 'dashboard/composables';
 import ContactAPI from 'dashboard/api/contacts';
-import { debounce } from '@Clord/utils';
+import { debounce } from '@clord/utils';
 import { CONTACTS_EVENTS } from 'dashboard/helper/AnalyticsHelper/events';
 
 import Button from 'dashboard/components-next/button/Button.vue';

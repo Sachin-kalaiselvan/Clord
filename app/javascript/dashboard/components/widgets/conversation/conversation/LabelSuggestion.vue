@@ -237,7 +237,7 @@ export default {
             hideOnClick: true,
           }"
           :size="16"
-          name="Clord-ai"
+          name="clord-ai"
           icon-name="i-lucide-sparkles"
         />
       </div>

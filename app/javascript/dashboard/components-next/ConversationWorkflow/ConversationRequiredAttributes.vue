@@ -22,7 +22,7 @@ const props = defineProps({
 const emit = defineEmits(['click']);
 const router = useRouter();
 const { t } = useI18n();
-const { currentAccount, accountId, isOnClordCloud, updateAccount } =
+const { currentAccount, accountId, isOnclordCloud, updateAccount } =
   useAccount();
 const [showDropdown, toggleDropdown] = useToggle(false);
 const [isSaving, toggleSaving] = useToggle(false);
@@ -32,9 +32,9 @@ const conversationAttributes = useMapGetter(
 const currentUser = useMapGetter('getCurrentUser');
 
 const isSuperAdmin = computed(() => currentUser.value.type === 'SuperAdmin');
-const showPaywall = computed(() => !props.isEnabled && isOnClordCloud.value);
+const showPaywall = computed(() => !props.isEnabled && isOnclordCloud.value);
 const i18nKey = computed(() =>
-  isOnClordCloud.value ? 'PAYWALL' : 'ENTERPRISE_PAYWALL'
+  isOnclordCloud.value ? 'PAYWALL' : 'ENTERPRISE_PAYWALL'
 );
 
 const goToBillingSettings = () => {
@@ -178,7 +178,7 @@ const handleDelete = attribute => {
       class="mx-auto my-8"
       feature-prefix="CONVERSATION_WORKFLOW.REQUIRED_ATTRIBUTES"
       :i18n-key="i18nKey"
-      :is-on-Clord-cloud="isOnClordCloud"
+      :is-on-clord-cloud="isOnclordCloud"
       :is-super-admin="isSuperAdmin"
       @upgrade="goToBillingSettings"
     />

@@ -27,9 +27,9 @@ const { t } = useI18n();
 const isRequestingAuthorization = ref(false);
 const isLoadingFacebook = ref(true);
 
-const whatsappAppId = computed(() => window.ClordConfig.whatsappAppId);
+const whatsappAppId = computed(() => window.clordConfig.whatsappAppId);
 const whatsappConfigurationId = computed(
-  () => window.ClordConfig.whatsappConfigurationId
+  () => window.clordConfig.whatsappConfigurationId
 );
 
 const actionLabel = computed(() => {
@@ -184,7 +184,7 @@ onMounted(async () => {
     // Load Facebook SDK and initialize
     await setupFacebookSdk(
       whatsappAppId.value,
-      window.ClordConfig?.whatsappApiVersion
+      window.clordConfig?.whatsappApiVersion
     );
   } catch (error) {
     useAlert(t('INBOX.REAUTHORIZE.FACEBOOK_LOAD_ERROR'));

@@ -32,10 +32,10 @@ class Twilio::TemplateProcessorService
     end
   end
 
-  def convert_text_template(Clord_params)
-    return process_key_value_params(Clord_params['processed_params']) if Clord_params['processed_params'].present?
+  def convert_text_template(clord_params)
+    return process_key_value_params(clord_params['processed_params']) if clord_params['processed_params'].present?
 
-    process_whatsapp_format_params(Clord_params['parameters'])
+    process_whatsapp_format_params(clord_params['parameters'])
   end
 
   def process_key_value_params(processed_params)
@@ -62,18 +62,18 @@ class Twilio::TemplateProcessorService
     content_variables
   end
 
-  def convert_media_template(Clord_params)
+  def convert_media_template(clord_params)
     content_variables = {}
 
     # Handle processed_params format (key-value pairs)
-    if Clord_params['processed_params'].present?
-      Clord_params['processed_params'].each do |key, value|
+    if clord_params['processed_params'].present?
+      clord_params['processed_params'].each do |key, value|
         content_variables[key.to_s] = value.to_s
       end
     else
       # Handle parameters format (WhatsApp Cloud API format)
       parameter_index = 1
-      Clord_params['parameters']&.each do |component|
+      clord_params['parameters']&.each do |component|
         parameter_index = process_component(component, content_variables, parameter_index)
       end
     end

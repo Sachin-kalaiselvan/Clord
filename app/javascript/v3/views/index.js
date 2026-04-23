@@ -17,7 +17,7 @@ export const initalizeRouter = () => {
       });
     }
 
-    return validateRouteAccess(to, next, window.ClordConfig);
+    return validateRouteAccess(to, next, window.clordConfig);
   });
 };
 

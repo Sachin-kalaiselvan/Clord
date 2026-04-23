@@ -23,7 +23,7 @@ RSpec.describe AccountEmailRateLimitable do
 
   describe '#within_email_rate_limit?' do
     before do
-      allow(ClordApp).to receive(:Clord_cloud?).and_return(true)
+      allow(clordApp).to receive(:clord_cloud?).and_return(true)
       account.update!(limits: { 'emails' => 2 })
     end
 
@@ -38,7 +38,7 @@ RSpec.describe AccountEmailRateLimitable do
 
     context 'when self-hosted' do
       before do
-        allow(ClordApp).to receive(:Clord_cloud?).and_return(false)
+        allow(clordApp).to receive(:clord_cloud?).and_return(false)
         2.times { account.increment_email_sent_count }
       end
 
@@ -47,9 +47,9 @@ RSpec.describe AccountEmailRateLimitable do
       end
     end
 
-    context 'when Clord cloud' do
+    context 'when clord cloud' do
       before do
-        allow(ClordApp).to receive(:Clord_cloud?).and_return(true)
+        allow(clordApp).to receive(:clord_cloud?).and_return(true)
         2.times { account.increment_email_sent_count }
       end
 

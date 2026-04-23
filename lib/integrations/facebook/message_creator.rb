@@ -15,16 +15,16 @@ class Integrations::Facebook::MessageCreator
       create_contact_message
     end
     # rescue => e
-    # ClordExceptionTracker.new(e).capture_exception
+    # clordExceptionTracker.new(e).capture_exception
     # end
   end
 
   private
 
   def agent_message_via_echo?
-    # TODO : check and remove send_from_Clord_app if not working
-    response.echo? && !response.sent_from_Clord_app?
-    # this means that it is an agent message from page, but not sent from Clord.
+    # TODO : check and remove send_from_clord_app if not working
+    response.echo? && !response.sent_from_clord_app?
+    # this means that it is an agent message from page, but not sent from clord.
     # User can send from fb page directly on mobile / web messenger, so this case should be handled as agent message
   end
 

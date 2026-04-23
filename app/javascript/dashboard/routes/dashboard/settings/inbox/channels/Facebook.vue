@@ -122,9 +122,9 @@ export default {
 
     runFBInit() {
       FB.init({
-        appId: window.ClordConfig.fbAppId,
+        appId: window.clordConfig.fbAppId,
         xfbml: true,
-        version: window.ClordConfig.fbApiVersion,
+        version: window.clordConfig.fbApiVersion,
         status: true,
       });
       window.fbSDKLoaded = true;

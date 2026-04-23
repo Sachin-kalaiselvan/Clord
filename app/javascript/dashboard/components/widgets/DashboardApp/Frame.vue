@@ -61,7 +61,7 @@ export default {
   methods: {
     triggerEvent(event) {
       if (!this.isVisible) return;
-      if (event.data === 'Clord-dashboard-app:fetch-info') {
+      if (event.data === 'clord-dashboard-app:fetch-info') {
         this.onIframeLoad(0);
       }
     },

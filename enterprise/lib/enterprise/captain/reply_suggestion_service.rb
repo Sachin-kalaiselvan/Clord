@@ -8,7 +8,7 @@ module Enterprise::Captain::ReplySuggestionService
   private
 
   def use_search_tool?
-    ClordApp.Clord_cloud? || ClordApp.self_hosted_enterprise?
+    clordApp.clord_cloud? || clordApp.self_hosted_enterprise?
   end
 
   def prompt_variables

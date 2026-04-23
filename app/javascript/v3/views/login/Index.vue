@@ -85,16 +85,16 @@ export default {
   computed: {
     ...mapGetters({ globalConfig: 'globalConfig/get' }),
     allowedLoginMethods() {
-      return window.ClordConfig.allowedLoginMethods || ['email'];
+      return window.clordConfig.allowedLoginMethods || ['email'];
     },
     showGoogleOAuth() {
       return (
         this.allowedLoginMethods.includes('google_oauth') &&
-        Boolean(window.ClordConfig.googleOAuthClientId)
+        Boolean(window.clordConfig.googleOAuthClientId)
       );
     },
     showSignupLink() {
-      return window.ClordConfig.signupEnabled === 'true';
+      return window.clordConfig.signupEnabled === 'true';
     },
     showSamlLogin() {
       return this.allowedLoginMethods.includes('saml');

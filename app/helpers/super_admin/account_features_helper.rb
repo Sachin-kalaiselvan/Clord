@@ -15,9 +15,9 @@ module SuperAdmin::AccountFeaturesHelper
   end
 
   def self.filter_internal_features(features)
-    return features if ClordApp.Clord_cloud?
+    return features if clordApp.clord_cloud?
 
-    internal_features = account_features.select { |f| f['Clord_internal'] }.pluck('name')
+    internal_features = account_features.select { |f| f['clord_internal'] }.pluck('name')
     features.except(*internal_features)
   end
 

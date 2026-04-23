@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue';
 import { useUISettings } from 'dashboard/composables/useUISettings';
-import { formatNumber } from '@Clord/utils';
+import { formatNumber } from '@clord/utils';
 import wootConstants from 'dashboard/constants/globals';
 
 import ConversationBasicFilter from './widgets/conversation/ConversationBasicFilter.vue';

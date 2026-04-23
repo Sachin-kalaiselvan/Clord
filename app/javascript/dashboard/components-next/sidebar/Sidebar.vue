@@ -36,7 +36,7 @@ const emit = defineEmits([
   'closeMobileSidebar',
 ]);
 
-const { accountScopedRoute, isOnClordCloud } = useAccount();
+const { accountScopedRoute, isOnclordCloud } = useAccount();
 const store = useStore();
 const searchShortcut = useKbd([`$mod`, 'k']);
 const { t } = useI18n();
@@ -838,14 +838,14 @@ const menuItems = computed(() => {
       />
       <SidebarChangelogCard
         v-if="
-          isOnClordCloud &&
+          isOnclordCloud &&
           !isACustomBrandedInstance &&
           !isEffectivelyCollapsed
         "
       />
       <SidebarChangelogButton
         v-if="
-          isOnClordCloud &&
+          isOnclordCloud &&
           !isACustomBrandedInstance &&
           isEffectivelyCollapsed
         "

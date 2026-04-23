@@ -6,14 +6,14 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  isOnClordCloud: {
+  isOnclordCloud: {
     type: Boolean,
     default: false,
   },
 });
 
 const emit = defineEmits(['upgrade']);
-const i18nKey = props.isOnClordCloud ? 'PAYWALL' : 'ENTERPRISE_PAYWALL';
+const i18nKey = props.isOnclordCloud ? 'PAYWALL' : 'ENTERPRISE_PAYWALL';
 </script>
 
 <template>
@@ -21,7 +21,7 @@ const i18nKey = props.isOnClordCloud ? 'PAYWALL' : 'ENTERPRISE_PAYWALL';
     <BasePaywallModal
       feature-prefix="SLA"
       :i18n-key="i18nKey"
-      :is-on-Clord-cloud="isOnClordCloud"
+      :is-on-clord-cloud="isOnclordCloud"
       :is-super-admin="isSuperAdmin"
       @upgrade="emit('upgrade')"
     />

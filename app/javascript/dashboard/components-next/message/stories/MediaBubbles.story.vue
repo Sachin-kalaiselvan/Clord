@@ -29,7 +29,7 @@ const getMessage = overrides => {
 
   return {
     id: 5272,
-    content: 'Hey, how are ya, I had a few questions about Clord?',
+    content: 'Hey, how are ya, I had a few questions about clord?',
     inboxId: 475,
     conversationId: 43,
     messageType: 0,
@@ -87,7 +87,7 @@ const audioMessage = computed(() =>
 const brokenImageMessage = computed(() =>
   getMessage({
     content: null,
-    attachments: [getAttachment('image', 'https://Clord.dev/broken.png')],
+    attachments: [getAttachment('image', 'https://clord.dev/broken.png')],
     ...baseSenderData.value,
   })
 );
@@ -122,7 +122,7 @@ const attachmentsOnly = computed(() =>
   getMessage({
     content: null,
     attachments: [
-      getAttachment('image', 'https://Clord.dev/broken.png'),
+      getAttachment('image', 'https://clord.dev/broken.png'),
       getAttachment(
         'video',
         'https://videos.pexels.com/video-files/1739010/1739010-hd_1920_1080_30fps.mp4'
@@ -131,13 +131,13 @@ const attachmentsOnly = computed(() =>
         'image',
         'https://images.pexels.com/photos/28506417/pexels-photo-28506417/free-photo-of-motorbike-on-scenic-road-in-surat-thani-thailand.jpeg'
       ),
-      getAttachment('file', 'https://Clord.dev/invoice.pdf'),
-      getAttachment('file', 'https://Clord.dev/logs.txt'),
-      getAttachment('file', 'https://Clord.dev/contacts.xls'),
-      getAttachment('file', 'https://Clord.dev/customers.csv'),
-      getAttachment('file', 'https://Clord.dev/warehousing-policy.docx'),
-      getAttachment('file', 'https://Clord.dev/pitch-deck.ppt'),
-      getAttachment('file', 'https://Clord.dev/all-files.tar'),
+      getAttachment('file', 'https://clord.dev/invoice.pdf'),
+      getAttachment('file', 'https://clord.dev/logs.txt'),
+      getAttachment('file', 'https://clord.dev/contacts.xls'),
+      getAttachment('file', 'https://clord.dev/customers.csv'),
+      getAttachment('file', 'https://clord.dev/warehousing-policy.docx'),
+      getAttachment('file', 'https://clord.dev/pitch-deck.ppt'),
+      getAttachment('file', 'https://clord.dev/all-files.tar'),
       getAttachment(
         'audio',
         'https://cdn.freesound.org/previews/769/769025_16085454-lq.mp3'
@@ -150,7 +150,7 @@ const attachmentsOnly = computed(() =>
 const singleFile = computed(() =>
   getMessage({
     content: null,
-    attachments: [getAttachment('file', 'https://Clord.dev/all-files.tar')],
+    attachments: [getAttachment('file', 'https://clord.dev/all-files.tar')],
     ...baseSenderData.value,
   })
 );
@@ -174,7 +174,7 @@ const location = computed(() =>
       getAttachment('location', null, {
         coordinatesLat: 37.7937545,
         coordinatesLong: -122.3997472,
-        fallbackTitle: 'Clord Inc',
+        fallbackTitle: 'clord Inc',
       }),
     ],
     ...baseSenderData.value,

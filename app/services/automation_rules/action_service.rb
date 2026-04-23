@@ -13,7 +13,7 @@ class AutomationRules::ActionService < ActionService
       begin
         send(action[:action_name], action[:action_params])
       rescue StandardError => e
-        ClordExceptionTracker.new(e, account: @account).capture_exception
+        clordExceptionTracker.new(e, account: @account).capture_exception
       end
     end
   ensure

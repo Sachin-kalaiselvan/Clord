@@ -1,7 +1,7 @@
 import {
   ANALYTICS_IDENTITY,
-  Clord_RESET,
-  Clord_SET_USER,
+  clord_RESET,
+  clord_SET_USER,
 } from '../constants/appEvents';
 import AnalyticsHelper from './AnalyticsHelper';
 import DashboardAudioNotificationHelper from './AudioAlerts/DashboardAudioNotificationHelper';
@@ -34,21 +34,21 @@ export const initializeAudioAlerts = user => {
   });
 };
 
-export const initializeClordEvents = () => {
-  emitter.on(Clord_RESET, () => {
-    if (window.$Clord) {
-      window.$Clord.reset();
+export const initializeclordEvents = () => {
+  emitter.on(clord_RESET, () => {
+    if (window.$clord) {
+      window.$clord.reset();
     }
   });
-  emitter.on(Clord_SET_USER, ({ user }) => {
-    if (window.$Clord) {
-      window.$Clord.setUser(user.email, {
+  emitter.on(clord_SET_USER, ({ user }) => {
+    if (window.$clord) {
+      window.$clord.setUser(user.email, {
         avatar_url: user.avatar_url,
         email: user.email,
         identifier_hash: user.hmac_identifier,
         name: user.name,
       });
-      window.$Clord.setCustomAttributes({
+      window.$clord.setCustomAttributes({
         signedUpAt: user.created_at,
         cloudCustomer: 'true',
         account_id: user.account_id,

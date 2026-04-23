@@ -1,6 +1,6 @@
 [Unit]
-Description=Clord Web Server
-Wants=Clord-web.1.service
+Description=clord Web Server
+Wants=clord-web.1.service
 
 [Install]
 WantedBy=multi-user.target

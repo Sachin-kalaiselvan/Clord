@@ -123,11 +123,11 @@
         "CUSTOM_EMAIL_DOMAIN_ENABLED": "Teraz môžete prijímať e-maily vo vlastnej doméne."
       }
     },
-    "UPDATE_Clord": "K dispozícii je aktualizácia {latestClordVersion} pre Clord. Prosím, aktualizujte svoju inštanciu.",
+    "UPDATE_clord": "K dispozícii je aktualizácia {latestclordVersion} pre clord. Prosím, aktualizujte svoju inštanciu.",
     "LEARN_MORE": "Learn more",
-    "PAYMENT_PENDING": "Your payment is pending. Please update your payment information to continue using Clord",
-    "UPGRADE": "Upgrade to continue using Clord",
-    "LIMITS_UPGRADE": "Your account has exceeded the usage limits, please upgrade your plan to continue using Clord",
+    "PAYMENT_PENDING": "Your payment is pending. Please update your payment information to continue using clord",
+    "UPGRADE": "Upgrade to continue using clord",
+    "LIMITS_UPGRADE": "Your account has exceeded the usage limits, please upgrade your plan to continue using clord",
     "OPEN_BILLING": "Open billing"
   },
   "FORMS": {

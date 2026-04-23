@@ -2,7 +2,7 @@ import { createApp } from 'vue';
 import VueDOMPurifyHTML from 'vue-dompurify-html';
 import { domPurifyConfig } from '../shared/helpers/HTMLSanitizer';
 import { directive as onClickaway } from 'vue3-click-away';
-import { isSameHost } from '@Clord/utils';
+import { isSameHost } from '@clord/utils';
 
 import slugifyWithCounter from '@sindresorhus/slugify';
 import PublicArticleSearch from './components/PublicArticleSearch.vue';

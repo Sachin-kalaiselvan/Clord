@@ -20,4 +20,4 @@ jobs:
     - name: Build the Codespace Base Image
       run: |
         docker compose -f .devcontainer/docker-compose.base.yml build base
-        docker push ghcr.io/Clord/Clord_codespace:latest
+        docker push ghcr.io/clord/clord_codespace:latest

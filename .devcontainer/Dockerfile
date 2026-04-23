@@ -1,8 +1,8 @@
 # The below image is created out of the Dockerfile.base
 # It has the dependencies already installed so that codespace will boot up fast
-FROM ghcr.io/Clord/Clord_codespace:latest
+FROM ghcr.io/clord/clord_codespace:latest
 
-# Do the set up required for Clord app
+# Do the set up required for clord app
 WORKDIR /workspace
 
 # Copy dependency files first for better caching

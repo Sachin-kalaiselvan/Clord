@@ -14,7 +14,7 @@ const router = useRouter();
 const i18n = useI18n();
 const { prefersDarkMode } = useDarkMode();
 
-const portal = computed(() => window.ClordWebChannel.portal);
+const portal = computed(() => window.clordWebChannel.portal);
 
 const popularArticles = useMapGetter('article/popularArticles');
 const articleUiFlags = useMapGetter('article/uiFlags');
@@ -52,7 +52,7 @@ const openArticleInArticleViewer = link => {
 const viewAllArticles = () => {
   const {
     portal: { slug },
-  } = window.ClordWebChannel;
+  } = window.clordWebChannel;
   openArticleInArticleViewer(`/hc/${slug}/${locale.value}`);
 };
 

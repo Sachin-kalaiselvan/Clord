@@ -1,4 +1,4 @@
-class ClordMarkdownRenderer
+class clordMarkdownRenderer
   def initialize(content)
     @content = content
   end

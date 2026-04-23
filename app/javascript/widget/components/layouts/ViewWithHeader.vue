@@ -20,7 +20,7 @@ export default {
       showPopoutButton: false,
       scrollPosition: 0,
       ticking: true,
-      disableBranding: window.ClordWebChannel.disableBranding || false,
+      disableBranding: window.clordWebChannel.disableBranding || false,
       requestID: null,
     };
   },
@@ -30,7 +30,7 @@ export default {
       availableAgents: 'agent/availableAgents',
     }),
     portal() {
-      return window.ClordWebChannel.portal;
+      return window.clordWebChannel.portal;
     },
     isHeaderCollapsed() {
       if (!this.hasIntroText) {

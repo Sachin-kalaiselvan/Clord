@@ -28,9 +28,9 @@ module Redis::RedisKeys
   REAUTHORIZATION_REQUIRED =  'REAUTHORIZATION_REQUIRED:%<obj_type>s:%<obj_id>d'.freeze
 
   ## Internal Installation related keys
-  Clord_INSTALLATION_ONBOARDING = 'Clord_INSTALLATION_ONBOARDING'.freeze
-  Clord_INSTALLATION_CONFIG_RESET_WARNING = 'Clord_CONFIG_RESET_WARNING'.freeze
-  LATEST_Clord_VERSION = 'LATEST_Clord_VERSION'.freeze
+  clord_INSTALLATION_ONBOARDING = 'clord_INSTALLATION_ONBOARDING'.freeze
+  clord_INSTALLATION_CONFIG_RESET_WARNING = 'clord_CONFIG_RESET_WARNING'.freeze
+  LATEST_clord_VERSION = 'LATEST_clord_VERSION'.freeze
   # Check if a message create with same source-id is in progress?
   MESSAGE_SOURCE_KEY = 'MESSAGE_SOURCE_KEY::%<id>s'.freeze
   OPENAI_CONVERSATION_KEY = 'OPEN_AI_CONVERSATION_KEY::V1::%<event_name>s::%<conversation_id>d::%<updated_at>d'.freeze

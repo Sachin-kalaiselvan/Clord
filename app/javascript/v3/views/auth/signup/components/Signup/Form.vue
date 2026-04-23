@@ -54,21 +54,21 @@ const globalConfig = computed(() => store.getters['globalConfig/get']);
 
 const termsLink = computed(() =>
   t('REGISTER.TERMS_ACCEPT')
-    .replace('https://www.Clord.com/terms', globalConfig.value.termsURL)
+    .replace('https://www.clord.com/terms', globalConfig.value.termsURL)
     .replace(
-      'https://www.Clord.com/privacy-policy',
+      'https://www.clord.com/privacy-policy',
       globalConfig.value.privacyURL
     )
 );
 
 const allowedLoginMethods = computed(
-  () => window.ClordConfig.allowedLoginMethods || ['email']
+  () => window.clordConfig.allowedLoginMethods || ['email']
 );
 
 const showGoogleOAuth = computed(
   () =>
     allowedLoginMethods.value.includes('google_oauth') &&
-    Boolean(window.ClordConfig.googleOAuthClientId)
+    Boolean(window.clordConfig.googleOAuthClientId)
 );
 
 const isFormValid = computed(() => !v$.value.$invalid);

@@ -1,7 +1,7 @@
-export const Clord_ERROR = 'Clord:error';
-export const Clord_ON_MESSAGE = 'Clord:on-message';
-export const Clord_ON_START_CONVERSATION = 'Clord:on-start-conversation';
-export const Clord_POSTBACK = 'Clord:postback';
-export const Clord_READY = 'Clord:ready';
-export const Clord_OPENED = 'Clord:opened';
-export const Clord_CLOSED = 'Clord:closed';
+export const clord_ERROR = 'clord:error';
+export const clord_ON_MESSAGE = 'clord:on-message';
+export const clord_ON_START_CONVERSATION = 'clord:on-start-conversation';
+export const clord_POSTBACK = 'clord:postback';
+export const clord_READY = 'clord:ready';
+export const clord_OPENED = 'clord:opened';
+export const clord_CLOSED = 'clord:closed';

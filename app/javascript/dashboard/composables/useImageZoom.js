@@ -4,7 +4,7 @@ import {
   calculateCenterOffset,
   applyRotationTransform,
   normalizeToPercentage,
-} from '@Clord/utils';
+} from '@clord/utils';
 
 // Composable for images in gallery view
 export const useImageZoom = imageRef => {

@@ -1,10 +1,10 @@
 # #
-# # This action will publish Clord EE docker image.
+# # This action will publish clord EE docker image.
 # # This is set to run against merges to develop, master
 # # and when tags are created.
 # #
 
-name: Publish Clord EE docker images
+name: Publish clord EE docker images
 
 on:
   push:
@@ -16,7 +16,7 @@ on:
   workflow_dispatch:
 
 env:
-  DOCKER_REPO: Clord/Clord
+  DOCKER_REPO: clord/clord
 
 jobs:
   build:
@@ -40,7 +40,7 @@ jobs:
           platform=${{ matrix.platform }}
           echo "PLATFORM_PAIR=${platform//\//-}" >> $GITHUB_ENV
 
-      - name: Set Clord edition
+      - name: Set clord edition
         run: |
           echo -en '\nENV CW_EDITION="ee"' >> docker/Dockerfile
 

@@ -235,10 +235,10 @@ describe PortalHelper do
   describe '#render_category_content' do
     let(:markdown_content) { 'This is a *test* markdown content' }
     let(:plain_text_content) { 'This is a test markdown content' }
-    let(:renderer) { instance_double(ClordMarkdownRenderer) }
+    let(:renderer) { instance_double(clordMarkdownRenderer) }
 
     before do
-      allow(ClordMarkdownRenderer).to receive(:new).with(markdown_content).and_return(renderer)
+      allow(clordMarkdownRenderer).to receive(:new).with(markdown_content).and_return(renderer)
       allow(renderer).to receive(:render_markdown_to_plain_text).and_return(plain_text_content)
     end
 
@@ -260,8 +260,8 @@ describe PortalHelper do
   end
 
   describe '#set_og_image_url' do
-    let(:portal_name) { 'Clord Portal' }
-    let(:title) { 'Welcome to Clord' }
+    let(:portal_name) { 'clord Portal' }
+    let(:title) { 'Welcome to clord' }
 
     context 'when CDN URL is present' do
       before do
@@ -294,24 +294,24 @@ describe PortalHelper do
 
   describe '#generate_portal_brand_url' do
     it 'builds URL with UTM params and referer host as source (happy path)' do
-      result = helper.generate_portal_brand_url('https://brand.example.com', 'https://app.Clord.com/some/page')
+      result = helper.generate_portal_brand_url('https://brand.example.com', 'https://app.clord.com/some/page')
       uri = URI.parse(result)
       params = Rack::Utils.parse_query(uri.query)
       expect(uri.scheme).to eq('https')
       expect(uri.host).to eq('brand.example.com')
       expect(params['utm_medium']).to eq('helpcenter')
       expect(params['utm_campaign']).to eq('branding')
-      expect(params['utm_source']).to eq('app.Clord.com')
+      expect(params['utm_source']).to eq('app.clord.com')
     end
 
     it 'returns utm string when brand_url is nil or empty' do
       expect(helper.generate_portal_brand_url(nil,
-                                              'https://app.Clord.com')).to eq(
-                                                '?utm_campaign=branding&utm_medium=helpcenter&utm_source=app.Clord.com'
+                                              'https://app.clord.com')).to eq(
+                                                '?utm_campaign=branding&utm_medium=helpcenter&utm_source=app.clord.com'
                                               )
       expect(helper.generate_portal_brand_url('',
-                                              'https://app.Clord.com')).to eq(
-                                                '?utm_campaign=branding&utm_medium=helpcenter&utm_source=app.Clord.com'
+                                              'https://app.clord.com')).to eq(
+                                                '?utm_campaign=branding&utm_medium=helpcenter&utm_source=app.clord.com'
                                               )
     end
 

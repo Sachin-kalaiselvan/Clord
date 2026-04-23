@@ -1,10 +1,10 @@
 # #
-# # This action will publish Clord CE docker image.
+# # This action will publish clord CE docker image.
 # # This is set to run against merges to develop, master
 # # and when tags are created.
 # #
 
-name: Publish Clord CE docker images
+name: Publish clord CE docker images
 
 on:
   push:
@@ -16,7 +16,7 @@ on:
   workflow_dispatch:
 
 env:
-  DOCKER_REPO: Clord/Clord
+  DOCKER_REPO: clord/clord
 
 jobs:
   build:
@@ -45,7 +45,7 @@ jobs:
           rm -rf enterprise
           rm -rf spec/enterprise
 
-      - name: Set Clord edition
+      - name: Set clord edition
         run: |
           echo -en '\nENV CW_EDITION="ce"' >> docker/Dockerfile
 

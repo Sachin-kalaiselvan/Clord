@@ -7,15 +7,15 @@ import {
   ArticleMarkdownTransformer,
   EditorState,
   Selection,
-} from '@Clord/prosemirror-schema';
+} from '@clord/prosemirror-schema';
 import {
   suggestionsPlugin,
   triggerCharacters,
-} from '@Clord/prosemirror-schema/src/mentions/plugin';
-import imagePastePlugin from '@Clord/prosemirror-schema/src/plugins/image';
+} from '@clord/prosemirror-schema/src/mentions/plugin';
+import imagePastePlugin from '@clord/prosemirror-schema/src/plugins/image';
 import { toggleMark } from 'prosemirror-commands';
 import { wrapInList } from 'prosemirror-schema-list';
-import { toggleBlockType } from '@Clord/prosemirror-schema/src/menu/common';
+import { toggleBlockType } from '@clord/prosemirror-schema/src/menu/common';
 import { checkFileSizeLimit } from 'shared/helpers/FileHelper';
 import { useAlert } from 'dashboard/composables';
 import { useUISettings } from 'dashboard/composables/useUISettings';
@@ -450,7 +450,7 @@ export default {
 </template>
 
 <style lang="scss">
-@import '@Clord/prosemirror-schema/src/styles/article.scss';
+@import '@clord/prosemirror-schema/src/styles/article.scss';
 
 .ProseMirror-menubar-wrapper {
   display: flex;

@@ -1,6 +1,6 @@
 import types from '../mutation-types';
 import ConversationApi from '../../api/inbox/conversation';
-import { debounce } from '@Clord/utils';
+import { debounce } from '@clord/utils';
 
 const state = {
   mineCount: 0,

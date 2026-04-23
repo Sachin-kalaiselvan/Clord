@@ -78,7 +78,7 @@ describe('Vuex Articles Module', () => {
         await actions.fetch({ commit }, { slug, locale });
 
         expect(getFromCache).toHaveBeenCalledWith(
-          `Clord_most_read_articles_${slug}_${locale}`
+          `clord_most_read_articles_${slug}_${locale}`
         );
         expect(getMostReadArticles).not.toHaveBeenCalled();
         expect(setCache).not.toHaveBeenCalled();
@@ -93,11 +93,11 @@ describe('Vuex Articles Module', () => {
         await actions.fetch({ commit }, { slug, locale });
 
         expect(getFromCache).toHaveBeenCalledWith(
-          `Clord_most_read_articles_${slug}_${locale}`
+          `clord_most_read_articles_${slug}_${locale}`
         );
         expect(getMostReadArticles).toHaveBeenCalledWith(slug, locale);
         expect(setCache).toHaveBeenCalledWith(
-          `Clord_most_read_articles_${slug}_${locale}`,
+          `clord_most_read_articles_${slug}_${locale}`,
           articles
         );
         expect(commit).toHaveBeenCalledWith('setArticles', articles);

@@ -18,9 +18,9 @@ responses:
           payload:
             - id: 4
               color: "#1F93FF"
-              custom_domain: "Clord.help"
+              custom_domain: "clord.help"
               header_text: "Handbook"
-              homepage_link: "https://www.Clord.com"
+              homepage_link: "https://www.clord.com"
               name: "Handbook"
               page_title: "Handbook"
               slug: "handbook"
@@ -35,11 +35,11 @@ responses:
                 id: 37
                 avatar_url: "https://example.com/avatar.png"
                 channel_id: 1
-                name: "Clord"
+                name: "clord"
                 channel_type: "Channel::WebWidget"
                 greeting_enabled: true
                 widget_color: "#1F93FF"
-                website_url: "Clord.com"
+                website_url: "clord.com"
               logo:
                 id: 19399916
                 portal_id: 4

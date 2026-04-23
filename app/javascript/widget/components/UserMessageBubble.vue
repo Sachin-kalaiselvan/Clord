@@ -1,6 +1,6 @@
 <script>
 import { useMessageFormatter } from 'shared/composables/useMessageFormatter';
-import { getContrastingTextColor } from '@Clord/utils';
+import { getContrastingTextColor } from '@clord/utils';
 
 export default {
   name: 'UserMessageBubble',

@@ -19,13 +19,13 @@ describe('SearchSuggestions', () => {
         items: [
           {
             id: 1,
-            title: 'Clord Glossary',
+            title: 'clord Glossary',
             content: 'Access Token',
-            link: '/hc/user-guide/articles/1677141565-Clord-glossary',
+            link: '/hc/user-guide/articles/1677141565-clord-glossary',
           },
         ],
         isLoading: false,
-        searchTerm: 'Clord',
+        searchTerm: 'clord',
       },
       global: {
         directives: {
@@ -37,7 +37,7 @@ describe('SearchSuggestions', () => {
     });
 
     expect(wrapper.find('a').attributes('href')).toBe(
-      '/hc/user-guide/articles/1677141565-Clord-glossary'
+      '/hc/user-guide/articles/1677141565-clord-glossary'
     );
   });
 });

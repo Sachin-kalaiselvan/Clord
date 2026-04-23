@@ -11,7 +11,7 @@ const validateSSOLoginParams = to => {
   return isLoginRoute && hasValidSSOParams;
 };
 
-export const validateRouteAccess = (to, next, ClordConfig = {}) => {
+export const validateRouteAccess = (to, next, clordConfig = {}) => {
   // Pages with ignoreSession:true would be rendered
   // even if there is an active session
   // Used for confirmation or password reset pages
@@ -37,14 +37,14 @@ export const validateRouteAccess = (to, next, ClordConfig = {}) => {
   // Disable navigation to signup page if signups are disabled
   // Signup route has an attribute (requireSignupEnabled) in it's definition
   const isAnInalidSignupNavigation =
-    ClordConfig.signupEnabled !== 'true' &&
+    clordConfig.signupEnabled !== 'true' &&
     to.meta &&
     to.meta.requireSignupEnabled;
 
   // Disable navigation to SAML login if enterprise is not enabled
   // SAML route has an attribute (requireEnterprise) in it's definition
   const isEnterpriseOnlyPath =
-    ClordConfig.isEnterprise !== 'true' &&
+    clordConfig.isEnterprise !== 'true' &&
     to.meta &&
     to.meta.requireEnterprise;
 

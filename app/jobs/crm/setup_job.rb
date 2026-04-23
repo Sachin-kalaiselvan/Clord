@@ -12,7 +12,7 @@ class Crm::SetupJob < ApplicationJob
 
       setup_service.setup
     rescue StandardError => e
-      ClordExceptionTracker.new(e, account: hook.account).capture_exception
+      clordExceptionTracker.new(e, account: hook.account).capture_exception
       Rails.logger.error "Error in CRM setup for hook ##{hook_id} (#{hook.app_id}): #{e.message}"
     end
   end

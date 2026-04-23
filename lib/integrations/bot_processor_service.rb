@@ -7,7 +7,7 @@ class Integrations::BotProcessorService
 
     process_content(message)
   rescue StandardError => e
-    ClordExceptionTracker.new(e, account: (hook&.account || agent_bot&.account)).capture_exception
+    clordExceptionTracker.new(e, account: (hook&.account || agent_bot&.account)).capture_exception
   end
 
   private

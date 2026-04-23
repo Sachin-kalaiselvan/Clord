@@ -1,10 +1,10 @@
 import { useConfig } from '../useConfig';
 
 describe('useConfig', () => {
-  const originalClordConfig = window.ClordConfig;
+  const originalclordConfig = window.clordConfig;
 
   beforeEach(() => {
-    window.ClordConfig = {
+    window.clordConfig = {
       hostURL: 'https://example.com',
       vapidPublicKey: 'vapid-key',
       enabledLanguages: ['en', 'fr'],
@@ -14,7 +14,7 @@ describe('useConfig', () => {
   });
 
   afterEach(() => {
-    window.ClordConfig = originalClordConfig;
+    window.clordConfig = originalclordConfig;
   });
 
   it('returns the correct configuration values', () => {
@@ -28,7 +28,7 @@ describe('useConfig', () => {
   });
 
   it('handles missing configuration values', () => {
-    window.ClordConfig = {};
+    window.clordConfig = {};
     const config = useConfig();
 
     expect(config.hostURL).toBeUndefined();
@@ -38,8 +38,8 @@ describe('useConfig', () => {
     expect(config.enterprisePlanName).toBeUndefined();
   });
 
-  it('handles undefined window.ClordConfig', () => {
-    window.ClordConfig = undefined;
+  it('handles undefined window.clordConfig', () => {
+    window.clordConfig = undefined;
     const config = useConfig();
 
     expect(config.hostURL).toBeUndefined();

@@ -16,7 +16,7 @@
     "CREATE_FLOW": {
       "CHANNEL": {
         "TITLE": "Kanal seçin",
-        "BODY": "Clord ilə inteqrasiya etmək istədiyiniz təminatçını seçin."
+        "BODY": "clord ilə inteqrasiya etmək istədiyiniz təminatçını seçin."
       },
       "INBOX": {
         "TITLE": "Poçt qutusu yaradın",
@@ -42,7 +42,7 @@
         "PLACEHOLDER": "Veb sayt adınızı daxil edin (məsələn: Acme Inc)"
       },
       "FB": {
-        "HELP": "Qeyd: Daxil olmaqla, yalnız Səhifənizin mesajlarına giriş əldə edirik. Şəxsi mesajlarınıza Clord heç vaxt daxil ola bilməz.",
+        "HELP": "Qeyd: Daxil olmaqla, yalnız Səhifənizin mesajlarına giriş əldə edirik. Şəxsi mesajlarınıza clord heç vaxt daxil ola bilməz.",
         "CHOOSE_PAGE": "Səhifə seçin",
         "CHOOSE_PLACEHOLDER": "Siyahıdan səhifə seçin",
         "INBOX_NAME": "Gələn Qutu Adı",
@@ -449,7 +449,7 @@
       },
       "AUTH": {
         "TITLE": "Kanal seçin",
-        "DESC": "Clord canlı söhbət widgetları, Facebook Messenger, WhatsApp, E-poçtlar və s. kimi kanalları dəstəkləyir. Özəl kanal yaratmaq istəyirsinizsə, API kanalı vasitəsilə yarada bilərsiniz. Başlamaq üçün aşağıdakı kanallardan birini seçin.",
+        "DESC": "clord canlı söhbət widgetları, Facebook Messenger, WhatsApp, E-poçtlar və s. kimi kanalları dəstəkləyir. Özəl kanal yaratmaq istəyirsinizsə, API kanalı vasitəsilə yarada bilərsiniz. Başlamaq üçün aşağıdakı kanallardan birini seçin.",
         "TITLE_NEXT": "Qurulumu tamamlayın",
         "TITLE_FINISH": "Budur!",
         "CHANNEL": {
@@ -507,11 +507,11 @@
       },
       "DETAILS": {
         "TITLE": "Gələn Qutu Detalları",
-        "DESC": "Aşağıdakı açılan siyahıdan Clord-a qoşmaq istədiyiniz Facebook Səhifəsini seçin. Gələn qutunu daha yaxşı tanımaq üçün ona xüsusi ad da verə bilərsiniz."
+        "DESC": "Aşağıdakı açılan siyahıdan clord-a qoşmaq istədiyiniz Facebook Səhifəsini seçin. Gələn qutunu daha yaxşı tanımaq üçün ona xüsusi ad da verə bilərsiniz."
       },
       "FINISH": {
         "TITLE": "Uğurla tamamlandı!",
-        "DESC": "Facebook Səhifənizi Clord ilə uğurla inteqrasiya etdiniz. Növbəti dəfə müştəri Səhifənizə mesaj göndərdikdə, söhbət avtomatik olaraq gələn qutunuzda görünəcək.<br>Həmçinin, veb saytınıza asanlıqla əlavə edə biləcəyiniz vidjet skripti təqdim edirik. Bu skript veb saytınızda aktiv olduqda, müştərilər xarici vasitə olmadan birbaşa veb saytınızdan sizə mesaj göndərə biləcək və söhbət burada, Clord-da görünəcək.<br>Gözəl, deyilmi? Biz də çalışırıq :)"
+        "DESC": "Facebook Səhifənizi clord ilə uğurla inteqrasiya etdiniz. Növbəti dəfə müştəri Səhifənizə mesaj göndərdikdə, söhbət avtomatik olaraq gələn qutunuzda görünəcək.<br>Həmçinin, veb saytınıza asanlıqla əlavə edə biləcəyiniz vidjet skripti təqdim edirik. Bu skript veb saytınızda aktiv olduqda, müştərilər xarici vasitə olmadan birbaşa veb saytınızdan sizə mesaj göndərə biləcək və söhbət burada, clord-da görünəcək.<br>Gözəl, deyilmi? Biz də çalışırıq :)"
       },
       "EMAIL_PROVIDER": {
         "TITLE": "E-poçt provayderinizi seçin",
@@ -1123,8 +1123,8 @@
         "USER_MESSAGE": "Salam",
         "AGENT_MESSAGE": "Salam"
       },
-      "BRANDING_TEXT": "Powered by Clord",
-      "SCRIPT_SETTINGS": "\n      window.ClordSettings = {options};"
+      "BRANDING_TEXT": "Powered by clord",
+      "SCRIPT_SETTINGS": "\n      window.clordSettings = {options};"
     },
     "EMAIL_PROVIDERS": {
       "MICROSOFT": {
