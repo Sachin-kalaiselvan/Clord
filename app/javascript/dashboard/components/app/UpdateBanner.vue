@@ -9,7 +9,7 @@ import { hasAnUpdateAvailable } from './versionCheckHelper';
 export default {
   components: { Banner },
   props: {
-    latestChatwootVersion: { type: String, default: '' },
+    latestClordVersion: { type: String, default: '' },
   },
   setup() {
     const { isAdmin } = useAdmin();
@@ -24,13 +24,13 @@ export default {
     ...mapGetters({ globalConfig: 'globalConfig/get' }),
     updateAvailable() {
       return hasAnUpdateAvailable(
-        this.latestChatwootVersion,
+        this.latestClordVersion,
         this.globalConfig.appVersion
       );
     },
     bannerMessage() {
-      return this.$t('GENERAL_SETTINGS.UPDATE_CHATWOOT', {
-        latestChatwootVersion: this.latestChatwootVersion,
+      return this.$t('GENERAL_SETTINGS.UPDATE_Clord', {
+        latestClordVersion: this.latestClordVersion,
       });
     },
     shouldShowBanner() {
@@ -38,7 +38,7 @@ export default {
         !this.userDismissedBanner &&
         this.globalConfig.displayManifest &&
         this.updateAvailable &&
-        !this.isVersionNotificationDismissed(this.latestChatwootVersion) &&
+        !this.isVersionNotificationDismissed(this.latestClordVersion) &&
         this.isAdmin
       );
     },
@@ -53,9 +53,9 @@ export default {
       let updatedDismissedItems =
         LocalStorage.get(LOCAL_STORAGE_KEYS.DISMISSED_UPDATES) || [];
       if (updatedDismissedItems instanceof Array) {
-        updatedDismissedItems.push(this.latestChatwootVersion);
+        updatedDismissedItems.push(this.latestClordVersion);
       } else {
-        updatedDismissedItems = [this.latestChatwootVersion];
+        updatedDismissedItems = [this.latestClordVersion];
       }
       LocalStorage.set(
         LOCAL_STORAGE_KEYS.DISMISSED_UPDATES,
@@ -73,7 +73,7 @@ export default {
     v-if="shouldShowBanner"
     color-scheme="primary"
     :banner-message="bannerMessage"
-    href-link="https://github.com/chatwoot/chatwoot/releases"
+    href-link="https://github.com/Clord/Clord/releases"
     :href-link-text="$t('GENERAL_SETTINGS.LEARN_MORE')"
     has-close-button
     @close="dismissUpdateBanner"

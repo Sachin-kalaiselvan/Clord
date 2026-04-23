@@ -1,6 +1,6 @@
 [Unit]
-Description=Chatwoot Background Worker
-Wants=chatwoot-worker.1.service
+Description=Clord Background Worker
+Wants=Clord-worker.1.service
 
 [Install]
 WantedBy=multi-user.target

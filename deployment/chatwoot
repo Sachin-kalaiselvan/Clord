@@ -1,6 +1,6 @@
-# give chatwoot user permission to start/stop/restart chatwoot systemd service
+# give Clord user permission to start/stop/restart Clord systemd service
 
-%chatwoot ALL=NOPASSWD: /bin/systemctl start chatwoot.target
-%chatwoot ALL=NOPASSWD: /bin/systemctl stop chatwoot.target
-%chatwoot ALL=NOPASSWD: /bin/systemctl restart chatwoot.target
-%chatwoot ALL=NOPASSWD: /usr/local/bin/cwctl
+%Clord ALL=NOPASSWD: /bin/systemctl start Clord.target
+%Clord ALL=NOPASSWD: /bin/systemctl stop Clord.target
+%Clord ALL=NOPASSWD: /bin/systemctl restart Clord.target
+%Clord ALL=NOPASSWD: /usr/local/bin/cwctl

@@ -1,4 +1,4 @@
-import { parseBoolean } from '@chatwoot/utils';
+import { parseBoolean } from '@Clord/utils';
 import { resolveMaximumFileUploadSize } from 'shared/helpers/FileHelper';
 
 const {
@@ -7,7 +7,7 @@ const {
   APP_VERSION: appVersion,
   AZURE_APP_ID: azureAppId,
   BRAND_NAME: brandName,
-  CHATWOOT_INBOX_TOKEN: chatwootInboxToken,
+  Clord_INBOX_TOKEN: ClordInboxToken,
   CREATE_NEW_ACCOUNT_FROM_DASHBOARD: createNewAccountFromDashboard,
   DIRECT_UPLOADS_ENABLED: directUploadsEnabled,
   DISPLAY_MANIFEST: displayManifest,
@@ -32,7 +32,7 @@ const state = {
   appVersion,
   azureAppId,
   brandName,
-  chatwootInboxToken,
+  ClordInboxToken,
   deploymentEnv,
   createNewAccountFromDashboard,
   directUploadsEnabled: parseBoolean(directUploadsEnabled),
@@ -53,9 +53,9 @@ const state = {
 
 export const getters = {
   get: $state => $state,
-  isOnChatwootCloud: $state => $state.deploymentEnv === 'cloud',
-  isACustomBrandedInstance: $state => $state.installationName !== 'Chatwoot',
-  isAChatwootInstance: $state => $state.installationName === 'Chatwoot',
+  isOnClordCloud: $state => $state.deploymentEnv === 'cloud',
+  isACustomBrandedInstance: $state => $state.installationName !== 'Clord',
+  isAClordInstance: $state => $state.installationName === 'Clord',
 };
 
 export const actions = {};

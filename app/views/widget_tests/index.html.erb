@@ -13,7 +13,7 @@
 %>
 <script>
 
-window.chatwootSettings = {
+window.ClordSettings = {
   hideMessageBubble: false,
   // showUnreadMessagesDialog: false,
   // baseDomain: '.loca.lt',
@@ -33,17 +33,17 @@ window.chatwootSettings = {
   g.async = true;
   s.parentNode.insertBefore(g,s);
   g.onload=function(){
-    window.chatwootSDK.run({
+    window.ClordSDK.run({
       websiteToken: '<%= @web_widget.website_token %>',
       baseUrl: BASE_URL
     })
   }
 })(document,"script");
 
-window.addEventListener('chatwoot:ready', function() {
-  console.log('chatwoot:ready', window.$chatwoot);
+window.addEventListener('Clord:ready', function() {
+  console.log('Clord:ready', window.$Clord);
   if (window.location.search.includes('setUser')) {
-    window.$chatwoot.setUser('<%= user_id %>', {
+    window.$Clord.setUser('<%= user_id %>', {
       identifier_hash: '<%= user_hash %>',
       email: 'jane@example.com',
       name: 'Jane Doe',
@@ -52,28 +52,28 @@ window.addEventListener('chatwoot:ready', function() {
   }
 })
 
-window.addEventListener('chatwoot:error', function(e) {
-  console.log('chatwoot:error', e.detail)
+window.addEventListener('Clord:error', function(e) {
+  console.log('Clord:error', e.detail)
 })
 
 
-window.addEventListener('chatwoot:on-message', function(e) {
-  console.log('chatwoot:on-message', e.detail)
+window.addEventListener('Clord:on-message', function(e) {
+  console.log('Clord:on-message', e.detail)
 })
 
-window.addEventListener('chatwoot:postback', function(e) {
-  console.log('chatwoot:postback', e.detail)
+window.addEventListener('Clord:postback', function(e) {
+  console.log('Clord:postback', e.detail)
 })
 
-window.addEventListener('chatwoot:opened', function() {
-  console.log('chatwoot:opened')
+window.addEventListener('Clord:opened', function() {
+  console.log('Clord:opened')
 })
 
-window.addEventListener('chatwoot:closed', function() {
-  console.log('chatwoot:closed')
+window.addEventListener('Clord:closed', function() {
+  console.log('Clord:closed')
 })
 
-window.addEventListener('chatwoot:on-start-conversation', function(e) {
-  console.log('chatwoot:on-start-conversation', e.detail)
+window.addEventListener('Clord:on-start-conversation', function(e) {
+  console.log('Clord:on-start-conversation', e.detail)
 })
 </script>

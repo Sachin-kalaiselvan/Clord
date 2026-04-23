@@ -42,7 +42,7 @@ Style/SymbolArray:
 Style/OpenStructUse:
   Enabled: false
 
-Chatwoot/AttachmentDownload:
+Clord/AttachmentDownload:
   Enabled: true
   Exclude:
     - 'spec/**/*'

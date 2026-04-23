@@ -36,7 +36,7 @@ const emit = defineEmits([
   'closeMobileSidebar',
 ]);
 
-const { accountScopedRoute, isOnChatwootCloud } = useAccount();
+const { accountScopedRoute, isOnClordCloud } = useAccount();
 const store = useStore();
 const searchShortcut = useKbd([`$mod`, 'k']);
 const { t } = useI18n();
@@ -838,14 +838,14 @@ const menuItems = computed(() => {
       />
       <SidebarChangelogCard
         v-if="
-          isOnChatwootCloud &&
+          isOnClordCloud &&
           !isACustomBrandedInstance &&
           !isEffectivelyCollapsed
         "
       />
       <SidebarChangelogButton
         v-if="
-          isOnChatwootCloud &&
+          isOnClordCloud &&
           !isACustomBrandedInstance &&
           isEffectivelyCollapsed
         "

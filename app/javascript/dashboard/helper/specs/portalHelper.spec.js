@@ -7,33 +7,33 @@ import {
 describe('PortalHelper', () => {
   describe('buildPortalURL', () => {
     it('returns the correct url', () => {
-      window.chatwootConfig = {
-        hostURL: 'https://app.chatwoot.com',
-        helpCenterURL: 'https://help.chatwoot.com',
+      window.ClordConfig = {
+        hostURL: 'https://app.Clord.com',
+        helpCenterURL: 'https://help.Clord.com',
       };
       expect(buildPortalURL('handbook')).toEqual(
-        'https://help.chatwoot.com/hc/handbook'
+        'https://help.Clord.com/hc/handbook'
       );
-      window.chatwootConfig = {};
+      window.ClordConfig = {};
     });
   });
 
   describe('buildPortalArticleURL', () => {
     it('returns the correct url', () => {
-      window.chatwootConfig = {
-        hostURL: 'https://app.chatwoot.com',
-        helpCenterURL: 'https://help.chatwoot.com',
+      window.ClordConfig = {
+        hostURL: 'https://app.Clord.com',
+        helpCenterURL: 'https://help.Clord.com',
       };
       expect(
         buildPortalArticleURL('handbook', 'culture', 'fr', 'article-slug')
-      ).toEqual('https://help.chatwoot.com/hc/handbook/articles/article-slug');
-      window.chatwootConfig = {};
+      ).toEqual('https://help.Clord.com/hc/handbook/articles/article-slug');
+      window.ClordConfig = {};
     });
 
     it('returns the correct url with custom domain', () => {
-      window.chatwootConfig = {
-        hostURL: 'https://app.chatwoot.com',
-        helpCenterURL: 'https://help.chatwoot.com',
+      window.ClordConfig = {
+        hostURL: 'https://app.Clord.com',
+        helpCenterURL: 'https://help.Clord.com',
       };
       expect(
         buildPortalArticleURL(
@@ -47,9 +47,9 @@ describe('PortalHelper', () => {
     });
 
     it('handles https in custom domain correctly', () => {
-      window.chatwootConfig = {
-        hostURL: 'https://app.chatwoot.com',
-        helpCenterURL: 'https://help.chatwoot.com',
+      window.ClordConfig = {
+        hostURL: 'https://app.Clord.com',
+        helpCenterURL: 'https://help.Clord.com',
       };
       expect(
         buildPortalArticleURL(
@@ -63,13 +63,13 @@ describe('PortalHelper', () => {
     });
 
     it('uses hostURL when helpCenterURL is not available', () => {
-      window.chatwootConfig = {
-        hostURL: 'https://app.chatwoot.com',
+      window.ClordConfig = {
+        hostURL: 'https://app.Clord.com',
         helpCenterURL: '',
       };
       expect(
         buildPortalArticleURL('handbook', 'culture', 'fr', 'article-slug')
-      ).toEqual('https://app.chatwoot.com/hc/handbook/articles/article-slug');
+      ).toEqual('https://app.Clord.com/hc/handbook/articles/article-slug');
     });
   });
 

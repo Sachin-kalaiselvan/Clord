@@ -43,11 +43,11 @@ class Webhooks::Trigger
 
   def request_headers(body)
     headers = { content_type: :json, accept: :json }
-    headers['X-Chatwoot-Delivery'] = @delivery_id if @delivery_id.present?
+    headers['X-Clord-Delivery'] = @delivery_id if @delivery_id.present?
     if @secret.present?
       ts = Time.now.to_i.to_s
-      headers['X-Chatwoot-Timestamp'] = ts
-      headers['X-Chatwoot-Signature'] = "sha256=#{OpenSSL::HMAC.hexdigest('SHA256', @secret, "#{ts}.#{body}")}"
+      headers['X-Clord-Timestamp'] = ts
+      headers['X-Clord-Signature'] = "sha256=#{OpenSSL::HMAC.hexdigest('SHA256', @secret, "#{ts}.#{body}")}"
     end
     headers
   end
