@@ -1,6 +1,6 @@
 <script>
 import { mapActions, mapGetters } from 'vuex';
-import { getContrastingTextColor } from '@clord/utils';
+import { getContrastingTextColor } from '@nerix/utils';
 import CustomButton from 'shared/components/Button.vue';
 import FooterReplyTo from 'widget/components/FooterReplyTo.vue';
 import ChatInputWrap from 'widget/components/ChatInputWrap.vue';
@@ -8,7 +8,7 @@ import { BUS_EVENTS } from 'shared/constants/busEvents';
 import { sendEmailTranscript } from 'widget/api/conversation';
 import { useRouter } from 'vue-router';
 import { IFrameHelper } from '../helpers/utils';
-import { clord_ON_START_CONVERSATION } from '../constants/sdkEvents';
+import { nerix_ON_START_CONVERSATION } from '../constants/sdkEvents';
 import { emitter } from 'shared/helpers/mitt';
 
 export default {
@@ -38,7 +38,7 @@ export default {
       return getContrastingTextColor(this.widgetColor);
     },
     hideReplyBox() {
-      const { allowMessagesAfterResolved } = window.clordWebChannel;
+      const { allowMessagesAfterResolved } = window.nerixWebChannel;
       const { status } = this.conversationAttributes;
       return !allowMessagesAfterResolved && status === 'resolved';
     },
@@ -83,7 +83,7 @@ export default {
       this.router.replace({ name: 'prechat-form' });
       IFrameHelper.sendMessage({
         event: 'onEvent',
-        eventIdentifier: clord_ON_START_CONVERSATION,
+        eventIdentifier: nerix_ON_START_CONVERSATION,
         data: { hasConversation: true },
       });
     },

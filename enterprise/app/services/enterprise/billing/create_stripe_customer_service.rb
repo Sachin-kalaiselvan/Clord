@@ -35,7 +35,7 @@ class Enterprise::Billing::CreateStripeCustomerService
   end
 
   def default_plan
-    installation_config = InstallationConfig.find_by(name: 'clord_CLOUD_PLANS')
+    installation_config = InstallationConfig.find_by(name: 'nerix_CLOUD_PLANS')
     @default_plan ||= installation_config.value.first
   end
 

@@ -1,5 +1,5 @@
 [Unit]
-Wants=clord-web.1.service clord-worker.1.service
+Wants=nerix-web.1.service nerix-worker.1.service
 
 [Install]
 WantedBy=multi-user.target

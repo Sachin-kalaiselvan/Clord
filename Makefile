@@ -1,5 +1,5 @@
 # Variables
-APP_NAME := clord
+APP_NAME := nerix
 RAILS_ENV ?= development
 
 # Targets
@@ -21,7 +21,7 @@ db_reset:
 	RAILS_ENV=$(RAILS_ENV) bundle exec rails db:reset
 
 db:
-	RAILS_ENV=$(RAILS_ENV) bundle exec rails db:clord_prepare
+	RAILS_ENV=$(RAILS_ENV) bundle exec rails db:nerix_prepare
 
 console:
 	RAILS_ENV=$(RAILS_ENV) bundle exec rails console

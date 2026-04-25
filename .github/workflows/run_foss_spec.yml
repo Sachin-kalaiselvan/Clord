@@ -1,4 +1,4 @@
-name: Run clord CE spec
+name: Run nerix CE spec
 permissions:
   contents: read
 on:

@@ -123,11 +123,11 @@
         "CUSTOM_EMAIL_DOMAIN_ENABLED": "Dabar galite gauti el. laiškus pasirinktame domene."
       }
     },
-    "UPDATE_clord": "Yra clord naujinimas {latestclordVersion}. Atnaujinkite savo versiją.",
+    "UPDATE_nerix": "Yra nerix naujinimas {latestnerixVersion}. Atnaujinkite savo versiją.",
     "LEARN_MORE": "Sužinoti daugiau",
-    "PAYMENT_PENDING": "Laukiama jūsų mokėjimo. Atnaujinkite savo mokėjimo informaciją, kad galėtumėte toliau naudoti clord",
-    "UPGRADE": "Upgrade to continue using clord",
-    "LIMITS_UPGRADE": "Jūsų paskyra viršijo naudojimo apribojimus, atnaujinkite savo planą, kad galėtumėte toliau naudoti clord",
+    "PAYMENT_PENDING": "Laukiama jūsų mokėjimo. Atnaujinkite savo mokėjimo informaciją, kad galėtumėte toliau naudoti nerix",
+    "UPGRADE": "Upgrade to continue using nerix",
+    "LIMITS_UPGRADE": "Jūsų paskyra viršijo naudojimo apribojimus, atnaujinkite savo planą, kad galėtumėte toliau naudoti nerix",
     "OPEN_BILLING": "Atidaryti mokėjimą"
   },
   "FORMS": {

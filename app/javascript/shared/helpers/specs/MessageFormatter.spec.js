@@ -4,23 +4,23 @@ describe('#MessageFormatter', () => {
   describe('content with links', () => {
     it('should format correctly', () => {
       const message =
-        'clord is an opensource tool. [clord](https://www.clord.com)';
+        'nerix is an opensource tool. [nerix](https://www.nerix.com)';
       expect(new MessageFormatter(message).formattedMessage).toMatch(
-        '<p>clord is an opensource tool. <a href="https://www.clord.com" class="link" rel="noreferrer noopener nofollow" target="_blank">clord</a></p>'
+        '<p>nerix is an opensource tool. <a href="https://www.nerix.com" class="link" rel="noreferrer noopener nofollow" target="_blank">nerix</a></p>'
       );
     });
     it('should format correctly', () => {
       const message =
-        'clord is an opensource tool. https://www.clord.com';
+        'nerix is an opensource tool. https://www.nerix.com';
       expect(new MessageFormatter(message).formattedMessage).toMatch(
-        '<p>clord is an opensource tool. <a href="https://www.clord.com" class="link" rel="noreferrer noopener nofollow" target="_blank">https://www.clord.com</a></p>'
+        '<p>nerix is an opensource tool. <a href="https://www.nerix.com" class="link" rel="noreferrer noopener nofollow" target="_blank">https://www.nerix.com</a></p>'
       );
     });
     it('should not convert template variables to links when linkify is disabled', () => {
-      const message = 'Hey {{customer.name}}, check https://clord.com';
+      const message = 'Hey {{customer.name}}, check https://nerix.com';
       const formatter = new MessageFormatter(message, false, false, false);
       expect(formatter.formattedMessage).toMatch(
-        '<p>Hey {{customer.name}}, check https://clord.com</p>'
+        '<p>Hey {{customer.name}}, check https://nerix.com</p>'
       );
     });
   });
@@ -38,71 +38,71 @@ describe('#MessageFormatter', () => {
   describe('content with image and has "cw_image_height" query at the end of URL', () => {
     it('should set image height correctly', () => {
       const message =
-        'clord is an opensource tool. ![](http://clord.com/clord.png?cw_image_height=24px)';
+        'nerix is an opensource tool. ![](http://nerix.com/nerix.png?cw_image_height=24px)';
       expect(new MessageFormatter(message).formattedMessage).toMatch(
-        '<p>clord is an opensource tool. <img src="http://clord.com/clord.png?cw_image_height=24px" alt="" style="height: 24px;" /></p>'
+        '<p>nerix is an opensource tool. <img src="http://nerix.com/nerix.png?cw_image_height=24px" alt="" style="height: 24px;" /></p>'
       );
     });
 
     it('should set image height correctly if its original size', () => {
       const message =
-        'clord is an opensource tool. ![](http://clord.com/clord.png?cw_image_height=auto)';
+        'nerix is an opensource tool. ![](http://nerix.com/nerix.png?cw_image_height=auto)';
       expect(new MessageFormatter(message).formattedMessage).toMatch(
-        '<p>clord is an opensource tool. <img src="http://clord.com/clord.png?cw_image_height=auto" alt="" style="height: auto;" /></p>'
+        '<p>nerix is an opensource tool. <img src="http://nerix.com/nerix.png?cw_image_height=auto" alt="" style="height: auto;" /></p>'
       );
     });
 
     it('should not set height', () => {
       const message =
-        'clord is an opensource tool. ![](http://clord.com/clord.png)';
+        'nerix is an opensource tool. ![](http://nerix.com/nerix.png)';
       expect(new MessageFormatter(message).formattedMessage).toMatch(
-        '<p>clord is an opensource tool. <img src="http://clord.com/clord.png" alt="" /></p>'
+        '<p>nerix is an opensource tool. <img src="http://nerix.com/nerix.png" alt="" /></p>'
       );
     });
   });
 
   describe('tweets', () => {
     it('should return the same string if not tags or @mentions', () => {
-      const message = 'clord is an opensource tool';
+      const message = 'nerix is an opensource tool';
       expect(new MessageFormatter(message).formattedMessage).toMatch(message);
     });
 
     it('should add links to @mentions', () => {
       const message =
-        '@clordapp is an opensource tool thanks @longnonexistenttwitterusername';
+        '@nerixapp is an opensource tool thanks @longnonexistenttwitterusername';
       expect(
         new MessageFormatter(message, true, false).formattedMessage
       ).toMatch(
-        '<p><a href="http://twitter.com/clordapp" class="link" rel="noreferrer noopener nofollow" target="_blank">@clordapp</a> is an opensource tool thanks @longnonexistenttwitterusername</p>'
+        '<p><a href="http://twitter.com/nerixapp" class="link" rel="noreferrer noopener nofollow" target="_blank">@nerixapp</a> is an opensource tool thanks @longnonexistenttwitterusername</p>'
       );
     });
 
     it('should add links to #tags', () => {
-      const message = '#clordapp is an opensource tool';
+      const message = '#nerixapp is an opensource tool';
       expect(
         new MessageFormatter(message, true, false).formattedMessage
       ).toMatch(
-        '<p><a href="https://twitter.com/hashtag/clordapp" class="link" rel="noreferrer noopener nofollow" target="_blank">#clordapp</a> is an opensource tool</p>'
+        '<p><a href="https://twitter.com/hashtag/nerixapp" class="link" rel="noreferrer noopener nofollow" target="_blank">#nerixapp</a> is an opensource tool</p>'
       );
     });
   });
 
   describe('private notes', () => {
     it('should return the same string if not tags or @mentions', () => {
-      const message = 'clord is an opensource tool';
+      const message = 'nerix is an opensource tool';
       expect(new MessageFormatter(message).formattedMessage).toMatch(message);
     });
 
     it('should add links to @mentions', () => {
       const message =
-        '@clordapp is an opensource tool thanks @longnonexistenttwitterusername';
+        '@nerixapp is an opensource tool thanks @longnonexistenttwitterusername';
       expect(
         new MessageFormatter(message, false, true).formattedMessage
       ).toMatch(message);
     });
 
     it('should add links to #tags', () => {
-      const message = '#clordapp is an opensource tool';
+      const message = '#nerixapp is an opensource tool';
       expect(
         new MessageFormatter(message, false, true).formattedMessage
       ).toMatch(message);
@@ -112,9 +112,9 @@ describe('#MessageFormatter', () => {
   describe('plain text content', () => {
     it('returns the plain text without HTML', () => {
       const message =
-        '<b>clord is an opensource tool. https://www.clord.com</b>';
+        '<b>nerix is an opensource tool. https://www.nerix.com</b>';
       expect(new MessageFormatter(message).plainText).toMatch(
-        'clord is an opensource tool. https://www.clord.com'
+        'nerix is an opensource tool. https://www.nerix.com'
       );
     });
   });

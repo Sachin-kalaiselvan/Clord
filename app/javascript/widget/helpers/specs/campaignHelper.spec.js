@@ -5,7 +5,7 @@ import {
 } from '../campaignHelper';
 import campaigns from './campaignFixtures';
 
-global.clordWebChannel = {
+global.nerixWebChannel = {
   workingHoursEnabled: false,
 };
 describe('#Campaigns Helper', () => {
@@ -13,29 +13,29 @@ describe('#Campaigns Helper', () => {
     it('returns correct value if a valid URL is passed', () => {
       expect(
         isPatternMatchingWithURL(
-          'https://clord.com/pricing*',
-          'https://clord.com/pricing/'
+          'https://nerix.com/pricing*',
+          'https://nerix.com/pricing/'
         )
       ).toBe(true);
 
       expect(
         isPatternMatchingWithURL(
-          'https://*.clord.com/pricing/',
-          'https://app.clord.com/pricing/'
+          'https://*.nerix.com/pricing/',
+          'https://app.nerix.com/pricing/'
         )
       ).toBe(true);
 
       expect(
         isPatternMatchingWithURL(
-          'https://{*.}?clord.com/pricing?test=true',
-          'https://app.clord.com/pricing/?test=true'
+          'https://{*.}?nerix.com/pricing?test=true',
+          'https://app.nerix.com/pricing/?test=true'
         )
       ).toBe(true);
 
       expect(
         isPatternMatchingWithURL(
-          'https://{*.}?clord.com/pricing*\\?*',
-          'https://clord.com/pricing/?test=true'
+          'https://{*.}?nerix.com/pricing*\\?*',
+          'https://nerix.com/pricing/?test=true'
         )
       ).toBe(true);
     });
@@ -48,13 +48,13 @@ describe('#Campaigns Helper', () => {
           id: 1,
           timeOnPage: 3,
           triggerOnlyDuringBusinessHours: false,
-          url: 'https://www.clord.com/pricing',
+          url: 'https://www.nerix.com/pricing',
         },
         {
           id: 2,
           triggerOnlyDuringBusinessHours: false,
           timeOnPage: 6,
-          url: 'https://www.clord.com/about',
+          url: 'https://www.nerix.com/about',
         },
       ]);
     });
@@ -67,23 +67,23 @@ describe('#Campaigns Helper', () => {
             {
               id: 1,
               timeOnPage: 3,
-              url: 'https://www.clord.com/pricing',
+              url: 'https://www.nerix.com/pricing',
               triggerOnlyDuringBusinessHours: false,
             },
             {
               id: 2,
               timeOnPage: 6,
-              url: 'https://www.clord.com/about',
+              url: 'https://www.nerix.com/about',
               triggerOnlyDuringBusinessHours: false,
             },
           ],
-          currentURL: 'https://www.clord.com/about/',
+          currentURL: 'https://www.nerix.com/about/',
         })
       ).toStrictEqual([
         {
           id: 2,
           timeOnPage: 6,
-          url: 'https://www.clord.com/about',
+          url: 'https://www.nerix.com/about',
           triggerOnlyDuringBusinessHours: false,
         },
       ]);
@@ -95,24 +95,24 @@ describe('#Campaigns Helper', () => {
             {
               id: 1,
               timeOnPage: 3,
-              url: 'https://www.clord.com/pricing',
+              url: 'https://www.nerix.com/pricing',
               triggerOnlyDuringBusinessHours: false,
             },
             {
               id: 2,
               timeOnPage: 6,
-              url: 'https://www.clord.com/about',
+              url: 'https://www.nerix.com/about',
               triggerOnlyDuringBusinessHours: true,
             },
           ],
-          currentURL: 'https://www.clord.com/about/',
+          currentURL: 'https://www.nerix.com/about/',
           isInBusinessHours: true,
         })
       ).toStrictEqual([
         {
           id: 2,
           timeOnPage: 6,
-          url: 'https://www.clord.com/about',
+          url: 'https://www.nerix.com/about',
           triggerOnlyDuringBusinessHours: true,
         },
       ]);
@@ -124,17 +124,17 @@ describe('#Campaigns Helper', () => {
             {
               id: 1,
               timeOnPage: 3,
-              url: 'https://www.clord.com/pricing',
+              url: 'https://www.nerix.com/pricing',
               triggerOnlyDuringBusinessHours: true,
             },
             {
               id: 2,
               timeOnPage: 6,
-              url: 'https://www.clord.com/about',
+              url: 'https://www.nerix.com/about',
               triggerOnlyDuringBusinessHours: true,
             },
           ],
-          currentURL: 'https://www.clord.com/about/',
+          currentURL: 'https://www.nerix.com/about/',
           isInBusinessHours: false,
         })
       ).toStrictEqual([]);

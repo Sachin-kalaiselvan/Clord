@@ -19,7 +19,7 @@ import { setCookieWithDomain } from '../sdk/cookieHelpers';
 import { SDK_SET_BUBBLE_VISIBILITY } from 'shared/constants/sharedFrameEvents';
 
 const runSDK = ({ baseUrl, websiteToken }) => {
-  if (window.$clord) {
+  if (window.$nerix) {
     return;
   }
 
@@ -47,38 +47,38 @@ const runSDK = ({ baseUrl, websiteToken }) => {
     restoreWidgetInDOM(event.newDocument.body)
   );
 
-  const clordSettings = window.clordSettings || {};
-  let locale = clordSettings.locale;
-  let baseDomain = clordSettings.baseDomain;
+  const nerixSettings = window.nerixSettings || {};
+  let locale = nerixSettings.locale;
+  let baseDomain = nerixSettings.baseDomain;
 
-  if (clordSettings.useBrowserLanguage) {
+  if (nerixSettings.useBrowserLanguage) {
     locale = window.navigator.language.replace('-', '_');
   }
 
-  window.$clord = {
+  window.$nerix = {
     baseUrl,
     baseDomain,
     hasLoaded: false,
-    hideMessageBubble: clordSettings.hideMessageBubble || false,
+    hideMessageBubble: nerixSettings.hideMessageBubble || false,
     isOpen: false,
-    position: clordSettings.position === 'left' ? 'left' : 'right',
+    position: nerixSettings.position === 'left' ? 'left' : 'right',
     websiteToken,
     locale,
-    useBrowserLanguage: clordSettings.useBrowserLanguage || false,
-    type: getBubbleView(clordSettings.type),
-    launcherTitle: clordSettings.launcherTitle || '',
-    showPopoutButton: clordSettings.showPopoutButton || false,
-    showUnreadMessagesDialog: clordSettings.showUnreadMessagesDialog ?? true,
-    widgetStyle: getWidgetStyle(clordSettings.widgetStyle) || 'standard',
+    useBrowserLanguage: nerixSettings.useBrowserLanguage || false,
+    type: getBubbleView(nerixSettings.type),
+    launcherTitle: nerixSettings.launcherTitle || '',
+    showPopoutButton: nerixSettings.showPopoutButton || false,
+    showUnreadMessagesDialog: nerixSettings.showUnreadMessagesDialog ?? true,
+    widgetStyle: getWidgetStyle(nerixSettings.widgetStyle) || 'standard',
     resetTriggered: false,
-    darkMode: getDarkMode(clordSettings.darkMode),
-    welcomeTitle: clordSettings.welcomeTitle || '',
-    welcomeDescription: clordSettings.welcomeDescription || '',
-    availableMessage: clordSettings.availableMessage || '',
-    unavailableMessage: clordSettings.unavailableMessage || '',
-    enableFileUpload: clordSettings.enableFileUpload,
-    enableEmojiPicker: clordSettings.enableEmojiPicker ?? true,
-    enableEndConversation: clordSettings.enableEndConversation ?? true,
+    darkMode: getDarkMode(nerixSettings.darkMode),
+    welcomeTitle: nerixSettings.welcomeTitle || '',
+    welcomeDescription: nerixSettings.welcomeDescription || '',
+    availableMessage: nerixSettings.availableMessage || '',
+    unavailableMessage: nerixSettings.unavailableMessage || '',
+    enableFileUpload: nerixSettings.enableFileUpload,
+    enableEmojiPicker: nerixSettings.enableEmojiPicker ?? true,
+    enableEndConversation: nerixSettings.enableEndConversation ?? true,
 
     toggle(state) {
       IFrameHelper.events.toggleBubble(state);
@@ -90,21 +90,21 @@ const runSDK = ({ baseUrl, websiteToken }) => {
       if (visibility === 'hide') {
         addClasses(widgetHolder, 'woot-widget--without-bubble');
         addClasses(widgetElm, 'woot-hidden');
-        window.$clord.hideMessageBubble = true;
+        window.$nerix.hideMessageBubble = true;
       } else if (visibility === 'show') {
         removeClasses(widgetElm, 'woot-hidden');
         removeClasses(widgetHolder, 'woot-widget--without-bubble');
-        window.$clord.hideMessageBubble = false;
+        window.$nerix.hideMessageBubble = false;
       }
       IFrameHelper.sendMessage(SDK_SET_BUBBLE_VISIBILITY, {
-        hideMessageBubble: window.$clord.hideMessageBubble,
+        hideMessageBubble: window.$nerix.hideMessageBubble,
       });
     },
 
     popoutChatWindow() {
       IFrameHelper.events.popoutChatWindow({
-        baseUrl: window.$clord.baseUrl,
-        websiteToken: window.$clord.websiteToken,
+        baseUrl: window.$nerix.baseUrl,
+        websiteToken: window.$nerix.websiteToken,
         locale,
       });
     },
@@ -127,8 +127,8 @@ const runSDK = ({ baseUrl, websiteToken }) => {
         return;
       }
 
-      window.$clord.identifier = identifier;
-      window.$clord.user = user;
+      window.$nerix.identifier = identifier;
+      window.$nerix.user = user;
       IFrameHelper.sendMessage('set-user', { identifier, user });
 
       setCookieWithDomain(userCookieName, hashToBeStored, {
@@ -193,7 +193,7 @@ const runSDK = ({ baseUrl, websiteToken }) => {
     },
 
     reset() {
-      if (window.$clord.isOpen) {
+      if (window.$nerix.isOpen) {
         IFrameHelper.events.toggleBubble();
       }
 
@@ -202,11 +202,11 @@ const runSDK = ({ baseUrl, websiteToken }) => {
 
       const iframe = IFrameHelper.getAppFrame();
       iframe.src = IFrameHelper.getUrl({
-        baseUrl: window.$clord.baseUrl,
-        websiteToken: window.$clord.websiteToken,
+        baseUrl: window.$nerix.baseUrl,
+        websiteToken: window.$nerix.websiteToken,
       });
 
-      window.$clord.resetTriggered = true;
+      window.$nerix.resetTriggered = true;
     },
   };
 
@@ -216,6 +216,6 @@ const runSDK = ({ baseUrl, websiteToken }) => {
   });
 };
 
-window.clordSDK = {
+window.nerixSDK = {
   run: runSDK,
 };

@@ -123,11 +123,11 @@
         "CUSTOM_EMAIL_DOMAIN_ENABLED": "Du kan modtage e-mails på dit brugerdefinerede domæne nu."
       }
     },
-    "UPDATE_clord": "En opdatering {latestclordVersion} til clord er tilgængelig. Opdater venligst din instans.",
+    "UPDATE_nerix": "En opdatering {latestnerixVersion} til nerix er tilgængelig. Opdater venligst din instans.",
     "LEARN_MORE": "Lær mere",
-    "PAYMENT_PENDING": "Your payment is pending. Please update your payment information to continue using clord",
-    "UPGRADE": "Upgrade to continue using clord",
-    "LIMITS_UPGRADE": "Your account has exceeded the usage limits, please upgrade your plan to continue using clord",
+    "PAYMENT_PENDING": "Your payment is pending. Please update your payment information to continue using nerix",
+    "UPGRADE": "Upgrade to continue using nerix",
+    "LIMITS_UPGRADE": "Your account has exceeded the usage limits, please upgrade your plan to continue using nerix",
     "OPEN_BILLING": "Open billing"
   },
   "FORMS": {

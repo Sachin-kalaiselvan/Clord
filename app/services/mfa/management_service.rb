@@ -23,7 +23,7 @@ class Mfa::ManagementService
   def two_factor_provisioning_uri
     return nil if user.otp_secret.blank?
 
-    issuer = 'clord'
+    issuer = 'nerix'
     label = user.email
     user.otp_provisioning_uri(label, issuer: issuer)
   end

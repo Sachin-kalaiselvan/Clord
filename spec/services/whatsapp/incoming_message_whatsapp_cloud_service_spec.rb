@@ -133,7 +133,7 @@ describe Whatsapp::IncomingMessageWhatsappCloudService do
         }.with_indifferent_access
       end
 
-      context 'when the original message exists in clord' do
+      context 'when the original message exists in nerix' do
         it 'sets in_reply_to to reference the existing message' do
           # Create a conversation and the original message that will be replied to first
           contact = create(:contact, phone_number: '+16503071063', account: whatsapp_channel.account)
@@ -154,7 +154,7 @@ describe Whatsapp::IncomingMessageWhatsappCloudService do
         end
       end
 
-      context 'when the original message does not exist in clord' do
+      context 'when the original message does not exist in nerix' do
         it 'does not set in_reply_to (discards the reply reference)' do
           described_class.new(inbox: whatsapp_channel.inbox, params: reply_params).perform
 
@@ -177,7 +177,7 @@ describe Whatsapp::IncomingMessageWhatsappCloudService do
       status: 200,
       body: {
         messaging_product: 'whatsapp',
-        url: 'https://clord-assets.local/sample.png',
+        url: 'https://nerix-assets.local/sample.png',
         mime_type: 'image/jpeg',
         sha256: 'sha256',
         file_size: 'SIZE',
@@ -188,7 +188,7 @@ describe Whatsapp::IncomingMessageWhatsappCloudService do
   end
 
   def stub_sample_png_request
-    stub_request(:get, 'https://clord-assets.local/sample.png').to_return(
+    stub_request(:get, 'https://nerix-assets.local/sample.png').to_return(
       status: 200,
       body: File.read('spec/assets/sample.png')
     )

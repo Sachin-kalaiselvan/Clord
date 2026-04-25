@@ -9,7 +9,7 @@ import { hasAnUpdateAvailable } from './versionCheckHelper';
 export default {
   components: { Banner },
   props: {
-    latestclordVersion: { type: String, default: '' },
+    latestnerixVersion: { type: String, default: '' },
   },
   setup() {
     const { isAdmin } = useAdmin();
@@ -24,13 +24,13 @@ export default {
     ...mapGetters({ globalConfig: 'globalConfig/get' }),
     updateAvailable() {
       return hasAnUpdateAvailable(
-        this.latestclordVersion,
+        this.latestnerixVersion,
         this.globalConfig.appVersion
       );
     },
     bannerMessage() {
-      return this.$t('GENERAL_SETTINGS.UPDATE_clord', {
-        latestclordVersion: this.latestclordVersion,
+      return this.$t('GENERAL_SETTINGS.UPDATE_nerix', {
+        latestnerixVersion: this.latestnerixVersion,
       });
     },
     shouldShowBanner() {
@@ -38,7 +38,7 @@ export default {
         !this.userDismissedBanner &&
         this.globalConfig.displayManifest &&
         this.updateAvailable &&
-        !this.isVersionNotificationDismissed(this.latestclordVersion) &&
+        !this.isVersionNotificationDismissed(this.latestnerixVersion) &&
         this.isAdmin
       );
     },
@@ -53,9 +53,9 @@ export default {
       let updatedDismissedItems =
         LocalStorage.get(LOCAL_STORAGE_KEYS.DISMISSED_UPDATES) || [];
       if (updatedDismissedItems instanceof Array) {
-        updatedDismissedItems.push(this.latestclordVersion);
+        updatedDismissedItems.push(this.latestnerixVersion);
       } else {
-        updatedDismissedItems = [this.latestclordVersion];
+        updatedDismissedItems = [this.latestnerixVersion];
       }
       LocalStorage.set(
         LOCAL_STORAGE_KEYS.DISMISSED_UPDATES,
@@ -73,7 +73,7 @@ export default {
     v-if="shouldShowBanner"
     color-scheme="primary"
     :banner-message="bannerMessage"
-    href-link="https://github.com/clord/clord/releases"
+    href-link="https://github.com/nerix/nerix/releases"
     :href-link-text="$t('GENERAL_SETTINGS.LEARN_MORE')"
     has-close-button
     @close="dismissUpdateBanner"

@@ -42,7 +42,7 @@ const dummyCustomRolesData = [
 
 const router = useRouter();
 
-const isOnclordCloud = useMapGetter('globalConfig/isOnclordCloud');
+const isOnnerixCloud = useMapGetter('globalConfig/isOnnerixCloud');
 
 const currentUser = useMapGetter('getCurrentUser');
 const currentAccountId = useMapGetter('getCurrentAccountId');
@@ -51,7 +51,7 @@ const isSuperAdmin = computed(() => {
   return currentUser.value.type === 'SuperAdmin';
 });
 const i18nKey = computed(() =>
-  isOnclordCloud.value ? 'PAYWALL' : 'ENTERPRISE_PAYWALL'
+  isOnnerixCloud.value ? 'PAYWALL' : 'ENTERPRISE_PAYWALL'
 );
 
 const goToBillingSettings = () => {
@@ -98,7 +98,7 @@ const tableHeaders = computed(() => {
       <BasePaywallModal
         feature-prefix="CUSTOM_ROLE"
         :i18n-key="i18nKey"
-        :is-on-clord-cloud="isOnclordCloud"
+        :is-on-nerix-cloud="isOnnerixCloud"
         :is-super-admin="isSuperAdmin"
         @upgrade="goToBillingSettings"
       />

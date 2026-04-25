@@ -1,6 +1,6 @@
 <script>
 import { mapGetters } from 'vuex';
-import { getContrastingTextColor } from '@clord/utils';
+import { getContrastingTextColor } from '@nerix/utils';
 
 export default {
   props: {

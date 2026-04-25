@@ -1,6 +1,6 @@
 {
   "LOGIN": {
-    "TITLE": "Logga in till clord",
+    "TITLE": "Logga in till nerix",
     "EMAIL": {
       "LABEL": "E-post",
       "PLACEHOLDER": "example{'@'}companyname.com",

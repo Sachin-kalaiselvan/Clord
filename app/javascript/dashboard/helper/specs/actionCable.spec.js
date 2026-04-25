@@ -13,8 +13,8 @@ vi.mock('dashboard/composables/useImpersonation', () => ({
   }),
 }));
 
-global.clordConfig = {
-  websocketURL: 'wss://test.clord.com',
+global.nerixConfig = {
+  websocketURL: 'wss://test.nerix.com',
 };
 
 describe('ActionCableConnector - Copilot Tests', () => {

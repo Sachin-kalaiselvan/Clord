@@ -23,9 +23,9 @@ import {
 import { isWidgetColorLighter } from 'shared/helpers/colorHelper';
 import { dispatchWindowEvent } from 'shared/helpers/CustomEventHelper';
 import {
-  clord_ERROR,
-  clord_POSTBACK,
-  clord_READY,
+  nerix_ERROR,
+  nerix_POSTBACK,
+  nerix_READY,
 } from '../widget/constants/sdkEvents';
 import { SET_USER_ERROR } from '../widget/constants/errorTypes';
 import { getUserCookieName, setCookieWithDomain } from './cookieHelpers';
@@ -69,14 +69,14 @@ export const IFrameHelper = {
     iframe.src = widgetUrl;
     iframe.allow =
       'camera;microphone;fullscreen;display-capture;picture-in-picture;clipboard-write;';
-    iframe.id = 'clord_live_chat_widget';
+    iframe.id = 'nerix_live_chat_widget';
     iframe.style.visibility = 'hidden';
 
-    let holderClassName = `woot-widget-holder woot--hide woot-elements--${window.$clord.position}`;
-    if (window.$clord.hideMessageBubble) {
+    let holderClassName = `woot-widget-holder woot--hide woot-elements--${window.$nerix.position}`;
+    if (window.$nerix.hideMessageBubble) {
       holderClassName += ` woot-widget--without-bubble`;
     }
-    if (isFlatWidgetStyle(window.$clord.widgetStyle)) {
+    if (isFlatWidgetStyle(window.$nerix.widgetStyle)) {
       holderClassName += ` woot-widget-holder--flat`;
     }
 
@@ -89,12 +89,12 @@ export const IFrameHelper = {
     IFrameHelper.initWindowSizeListener();
     IFrameHelper.preventDefaultScroll();
   },
-  getAppFrame: () => document.getElementById('clord_live_chat_widget'),
+  getAppFrame: () => document.getElementById('nerix_live_chat_widget'),
   getBubbleHolder: () => document.getElementsByClassName('woot--bubble-holder'),
   sendMessage: (key, value) => {
     const element = IFrameHelper.getAppFrame();
     element.contentWindow.postMessage(
-      `clord-widget:${JSON.stringify({ event: key, ...value })}`,
+      `nerix-widget:${JSON.stringify({ event: key, ...value })}`,
       '*'
     );
   },
@@ -102,11 +102,11 @@ export const IFrameHelper = {
     window.onmessage = e => {
       if (
         typeof e.data !== 'string' ||
-        e.data.indexOf('clord-widget:') !== 0
+        e.data.indexOf('nerix-widget:') !== 0
       ) {
         return;
       }
-      const message = JSON.parse(e.data.replace('clord-widget:', ''));
+      const message = JSON.parse(e.data.replace('nerix-widget:', ''));
       if (typeof IFrameHelper.events[message.event] === 'function') {
         IFrameHelper.events[message.event](message);
       }
@@ -140,7 +140,7 @@ export const IFrameHelper = {
   },
 
   setupAudioListeners: () => {
-    const { baseUrl = '' } = window.$clord;
+    const { baseUrl = '' } = window.$nerix;
     getAlertAudio(baseUrl, { type: 'widget', alertTone: 'ding' }).then(() =>
       initOnEvents.forEach(event => {
         document.removeEventListener(
@@ -154,33 +154,33 @@ export const IFrameHelper = {
 
   events: {
     loaded: message => {
-      updateAuthCookie(message.config.authToken, window.$clord.baseDomain);
-      window.$clord.hasLoaded = true;
+      updateAuthCookie(message.config.authToken, window.$nerix.baseDomain);
+      window.$nerix.hasLoaded = true;
       const campaignsSnoozedTill = Cookies.get('cw_snooze_campaigns_till');
       IFrameHelper.sendMessage('config-set', {
-        locale: window.$clord.locale,
-        position: window.$clord.position,
-        hideMessageBubble: window.$clord.hideMessageBubble,
-        showPopoutButton: window.$clord.showPopoutButton,
-        widgetStyle: window.$clord.widgetStyle,
-        darkMode: window.$clord.darkMode,
-        showUnreadMessagesDialog: window.$clord.showUnreadMessagesDialog,
+        locale: window.$nerix.locale,
+        position: window.$nerix.position,
+        hideMessageBubble: window.$nerix.hideMessageBubble,
+        showPopoutButton: window.$nerix.showPopoutButton,
+        widgetStyle: window.$nerix.widgetStyle,
+        darkMode: window.$nerix.darkMode,
+        showUnreadMessagesDialog: window.$nerix.showUnreadMessagesDialog,
         campaignsSnoozedTill,
-        welcomeTitle: window.$clord.welcomeTitle,
-        welcomeDescription: window.$clord.welcomeDescription,
-        availableMessage: window.$clord.availableMessage,
-        unavailableMessage: window.$clord.unavailableMessage,
-        enableFileUpload: window.$clord.enableFileUpload,
-        enableEmojiPicker: window.$clord.enableEmojiPicker,
-        enableEndConversation: window.$clord.enableEndConversation,
+        welcomeTitle: window.$nerix.welcomeTitle,
+        welcomeDescription: window.$nerix.welcomeDescription,
+        availableMessage: window.$nerix.availableMessage,
+        unavailableMessage: window.$nerix.unavailableMessage,
+        enableFileUpload: window.$nerix.enableFileUpload,
+        enableEmojiPicker: window.$nerix.enableEmojiPicker,
+        enableEndConversation: window.$nerix.enableEndConversation,
       });
       IFrameHelper.onLoad({
         widgetColor: message.config.channelConfig.widgetColor,
       });
       IFrameHelper.toggleCloseButton();
 
-      if (window.$clord.user) {
-        IFrameHelper.sendMessage('set-user', window.$clord.user);
+      if (window.$nerix.user) {
+        IFrameHelper.sendMessage('set-user', window.$nerix.user);
       }
 
       window.playAudioAlert = () => {};
@@ -189,12 +189,12 @@ export const IFrameHelper = {
         document.addEventListener(e, IFrameHelper.setupAudioListeners, false);
       });
 
-      if (!window.$clord.resetTriggered) {
-        dispatchWindowEvent({ eventName: clord_READY });
+      if (!window.$nerix.resetTriggered) {
+        dispatchWindowEvent({ eventName: nerix_READY });
       }
     },
     error: ({ errorType, data }) => {
-      dispatchWindowEvent({ eventName: clord_ERROR, data: data });
+      dispatchWindowEvent({ eventName: nerix_ERROR, data: data });
 
       if (errorType === SET_USER_ERROR) {
         Cookies.remove(getUserCookieName());
@@ -204,20 +204,20 @@ export const IFrameHelper = {
       dispatchWindowEvent({ eventName, data });
     },
     setBubbleLabel(message) {
-      setBubbleText(window.$clord.launcherTitle || message.label);
+      setBubbleText(window.$nerix.launcherTitle || message.label);
     },
 
     setAuthCookie({ data: { widgetAuthToken } }) {
-      updateAuthCookie(widgetAuthToken, window.$clord.baseDomain);
+      updateAuthCookie(widgetAuthToken, window.$nerix.baseDomain);
     },
 
     setCampaignReadOn() {
-      updateCampaignReadStatus(window.$clord.baseDomain);
+      updateCampaignReadStatus(window.$nerix.baseDomain);
     },
 
     postback(data) {
       dispatchWindowEvent({
-        eventName: clord_POSTBACK,
+        eventName: nerix_POSTBACK,
         data,
       });
     },
@@ -235,7 +235,7 @@ export const IFrameHelper = {
 
     popoutChatWindow: ({ baseUrl, websiteToken, locale }) => {
       const cwCookie = Cookies.get('cw_conversation');
-      window.$clord.toggle('close');
+      window.$nerix.toggle('close');
       popoutChatWindow(baseUrl, websiteToken, locale, cwCookie);
     },
 
@@ -269,7 +269,7 @@ export const IFrameHelper = {
 
     resetUnreadMode: () => removeUnreadClass(),
     handleNotificationDot: event => {
-      if (window.$clord.hideMessageBubble) {
+      if (window.$nerix.hideMessageBubble) {
         return;
       }
 
@@ -299,18 +299,18 @@ export const IFrameHelper = {
   onLoad: ({ widgetColor }) => {
     const iframe = IFrameHelper.getAppFrame();
     iframe.style.visibility = '';
-    iframe.setAttribute('id', `clord_live_chat_widget`);
+    iframe.setAttribute('id', `nerix_live_chat_widget`);
 
     if (IFrameHelper.getBubbleHolder().length) {
       return;
     }
-    createBubbleHolder(window.$clord.hideMessageBubble);
+    createBubbleHolder(window.$nerix.hideMessageBubble);
     onLocationChangeListener();
 
     let className = 'woot-widget-bubble';
-    let closeBtnClassName = `woot-elements--${window.$clord.position} woot-widget-bubble woot--close woot--hide`;
+    let closeBtnClassName = `woot-elements--${window.$nerix.position} woot-widget-bubble woot--close woot--hide`;
 
-    if (isFlatWidgetStyle(window.$clord.widgetStyle)) {
+    if (isFlatWidgetStyle(window.$nerix.widgetStyle)) {
       className += ' woot-widget-bubble--flat';
       closeBtnClassName += ' woot-widget-bubble--flat';
     }

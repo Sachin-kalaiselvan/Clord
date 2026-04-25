@@ -1,7 +1,7 @@
-export const clord_ERROR = 'clord:error';
-export const clord_ON_MESSAGE = 'clord:on-message';
-export const clord_ON_START_CONVERSATION = 'clord:on-start-conversation';
-export const clord_POSTBACK = 'clord:postback';
-export const clord_READY = 'clord:ready';
-export const clord_OPENED = 'clord:opened';
-export const clord_CLOSED = 'clord:closed';
+export const nerix_ERROR = 'nerix:error';
+export const nerix_ON_MESSAGE = 'nerix:on-message';
+export const nerix_ON_START_CONVERSATION = 'nerix:on-start-conversation';
+export const nerix_POSTBACK = 'nerix:postback';
+export const nerix_READY = 'nerix:ready';
+export const nerix_OPENED = 'nerix:opened';
+export const nerix_CLOSED = 'nerix:closed';

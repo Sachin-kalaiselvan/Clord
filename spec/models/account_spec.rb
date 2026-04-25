@@ -44,9 +44,9 @@ RSpec.describe Account do
   describe 'usage_limits' do
     let(:account) { create(:account) }
 
-    it 'returns clordApp.max limits' do
-      expect(account.usage_limits[:agents]).to eq(clordApp.max_limit)
-      expect(account.usage_limits[:inboxes]).to eq(clordApp.max_limit)
+    it 'returns nerixApp.max limits' do
+      expect(account.usage_limits[:agents]).to eq(nerixApp.max_limit)
+      expect(account.usage_limits[:inboxes]).to eq(nerixApp.max_limit)
     end
   end
 
@@ -79,23 +79,23 @@ RSpec.describe Account do
     let(:account) { create(:account) }
 
     it 'returns the support email from inbox if inbox value is present' do
-      account.update(support_email: 'support@clord.com')
-      with_modified_env MAILER_SENDER_EMAIL: 'hello@clord.com' do
-        expect(account.support_email).to eq('support@clord.com')
+      account.update(support_email: 'support@nerix.com')
+      with_modified_env MAILER_SENDER_EMAIL: 'hello@nerix.com' do
+        expect(account.support_email).to eq('support@nerix.com')
       end
     end
 
     it 'returns the support email from ENV if inbox value is nil' do
       account.update(support_email: nil)
-      with_modified_env MAILER_SENDER_EMAIL: 'hello@clord.com' do
-        expect(account.support_email).to eq('hello@clord.com')
+      with_modified_env MAILER_SENDER_EMAIL: 'hello@nerix.com' do
+        expect(account.support_email).to eq('hello@nerix.com')
       end
     end
 
     it 'returns the support email from ENV if inbox value is empty string' do
       account.update(support_email: '')
-      with_modified_env MAILER_SENDER_EMAIL: 'hello@clord.com' do
-        expect(account.support_email).to eq('hello@clord.com')
+      with_modified_env MAILER_SENDER_EMAIL: 'hello@nerix.com' do
+        expect(account.support_email).to eq('hello@nerix.com')
       end
     end
   end

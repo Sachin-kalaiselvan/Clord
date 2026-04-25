@@ -21,7 +21,7 @@ by providing a `content_for(:javascript)` block.
 <% end %>
 
 <script>
-window.clordSettings = {
+window.nerixSettings = {
   hideMessageBubble: true,
 };
 
@@ -32,16 +32,16 @@ window.clordSettings = {
   g.async = true;
   s.parentNode.insertBefore(g,s);
   g.onload=function(){
-    window.clordSDK.run({
-      websiteToken: '<%= clordHub.support_config[:support_website_token] %>',
-      baseUrl: '<%= clordHub.support_config[:support_script_url] %>'
+    window.nerixSDK.run({
+      websiteToken: '<%= nerixHub.support_config[:support_website_token] %>',
+      baseUrl: '<%= nerixHub.support_config[:support_script_url] %>'
     })
   }
 })(document,"script");
 
-window.addEventListener('clord:ready', function() {
-  window.$clord.setUser('<%= clordHub.installation_identifier %>', {
-    identifier_hash: '<%= clordHub.support_config[:support_identifier_hash] %>',
+window.addEventListener('nerix:ready', function() {
+  window.$nerix.setUser('<%= nerixHub.installation_identifier %>', {
+    identifier_hash: '<%= nerixHub.support_config[:support_identifier_hash] %>',
     email: '<%= SuperAdmin.first.email %>',
     name: '<%= SuperAdmin.first.name %>'
   });

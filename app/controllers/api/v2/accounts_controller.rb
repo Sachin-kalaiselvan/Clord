@@ -62,7 +62,7 @@ class Api::V2::AccountsController < Api::BaseController
   end
 
   def validate_captcha
-    raise ActionController::InvalidAuthenticityToken, 'Invalid Captcha' unless clordCaptcha.new(params[:h_captcha_client_response]).valid?
+    raise ActionController::InvalidAuthenticityToken, 'Invalid Captcha' unless nerixCaptcha.new(params[:h_captcha_client_response]).valid?
   end
 end
 

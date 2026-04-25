@@ -123,11 +123,11 @@
         "CUSTOM_EMAIL_DOMAIN_ENABLED": "Puteți primi e-mailuri în domeniul dvs. personalizat acum."
       }
     },
-    "UPDATE_clord": "Este disponibilă o actualizare {latestclordVersion} pentru clord. Vă rugăm să actualizați instanța.",
+    "UPDATE_nerix": "Este disponibilă o actualizare {latestnerixVersion} pentru nerix. Vă rugăm să actualizați instanța.",
     "LEARN_MORE": "Află mai mult",
-    "PAYMENT_PENDING": "Plata dvs. este în așteptare. Vă rugăm să actualizați informațiile de plată pentru a continua să utilizați clord",
-    "UPGRADE": "Upgrade to continue using clord",
-    "LIMITS_UPGRADE": "Contul dvs. a depășit limitele de utilizare, vă rugăm să vă actualizați planul pentru a continua să utilizați clord",
+    "PAYMENT_PENDING": "Plata dvs. este în așteptare. Vă rugăm să actualizați informațiile de plată pentru a continua să utilizați nerix",
+    "UPGRADE": "Upgrade to continue using nerix",
+    "LIMITS_UPGRADE": "Contul dvs. a depășit limitele de utilizare, vă rugăm să vă actualizați planul pentru a continua să utilizați nerix",
     "OPEN_BILLING": "Deschide facturarea"
   },
   "FORMS": {

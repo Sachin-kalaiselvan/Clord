@@ -103,6 +103,6 @@ class Crm::Leadsquared::Mappers::ConversationMapper
   end
 
   def brand_name
-    ::GlobalConfig.get('BRAND_NAME')['BRAND_NAME'] || 'clord'
+    ::GlobalConfig.get('BRAND_NAME')['BRAND_NAME'] || 'nerix'
   end
 end

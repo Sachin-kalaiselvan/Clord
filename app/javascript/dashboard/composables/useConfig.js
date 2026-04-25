@@ -3,10 +3,10 @@
  * @returns {Object} An object containing configuration values.
  */
 export function useConfig() {
-  const config = window.clordConfig || {};
+  const config = window.nerixConfig || {};
 
   /**
-   * The host URL of the clord instance.
+   * The host URL of the nerix instance.
    * @type {string|undefined}
    */
   const hostURL = config.hostURL;
@@ -18,7 +18,7 @@ export function useConfig() {
   const vapidPublicKey = config.vapidPublicKey;
 
   /**
-   * An array of enabled languages in the clord instance.
+   * An array of enabled languages in the nerix instance.
    * @type {string[]|undefined}
    */
   const enabledLanguages = config.enabledLanguages;

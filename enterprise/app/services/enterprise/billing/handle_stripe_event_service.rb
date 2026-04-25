@@ -1,5 +1,5 @@
 class Enterprise::Billing::HandleStripeEventService
-  CLOUD_PLANS_CONFIG = 'clord_CLOUD_PLANS'.freeze
+  CLOUD_PLANS_CONFIG = 'nerix_CLOUD_PLANS'.freeze
   CAPTAIN_CLOUD_PLAN_LIMITS = 'CAPTAIN_CLOUD_PLAN_LIMITS'.freeze
 
   STARTUP_PLAN_FEATURES = Enterprise::Billing::ReconcilePlanFeaturesService::STARTUP_PLAN_FEATURES

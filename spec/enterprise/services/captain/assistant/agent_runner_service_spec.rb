@@ -222,13 +222,13 @@ RSpec.describe Captain::Assistant::AgentRunnerService do
 
       before do
         allow(mock_runner).to receive(:run).and_raise(error)
-        allow(clordExceptionTracker).to receive(:new).and_return(
-          instance_double(clordExceptionTracker, capture_exception: true)
+        allow(nerixExceptionTracker).to receive(:new).and_return(
+          instance_double(nerixExceptionTracker, capture_exception: true)
         )
       end
 
       it 'captures exception and returns error response' do
-        expect(clordExceptionTracker).to receive(:new).with(error, account: conversation.account)
+        expect(nerixExceptionTracker).to receive(:new).with(error, account: conversation.account)
 
         result = service.generate_response(message_history: message_history)
 
@@ -250,7 +250,7 @@ RSpec.describe Captain::Assistant::AgentRunnerService do
         subject(:service) { described_class.new(assistant: assistant, conversation: nil) }
 
         it 'handles missing conversation gracefully' do
-          expect(clordExceptionTracker).to receive(:new).with(error, account: nil)
+          expect(nerixExceptionTracker).to receive(:new).with(error, account: nil)
 
           result = service.generate_response(message_history: message_history)
 
@@ -507,7 +507,7 @@ RSpec.describe Captain::Assistant::AgentRunnerService do
       root_span = instance_double(span_class)
       context_wrapper = Struct.new(:context).new({ __otel_tracing: { root_span: root_span } })
 
-      allow(clordApp).to receive(:otel_enabled?).and_return(true)
+      allow(nerixApp).to receive(:otel_enabled?).and_return(true)
       allow(runner).to receive(:on_tool_complete) do |&block|
         tool_complete_callback = block
         runner
@@ -530,7 +530,7 @@ RSpec.describe Captain::Assistant::AgentRunnerService do
       runner = instance_double(Agents::AgentRunner)
       tool_complete_callback = nil
 
-      allow(clordApp).to receive(:otel_enabled?).and_return(false)
+      allow(nerixApp).to receive(:otel_enabled?).and_return(false)
       allow(runner).to receive(:on_tool_complete) do |&block|
         tool_complete_callback = block
         runner
@@ -550,7 +550,7 @@ RSpec.describe Captain::Assistant::AgentRunnerService do
       service = described_class.new(assistant: assistant, conversation: conversation)
       runner = instance_double(Agents::AgentRunner)
 
-      allow(clordApp).to receive(:otel_enabled?).and_return(false)
+      allow(nerixApp).to receive(:otel_enabled?).and_return(false)
       allow(runner).to receive(:on_tool_complete).and_return(runner)
       expect(runner).not_to receive(:on_run_complete)
 
@@ -567,7 +567,7 @@ RSpec.describe Captain::Assistant::AgentRunnerService do
       root_span = instance_double(span_class)
       context_wrapper = Struct.new(:context).new({ __otel_tracing: { root_span: root_span } })
 
-      allow(clordApp).to receive(:otel_enabled?).and_return(true)
+      allow(nerixApp).to receive(:otel_enabled?).and_return(true)
       allow(runner).to receive(:on_tool_complete).and_return(runner)
       allow(runner).to receive(:on_run_complete) do |&block|
         run_complete_callback = block

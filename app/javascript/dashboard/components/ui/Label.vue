@@ -1,5 +1,5 @@
 <script>
-import { getContrastingTextColor } from '@clord/utils';
+import { getContrastingTextColor } from '@nerix/utils';
 
 export default {
   props: {

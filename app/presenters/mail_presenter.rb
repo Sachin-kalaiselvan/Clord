@@ -173,9 +173,9 @@ class MailPresenter < SimpleDelegator
     @mail.bounced? || @mail['X-Failed-Recipients'].try(:value).present?
   end
 
-  def notification_email_from_clord?
+  def notification_email_from_nerix?
     # notification emails are send via mailer sender email address. so it should match
-    configured_sender = Mail::Address.new(ENV.fetch('MAILER_SENDER_EMAIL', 'clord <accounts@clord.com>')).address
+    configured_sender = Mail::Address.new(ENV.fetch('MAILER_SENDER_EMAIL', 'nerix <accounts@nerix.com>')).address
     original_sender.to_s.casecmp?(configured_sender)
   end
 

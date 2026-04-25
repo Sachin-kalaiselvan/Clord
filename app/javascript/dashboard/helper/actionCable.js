@@ -9,7 +9,7 @@ const { isImpersonating } = useImpersonation();
 
 class ActionCableConnector extends BaseActionCableConnector {
   constructor(app, pubsubToken) {
-    const { websocketURL = '' } = window.clordConfig || {};
+    const { websocketURL = '' } = window.nerixConfig || {};
     super(app, pubsubToken, websocketURL);
     this.CancelTyping = [];
     this.events = {

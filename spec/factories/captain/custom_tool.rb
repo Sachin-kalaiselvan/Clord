@@ -31,7 +31,7 @@ FactoryBot.define do
     end
 
     trait :with_templates do
-      request_template { '{ "order_id": "{{ order_id }}", "source": "clord" }' }
+      request_template { '{ "order_id": "{{ order_id }}", "source": "nerix" }' }
       response_template { 'Order status: {{ response.status }}' }
     end
 

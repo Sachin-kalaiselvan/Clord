@@ -87,7 +87,7 @@ module Enterprise::DeviseOverrides::OmniauthCallbacksController
   end
 
   def redirect_to_mobile_error(error)
-    mobile_deep_link_base = GlobalConfigService.load('MOBILE_DEEP_LINK_BASE', 'clordapp')
+    mobile_deep_link_base = GlobalConfigService.load('MOBILE_DEEP_LINK_BASE', 'nerixapp')
     redirect_to "#{mobile_deep_link_base}://auth/saml?error=#{ERB::Util.url_encode(error)}", allow_other_host: true
   end
 

@@ -1,9 +1,9 @@
 {
-  "name": "clord",
-  "description": "clord is a customer support tool for instant messaging channels",
-  "website": "https://www.clord.com/",
-  "repository": "https://github.com/clord/clord",
-  "logo": "https://app.clord.com/brand-assets/logo_thumbnail.svg",
+  "name": "nerix",
+  "description": "nerix is a customer support tool for instant messaging channels",
+  "website": "https://www.nerix.com/",
+  "repository": "https://github.com/nerix/nerix",
+  "logo": "https://app.nerix.com/brand-assets/logo_thumbnail.svg",
   "keywords": [
     "live chat",
     "customer support",
@@ -26,11 +26,11 @@
       "value": "production"
     },
     "FRONTEND_URL": {
-      "description": "Public root URL of the clord installation. This will be used in the emails.",
+      "description": "Public root URL of the nerix installation. This will be used in the emails.",
       "value": "https://CHANGE.herokuapp.com"
     },
     "INSTALLATION_ENV": {
-      "description": "Installation method used for clord.",
+      "description": "Installation method used for nerix.",
       "value": "heroku"
     },
     "REDIS_OPENSSL_VERIFY_MODE":{

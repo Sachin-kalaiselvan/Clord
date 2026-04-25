@@ -1,10 +1,10 @@
 import { useConfig } from '../useConfig';
 
 describe('useConfig', () => {
-  const originalclordConfig = window.clordConfig;
+  const originalnerixConfig = window.nerixConfig;
 
   beforeEach(() => {
-    window.clordConfig = {
+    window.nerixConfig = {
       hostURL: 'https://example.com',
       vapidPublicKey: 'vapid-key',
       enabledLanguages: ['en', 'fr'],
@@ -14,7 +14,7 @@ describe('useConfig', () => {
   });
 
   afterEach(() => {
-    window.clordConfig = originalclordConfig;
+    window.nerixConfig = originalnerixConfig;
   });
 
   it('returns the correct configuration values', () => {
@@ -28,7 +28,7 @@ describe('useConfig', () => {
   });
 
   it('handles missing configuration values', () => {
-    window.clordConfig = {};
+    window.nerixConfig = {};
     const config = useConfig();
 
     expect(config.hostURL).toBeUndefined();
@@ -38,8 +38,8 @@ describe('useConfig', () => {
     expect(config.enterprisePlanName).toBeUndefined();
   });
 
-  it('handles undefined window.clordConfig', () => {
-    window.clordConfig = undefined;
+  it('handles undefined window.nerixConfig', () => {
+    window.nerixConfig = undefined;
     const config = useConfig();
 
     expect(config.hostURL).toBeUndefined();

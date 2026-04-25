@@ -243,7 +243,7 @@ const handleToggleWidget = () => {
           :script="widgetScript"
           lang="html"
           class="!text-start"
-          :codepen-title="`${websiteName} - clord Widget Test`"
+          :codepen-title="`${websiteName} - nerix Widget Test`"
           enable-code-pen
         />
       </div>

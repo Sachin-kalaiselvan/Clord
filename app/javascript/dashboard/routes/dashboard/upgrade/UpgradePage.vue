@@ -26,7 +26,7 @@ const { accountId, currentAccount } = useAccount();
 const { isEnterprise } = useConfig();
 const { isAdmin } = useAdmin();
 
-const isOnclordCloud = useMapGetter('globalConfig/isOnclordCloud');
+const isOnnerixCloud = useMapGetter('globalConfig/isOnnerixCloud');
 
 const testLimit = ({ allowed, consumed }) => {
   return consumed > allowed;
@@ -86,7 +86,7 @@ const isLimitExceeded = computed(() => {
 const shouldShowUpgradePage = computed(() => {
   // Skip upgrade page in Billing, Inbox, and Agent pages
   if (props.bypassUpgradePage) return false;
-  if (!isOnclordCloud.value) return false;
+  if (!isOnnerixCloud.value) return false;
   if (isTrialAccount.value) return false;
   return isLimitExceeded.value;
 });

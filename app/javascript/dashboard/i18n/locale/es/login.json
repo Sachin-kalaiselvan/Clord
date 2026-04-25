@@ -1,6 +1,6 @@
 {
   "LOGIN": {
-    "TITLE": "Iniciar sesión en clord",
+    "TITLE": "Iniciar sesión en nerix",
     "EMAIL": {
       "LABEL": "E-mail",
       "PLACEHOLDER": "ejemplo{'@'}nombredeempresa.com",

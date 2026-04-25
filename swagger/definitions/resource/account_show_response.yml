@@ -2,11 +2,11 @@ allOf:
   - $ref: '#/components/schemas/account_detail'
   - type: object
     properties:
-      latest_clord_version:
+      latest_nerix_version:
         type:
           - string
           - 'null'
-        description: Latest version of clord available
+        description: Latest version of nerix available
         example: "3.0.0"
       subscribed_features:
         type: array

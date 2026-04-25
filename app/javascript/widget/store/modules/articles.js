@@ -1,7 +1,7 @@
 import { getMostReadArticles } from 'widget/api/article';
 import { getFromCache, setCache } from 'shared/helpers/cache';
 
-const CACHE_KEY_PREFIX = 'clord_most_read_articles_';
+const CACHE_KEY_PREFIX = 'nerix_most_read_articles_';
 
 const state = {
   records: [],

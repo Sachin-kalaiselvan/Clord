@@ -54,21 +54,21 @@ const globalConfig = computed(() => store.getters['globalConfig/get']);
 
 const termsLink = computed(() =>
   t('REGISTER.TERMS_ACCEPT')
-    .replace('https://www.clord.com/terms', globalConfig.value.termsURL)
+    .replace('https://www.nerix.com/terms', globalConfig.value.termsURL)
     .replace(
-      'https://www.clord.com/privacy-policy',
+      'https://www.nerix.com/privacy-policy',
       globalConfig.value.privacyURL
     )
 );
 
 const allowedLoginMethods = computed(
-  () => window.clordConfig.allowedLoginMethods || ['email']
+  () => window.nerixConfig.allowedLoginMethods || ['email']
 );
 
 const showGoogleOAuth = computed(
   () =>
     allowedLoginMethods.value.includes('google_oauth') &&
-    Boolean(window.clordConfig.googleOAuthClientId)
+    Boolean(window.nerixConfig.googleOAuthClientId)
 );
 
 const isFormValid = computed(() => !v$.value.$invalid);

@@ -13,7 +13,7 @@
 %>
 <script>
 
-window.clordSettings = {
+window.nerixSettings = {
   hideMessageBubble: false,
   // showUnreadMessagesDialog: false,
   // baseDomain: '.loca.lt',
@@ -33,17 +33,17 @@ window.clordSettings = {
   g.async = true;
   s.parentNode.insertBefore(g,s);
   g.onload=function(){
-    window.clordSDK.run({
+    window.nerixSDK.run({
       websiteToken: '<%= @web_widget.website_token %>',
       baseUrl: BASE_URL
     })
   }
 })(document,"script");
 
-window.addEventListener('clord:ready', function() {
-  console.log('clord:ready', window.$clord);
+window.addEventListener('nerix:ready', function() {
+  console.log('nerix:ready', window.$nerix);
   if (window.location.search.includes('setUser')) {
-    window.$clord.setUser('<%= user_id %>', {
+    window.$nerix.setUser('<%= user_id %>', {
       identifier_hash: '<%= user_hash %>',
       email: 'jane@example.com',
       name: 'Jane Doe',
@@ -52,28 +52,28 @@ window.addEventListener('clord:ready', function() {
   }
 })
 
-window.addEventListener('clord:error', function(e) {
-  console.log('clord:error', e.detail)
+window.addEventListener('nerix:error', function(e) {
+  console.log('nerix:error', e.detail)
 })
 
 
-window.addEventListener('clord:on-message', function(e) {
-  console.log('clord:on-message', e.detail)
+window.addEventListener('nerix:on-message', function(e) {
+  console.log('nerix:on-message', e.detail)
 })
 
-window.addEventListener('clord:postback', function(e) {
-  console.log('clord:postback', e.detail)
+window.addEventListener('nerix:postback', function(e) {
+  console.log('nerix:postback', e.detail)
 })
 
-window.addEventListener('clord:opened', function() {
-  console.log('clord:opened')
+window.addEventListener('nerix:opened', function() {
+  console.log('nerix:opened')
 })
 
-window.addEventListener('clord:closed', function() {
-  console.log('clord:closed')
+window.addEventListener('nerix:closed', function() {
+  console.log('nerix:closed')
 })
 
-window.addEventListener('clord:on-start-conversation', function(e) {
-  console.log('clord:on-start-conversation', e.detail)
+window.addEventListener('nerix:on-start-conversation', function(e) {
+  console.log('nerix:on-start-conversation', e.detail)
 })
 </script>

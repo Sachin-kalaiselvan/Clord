@@ -2,7 +2,7 @@
 import IntegrationAPIClient from 'widget/api/integration';
 import FluentIcon from 'shared/components/FluentIcon/Index.vue';
 import { buildDyteURL } from 'shared/helpers/IntegrationHelper';
-import { getContrastingTextColor } from '@clord/utils';
+import { getContrastingTextColor } from '@nerix/utils';
 import { mapGetters } from 'vuex';
 
 export default {

@@ -84,7 +84,7 @@ describe('#URL Helpers', () => {
 
   describe('isValidURL', () => {
     it('should return true if valid url is passed', () => {
-      expect(isValidURL('https://clord.com')).toBe(true);
+      expect(isValidURL('https://nerix.com')).toBe(true);
     });
     it('should return false if invalid url is passed', () => {
       expect(isValidURL('alert.window')).toBe(false);
@@ -181,7 +181,7 @@ describe('#URL Helpers', () => {
 
   describe('hasValidAvatarUrl', () => {
     test('should return true for valid non-Gravatar URL', () => {
-      expect(hasValidAvatarUrl('https://clord.com/avatar.jpg')).toBe(true);
+      expect(hasValidAvatarUrl('https://nerix.com/avatar.jpg')).toBe(true);
     });
 
     test('should return false for a Gravatar URL (www.gravatar.com)', () => {
@@ -271,7 +271,7 @@ describe('#URL Helpers', () => {
     });
 
     it('should correctly handle URLs with non-standard TLDs', () => {
-      expect(getHostNameFromURL('https://clord.help')).toBe('clord.help');
+      expect(getHostNameFromURL('https://nerix.help')).toBe('nerix.help');
     });
   });
 

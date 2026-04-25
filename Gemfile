@@ -38,7 +38,7 @@ gem 'csv-safe'
 ##-- for active storage --##
 gem 'aws-sdk-s3', require: false
 # ✅ FIX: pointing to your public fork which patches faraday compatibility
-gem 'azure-storage-blob', git: 'https://github.com/Sachin-kalaiselvan/azure-storage-ruby', branch: 'chatwoot', require: false
+gem 'azure-storage-blob', git: 'https://github.com/Sachin-kalaiselvan/azure-storage-ruby', branch: 'nixer', require: false
 gem 'google-cloud-storage', '>= 1.48.0', require: false
 gem 'image_processing'
 
@@ -66,7 +66,7 @@ gem 'barnes'
 ##--- gems for authentication & authorization ---##
 gem 'devise', '>= 4.9.4'
 # ✅ FIX: removed version constraint, pointing to your public fork
-gem 'devise-secure_password', git: 'https://github.com/Sachin-kalaiselvan/devise-secure_password', branch: 'chatwoot'
+gem 'devise-secure_password', git: 'https://github.com/Sachin-kalaiselvan/devise-secure_password', branch: 'nixer'
 gem 'devise_token_auth', '>= 1.2.3'
 gem 'devise-two-factor', '>= 5.0.0'
 gem 'jwt'

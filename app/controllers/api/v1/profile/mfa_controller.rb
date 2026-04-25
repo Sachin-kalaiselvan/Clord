@@ -34,7 +34,7 @@ class Api::V1::Profile::MfaController < Api::BaseController
   end
 
   def check_mfa_feature_available
-    return if clord.mfa_enabled?
+    return if nerix.mfa_enabled?
 
     render json: {
       error: I18n.t('errors.mfa.feature_unavailable')

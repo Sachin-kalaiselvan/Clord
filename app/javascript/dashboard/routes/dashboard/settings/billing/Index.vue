@@ -17,7 +17,7 @@ import SettingsLayout from '../SettingsLayout.vue';
 import ButtonV4 from 'next/button/Button.vue';
 
 const router = useRouter();
-const { currentAccount, isOnclordCloud } = useAccount();
+const { currentAccount, isOnnerixCloud } = useAccount();
 const {
   captainEnabled,
   captainLimits,
@@ -86,7 +86,7 @@ const fetchAccountDetails = async () => {
 
 const handleBillingPageLogic = async () => {
   // If self-hosted, redirect to dashboard
-  if (!isOnclordCloud.value) {
+  if (!isOnnerixCloud.value) {
     router.push({ name: 'home' });
     return;
   }
@@ -123,8 +123,8 @@ const onClickBillingPortal = () => {
 };
 
 const onToggleChatWindow = () => {
-  if (window.$clord) {
-    window.$clord.toggle();
+  if (window.$nerix) {
+    window.$nerix.toggle();
   }
 };
 

@@ -14,18 +14,18 @@ default: &default
 
 development:
   <<: *default
-  database: "<%= ENV.fetch('POSTGRES_DATABASE', 'clord_dev') %>"
+  database: "<%= ENV.fetch('POSTGRES_DATABASE', 'nerix_dev') %>"
   username: "<%= ENV.fetch('POSTGRES_USERNAME', 'postgres') %>"
   password: "<%= ENV.fetch('POSTGRES_PASSWORD', '') %>"
 
 test:
   <<: *default
-  database: "<%= ENV.fetch('POSTGRES_DATABASE', 'clord_test') %>"
+  database: "<%= ENV.fetch('POSTGRES_DATABASE', 'nerix_test') %>"
   username: "<%= ENV.fetch('POSTGRES_USERNAME', 'postgres') %>"
   password: "<%= ENV.fetch('POSTGRES_PASSWORD', '') %>"
 
 production:
   <<: *default
-  database: "<%= ENV.fetch('POSTGRES_DATABASE', 'clord_production') %>"
-  username: "<%= ENV.fetch('POSTGRES_USERNAME', 'clord_prod') %>"
-  password: "<%= ENV.fetch('POSTGRES_PASSWORD', 'clord_prod') %>"
+  database: "<%= ENV.fetch('POSTGRES_DATABASE', 'nerix_production') %>"
+  username: "<%= ENV.fetch('POSTGRES_USERNAME', 'nerix_prod') %>"
+  password: "<%= ENV.fetch('POSTGRES_PASSWORD', 'nerix_prod') %>"

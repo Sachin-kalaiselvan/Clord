@@ -30,7 +30,7 @@ export default {
       // Redirect to messages page after conversation is created
       this.router.replace({ name: 'messages' });
       // Only after successful navigation, reset the isUpdatingRoute UIflag in app/javascript/widget/router.js
-      // See issue: https://github.com/clord/clord/issues/10736
+      // See issue: https://github.com/nerix/nerix/issues/10736
     },
 
     onSubmit({

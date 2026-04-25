@@ -1,11 +1,11 @@
 {
   "REGISTER": {
     "TRY_WOOT": "Crea un account",
-    "GET_STARTED": "Inizia con clord",
+    "GET_STARTED": "Inizia con nerix",
     "TITLE": "Registrati",
     "TESTIMONIAL_HEADER": "Basta uno step per proseguire",
     "TESTIMONIAL_CONTENT": "Sei a un passo dal coinvolgere i tuoi clienti, fidelizzarli e trovarne di nuovi.",
-    "TERMS_ACCEPT": "Creando un account, accetti <a href=\"https://www.clord.com/terms\">Termini e Condizioni</a> e <a href=\"https://www.clord.com/privacy-policy\">Privacy policy</a>",
+    "TERMS_ACCEPT": "Creando un account, accetti <a href=\"https://www.nerix.com/terms\">Termini e Condizioni</a> e <a href=\"https://www.nerix.com/privacy-policy\">Privacy policy</a>",
     "OAUTH": {
       "GOOGLE_SIGNUP": "Registrati con Google"
     },

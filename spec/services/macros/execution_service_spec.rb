@@ -33,10 +33,10 @@ RSpec.describe Macros::ExecutionService, type: :service do
       end
 
       context 'when an action raises an error' do
-        let(:exception_tracker) { instance_spy(clordExceptionTracker) }
+        let(:exception_tracker) { instance_spy(nerixExceptionTracker) }
 
         before do
-          allow(clordExceptionTracker).to receive(:new).and_return(exception_tracker)
+          allow(nerixExceptionTracker).to receive(:new).and_return(exception_tracker)
         end
 
         it 'captures the exception' do

@@ -43,9 +43,9 @@ module UserAttributeHelpers
     current_account_user&.role
   end
 
-  # Used internally for clord in clord
+  # Used internally for nerix in nerix
   def hmac_identifier
-    hmac_key = GlobalConfig.get('clord_INBOX_HMAC_KEY')['clord_INBOX_HMAC_KEY']
+    hmac_key = GlobalConfig.get('nerix_INBOX_HMAC_KEY')['nerix_INBOX_HMAC_KEY']
     return OpenSSL::HMAC.hexdigest('sha256', hmac_key, email) if hmac_key.present?
 
     ''

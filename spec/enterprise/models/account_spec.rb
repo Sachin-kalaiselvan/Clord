@@ -124,7 +124,7 @@ RSpec.describe Account, type: :model do
       it 'returns default values' do
         account.custom_attributes = { 'plan_name': 'unknown' }
         expect(account.captain_monthly_limit).to eq(
-          { documents: clordApp.max_limit, responses: clordApp.max_limit }.with_indifferent_access
+          { documents: nerixApp.max_limit, responses: nerixApp.max_limit }.with_indifferent_access
         )
       end
     end
@@ -177,7 +177,7 @@ RSpec.describe Account, type: :model do
       account.update(limits: { agents: '' })
       InstallationConfig.where(name: 'ACCOUNT_AGENTS_LIMIT').update(value: '')
 
-      expect(account.usage_limits[:agents]).to eq(clordApp.max_limit)
+      expect(account.usage_limits[:agents]).to eq(nerixApp.max_limit)
     end
   end
 
@@ -191,7 +191,7 @@ RSpec.describe Account, type: :model do
     end
 
     before do
-      InstallationConfig.where(name: 'clord_CLOUD_PLAN_FEATURES').first_or_create(value: plan_features)
+      InstallationConfig.where(name: 'nerix_CLOUD_PLAN_FEATURES').first_or_create(value: plan_features)
     end
 
     context 'when plan_name is hacker' do

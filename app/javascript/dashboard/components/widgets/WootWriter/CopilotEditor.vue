@@ -9,7 +9,7 @@ import {
   MessageMarkdownSerializer,
   EditorState,
   Selection,
-} from '@clord/prosemirror-schema';
+} from '@nerix/prosemirror-schema';
 
 import { useMessageFormatter } from 'shared/composables/useMessageFormatter';
 
@@ -226,7 +226,7 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
-@import '@clord/prosemirror-schema/src/styles/base.scss';
+@import '@nerix/prosemirror-schema/src/styles/base.scss';
 
 .editor--copilot {
   @apply bg-n-iris-5 rounded;

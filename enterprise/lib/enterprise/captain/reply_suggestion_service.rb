@@ -8,7 +8,7 @@ module Enterprise::Captain::ReplySuggestionService
   private
 
   def use_search_tool?
-    clordApp.clord_cloud? || clordApp.self_hosted_enterprise?
+    nerixApp.nerix_cloud? || nerixApp.self_hosted_enterprise?
   end
 
   def prompt_variables

@@ -1,7 +1,7 @@
 import {
   ANALYTICS_IDENTITY,
-  clord_RESET,
-  clord_SET_USER,
+  nerix_RESET,
+  nerix_SET_USER,
 } from '../constants/appEvents';
 import AnalyticsHelper from './AnalyticsHelper';
 import DashboardAudioNotificationHelper from './AudioAlerts/DashboardAudioNotificationHelper';
@@ -34,21 +34,21 @@ export const initializeAudioAlerts = user => {
   });
 };
 
-export const initializeclordEvents = () => {
-  emitter.on(clord_RESET, () => {
-    if (window.$clord) {
-      window.$clord.reset();
+export const initializenerixEvents = () => {
+  emitter.on(nerix_RESET, () => {
+    if (window.$nerix) {
+      window.$nerix.reset();
     }
   });
-  emitter.on(clord_SET_USER, ({ user }) => {
-    if (window.$clord) {
-      window.$clord.setUser(user.email, {
+  emitter.on(nerix_SET_USER, ({ user }) => {
+    if (window.$nerix) {
+      window.$nerix.setUser(user.email, {
         avatar_url: user.avatar_url,
         email: user.email,
         identifier_hash: user.hmac_identifier,
         name: user.name,
       });
-      window.$clord.setCustomAttributes({
+      window.$nerix.setCustomAttributes({
         signedUpAt: user.created_at,
         cloudCustomer: 'true',
         account_id: user.account_id,

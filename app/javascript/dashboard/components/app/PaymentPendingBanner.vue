@@ -23,7 +23,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      isOnclordCloud: 'globalConfig/isOnclordCloud',
+      isOnnerixCloud: 'globalConfig/isOnnerixCloud',
       getAccount: 'accounts/getAccount',
     }),
     bannerMessage() {
@@ -33,7 +33,7 @@ export default {
       return this.$t('GENERAL_SETTINGS.OPEN_BILLING');
     },
     shouldShowBanner() {
-      if (!this.isOnclordCloud) {
+      if (!this.isOnnerixCloud) {
         return false;
       }
 

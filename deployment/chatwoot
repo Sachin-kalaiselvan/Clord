@@ -1,6 +1,6 @@
-# give clord user permission to start/stop/restart clord systemd service
+# give nerix user permission to start/stop/restart nerix systemd service
 
-%clord ALL=NOPASSWD: /bin/systemctl start clord.target
-%clord ALL=NOPASSWD: /bin/systemctl stop clord.target
-%clord ALL=NOPASSWD: /bin/systemctl restart clord.target
-%clord ALL=NOPASSWD: /usr/local/bin/cwctl
+%nerix ALL=NOPASSWD: /bin/systemctl start nerix.target
+%nerix ALL=NOPASSWD: /bin/systemctl stop nerix.target
+%nerix ALL=NOPASSWD: /bin/systemctl restart nerix.target
+%nerix ALL=NOPASSWD: /usr/local/bin/cwctl

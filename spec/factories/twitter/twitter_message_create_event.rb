@@ -22,12 +22,12 @@ FactoryBot.define do
         '1' => {
           id: '1',
           name: 'person 1',
-          profile_image_url: 'https://clord-assets.local/sample.png'
+          profile_image_url: 'https://nerix-assets.local/sample.png'
         },
         '2' => {
           id: '1',
           name: 'person 1',
-          profile_image_url: 'https://clord-assets.local/sample.png'
+          profile_image_url: 'https://nerix-assets.local/sample.png'
         }
       }
     end

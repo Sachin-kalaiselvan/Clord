@@ -1,7 +1,7 @@
-# This class creates both outgoing messages from clord and echo outgoing messages based on the flag `outgoing_echo`
+# This class creates both outgoing messages from nerix and echo outgoing messages based on the flag `outgoing_echo`
 # Assumptions
 # 1. Incase of an outgoing message which is echo, source_id will NOT be nil,
-#    based on this we are showing "not sent from clord" message in frontend
+#    based on this we are showing "not sent from nerix" message in frontend
 #    Hence there is no need to set user_id in message for outgoing echo messages.
 
 class Messages::Facebook::MessageBuilder < Messages::Messenger::MessageBuilder
@@ -30,7 +30,7 @@ class Messages::Facebook::MessageBuilder < Messages::Messenger::MessageBuilder
     Rails.logger.error e
     @inbox.channel.authorization_error!
   rescue StandardError => e
-    clordExceptionTracker.new(e, account: @inbox.account).capture_exception
+    nerixExceptionTracker.new(e, account: @inbox.account).capture_exception
     true
   end
 
@@ -148,11 +148,11 @@ class Messages::Facebook::MessageBuilder < Messages::Messenger::MessageBuilder
       if e.message.include?('2018218')
         Rails.logger.warn e
       else
-        clordExceptionTracker.new(e, account: @inbox.account).capture_exception unless @outgoing_echo
+        nerixExceptionTracker.new(e, account: @inbox.account).capture_exception unless @outgoing_echo
       end
     rescue StandardError => e
       result = {}
-      clordExceptionTracker.new(e, account: @inbox.account).capture_exception
+      nerixExceptionTracker.new(e, account: @inbox.account).capture_exception
     end
     process_contact_params_result(result)
   end

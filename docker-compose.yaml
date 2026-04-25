@@ -10,7 +10,7 @@ services:
         RAILS_SERVE_STATIC_FILES: 'false'
     tty: true
     stdin_open: true
-    image: clord:development
+    image: nerix:development
     env_file: .env
 
   rails:
@@ -18,7 +18,7 @@ services:
     build:
       context: .
       dockerfile: ./docker/dockerfiles/rails.Dockerfile
-    image: clord-rails:development
+    image: nerix-rails:development
     volumes:
       - ./:/app:delegated
       - node_modules:/app/node_modules
@@ -43,7 +43,7 @@ services:
 
   sidekiq:
     <<: *base
-    image: clord-rails:development
+    image: nerix-rails:development
     volumes:
       - ./:/app:delegated
       - node_modules:/app/node_modules
@@ -64,7 +64,7 @@ services:
     build:
       context: .
       dockerfile: ./docker/dockerfiles/vite.Dockerfile
-    image: clord-vite:development
+    image: nerix-vite:development
     volumes:
       - ./:/app:delegated
       - node_modules:/app/node_modules
@@ -88,9 +88,9 @@ services:
     volumes:
       - postgres:/data/postgres
     environment:
-      - POSTGRES_DB=clord
+      - POSTGRES_DB=nerix
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=ClordPass2024
+      - POSTGRES_PASSWORD=nerixPass2024
 
   redis:
     image: redis:alpine

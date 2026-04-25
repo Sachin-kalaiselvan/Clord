@@ -1,4 +1,4 @@
-## Class to generate sample inboxes for a clord test @Account.
+## Class to generate sample inboxes for a nerix test @Account.
 ############################################################
 ### Usage #####
 #

@@ -9,7 +9,7 @@ export default [
     attributeKey: 'linkContact',
     attributeDisplayName: 'URL Input',
     attributeDisplayType: 'link',
-    value: 'https://www.clord.com',
+    value: 'https://www.nerix.com',
   },
   {
     attributeKey: 'numberContact',

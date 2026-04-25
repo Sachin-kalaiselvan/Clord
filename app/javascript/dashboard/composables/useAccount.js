@@ -14,7 +14,7 @@ export function useAccount() {
   const route = useRoute();
   const store = useStore();
   const getAccountFn = useMapGetter('accounts/getAccount');
-  const isOnclordCloud = useMapGetter('globalConfig/isOnclordCloud');
+  const isOnnerixCloud = useMapGetter('globalConfig/isOnnerixCloud');
   const isFeatureEnabledonAccount = useMapGetter(
     'accounts/isFeatureEnabledonAccount'
   );
@@ -59,7 +59,7 @@ export function useAccount() {
     accountScopedUrl,
     accountScopedRoute,
     isCloudFeatureEnabled,
-    isOnclordCloud,
+    isOnnerixCloud,
     updateAccount,
   };
 }

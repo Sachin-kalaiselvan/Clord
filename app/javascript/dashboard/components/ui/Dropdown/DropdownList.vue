@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed } from 'vue';
-import { debounce } from '@clord/utils';
+import { debounce } from '@nerix/utils';
 import { picoSearch } from '@scmmishra/pico-search';
 import ListItemButton from './DropdownListItemButton.vue';
 import DropdownSearch from './DropdownSearch.vue';

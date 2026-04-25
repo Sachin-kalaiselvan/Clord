@@ -1,3 +1,14 @@
-<svg width="66" height="66" viewBox="0 0 66 66" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M63 63H32.9976C16.4591 63 2.99996 49.5399 2.99996 32.9973C2.99996 16.4601 16.4591 3 32.9979 3C49.5408 3 63 16.4601 63 32.9973V63Z" fill="white" stroke="white" stroke-width="6"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 44" width="180" height="44">
+  <circle cx="22" cy="22" r="18" fill="#111111"/>
+  <path d="M15 28 A10 10 0 0 1 15 16"
+        stroke="#ffffff" stroke-width="2.5"
+        fill="none" stroke-linecap="round"/>
+  <path d="M10 33 A17 17 0 0 1 10 11"
+        stroke="#ffffff" stroke-width="2"
+        fill="none" stroke-linecap="round" opacity="0.6"/>
+  <circle cx="29" cy="22" r="3" fill="#ffffff"/>
+  <text x="52" y="29"
+        font-family="'Arial Black','Helvetica Neue',Arial,sans-serif"
+        font-size="20" font-weight="900"
+        fill="#111111" letter-spacing="0.5">Nixer</text>
 </svg>

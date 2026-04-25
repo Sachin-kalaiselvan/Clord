@@ -232,11 +232,11 @@ describe Webhooks::Trigger do
     end
 
     context 'with delivery_id' do
-      it 'adds X-clord-Delivery header' do
+      it 'adds X-nerix-Delivery header' do
         expect(RestClient::Request).to receive(:execute) do |args|
-          expect(args[:headers]['X-clord-Delivery']).to eq('test-uuid')
-          expect(args[:headers]).not_to have_key('X-clord-Signature')
-          expect(args[:headers]).not_to have_key('X-clord-Timestamp')
+          expect(args[:headers]['X-nerix-Delivery']).to eq('test-uuid')
+          expect(args[:headers]).not_to have_key('X-nerix-Signature')
+          expect(args[:headers]).not_to have_key('X-nerix-Timestamp')
         end
         trigger.execute(url, payload, webhook_type, delivery_id: 'test-uuid')
       end
@@ -245,27 +245,27 @@ describe Webhooks::Trigger do
     context 'with secret' do
       let(:secret) { 'test-secret' }
 
-      it 'adds X-clord-Timestamp header' do
+      it 'adds X-nerix-Timestamp header' do
         expect(RestClient::Request).to receive(:execute) do |args|
-          expect(args[:headers]['X-clord-Timestamp']).to match(/\A\d+\z/)
+          expect(args[:headers]['X-nerix-Timestamp']).to match(/\A\d+\z/)
         end
         trigger.execute(url, payload, webhook_type, secret: secret)
       end
 
-      it 'adds X-clord-Signature header with correct HMAC' do
+      it 'adds X-nerix-Signature header with correct HMAC' do
         expect(RestClient::Request).to receive(:execute) do |args|
-          ts = args[:headers]['X-clord-Timestamp']
+          ts = args[:headers]['X-nerix-Timestamp']
           expected_sig = "sha256=#{OpenSSL::HMAC.hexdigest('SHA256', secret, "#{ts}.#{body}")}"
-          expect(args[:headers]['X-clord-Signature']).to eq(expected_sig)
+          expect(args[:headers]['X-nerix-Signature']).to eq(expected_sig)
         end
         trigger.execute(url, payload, webhook_type, secret: secret)
       end
 
       it 'signs timestamp.body not just body' do
         expect(RestClient::Request).to receive(:execute) do |args|
-          args[:headers]['X-clord-Timestamp']
+          args[:headers]['X-nerix-Timestamp']
           wrong_sig = "sha256=#{OpenSSL::HMAC.hexdigest('SHA256', secret, body)}"
-          expect(args[:headers]['X-clord-Signature']).not_to eq(wrong_sig)
+          expect(args[:headers]['X-nerix-Signature']).not_to eq(wrong_sig)
         end
         trigger.execute(url, payload, webhook_type, secret: secret)
       end
@@ -274,9 +274,9 @@ describe Webhooks::Trigger do
     context 'with both secret and delivery_id' do
       it 'includes all three security headers' do
         expect(RestClient::Request).to receive(:execute) do |args|
-          expect(args[:headers]['X-clord-Delivery']).to eq('abc-123')
-          expect(args[:headers]['X-clord-Timestamp']).to be_present
-          expect(args[:headers]['X-clord-Signature']).to start_with('sha256=')
+          expect(args[:headers]['X-nerix-Delivery']).to eq('abc-123')
+          expect(args[:headers]['X-nerix-Timestamp']).to be_present
+          expect(args[:headers]['X-nerix-Signature']).to start_with('sha256=')
         end
         trigger.execute(url, payload, webhook_type, secret: 'mysecret', delivery_id: 'abc-123')
       end

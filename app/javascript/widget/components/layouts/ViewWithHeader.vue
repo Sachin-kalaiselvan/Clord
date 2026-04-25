@@ -20,7 +20,7 @@ export default {
       showPopoutButton: false,
       scrollPosition: 0,
       ticking: true,
-      disableBranding: window.clordWebChannel.disableBranding || false,
+      disableBranding: window.nerixWebChannel.disableBranding || false,
       requestID: null,
     };
   },
@@ -30,7 +30,7 @@ export default {
       availableAgents: 'agent/availableAgents',
     }),
     portal() {
-      return window.clordWebChannel.portal;
+      return window.nerixWebChannel.portal;
     },
     isHeaderCollapsed() {
       if (!this.hasIntroText) {

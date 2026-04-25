@@ -123,11 +123,11 @@
         "CUSTOM_EMAIL_DOMAIN_ENABLED": "Anda dapat menerima email di domain kustom Anda sekarang."
       }
     },
-    "UPDATE_clord": "Pembaharuan clord {latestclordVersion} telah tersedia. Silahkan lakukan pembaharuan instance Anda.",
+    "UPDATE_nerix": "Pembaharuan nerix {latestnerixVersion} telah tersedia. Silahkan lakukan pembaharuan instance Anda.",
     "LEARN_MORE": "Pelajari lebih lanjut",
-    "PAYMENT_PENDING": "Pembayaran Anda tertunda. Harap perbarui informasi pembayaran Anda untuk melanjutkan menggunakan clord",
-    "UPGRADE": "Upgrade to continue using clord",
-    "LIMITS_UPGRADE": "Akun Anda telah melebihi batas penggunaan, harap tingkatkan paket Anda untuk terus menggunakan clord",
+    "PAYMENT_PENDING": "Pembayaran Anda tertunda. Harap perbarui informasi pembayaran Anda untuk melanjutkan menggunakan nerix",
+    "UPGRADE": "Upgrade to continue using nerix",
+    "LIMITS_UPGRADE": "Akun Anda telah melebihi batas penggunaan, harap tingkatkan paket Anda untuk terus menggunakan nerix",
     "OPEN_BILLING": "Buka tagihan"
   },
   "FORMS": {

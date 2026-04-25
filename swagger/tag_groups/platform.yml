@@ -1,16 +1,16 @@
 openapi: '3.1.0'
 info:
-  title: clord - Platform API
-  description: Platform API endpoints for clord
+  title: nerix - Platform API
+  description: Platform API endpoints for nerix
   version: 1.1.0
-  termsOfService: https://www.clord.com/terms-of-service/
+  termsOfService: https://www.nerix.com/terms-of-service/
   contact:
-    email: hello@clord.com
+    email: hello@nerix.com
   license:
     name: MIT License
     url: https://opensource.org/licenses/MIT
 servers:
-  - url: https://app.clord.com/
+  - url: https://app.nerix.com/
 tags:
   - name: Accounts
     description: Platform account management

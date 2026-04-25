@@ -25,17 +25,17 @@ responses:
                 - code: "en"
                   articles_count: 32
                   categories_count: 9
-            custom_domain: "clord.help"
+            custom_domain: "nerix.help"
             header_text: "Handbook"
-            homepage_link: "https://www.clord.com"
+            homepage_link: "https://www.nerix.com"
             name: "Handbook"
             slug: "handbook"
             page_title: "Handbook"
             account_id: 123
             inbox:
               id: 123
-              name: "clord"
-              website_url: "clord.com"
+              name: "nerix"
+              website_url: "nerix.com"
               channel_type: "Channel::WebWidget"
               avatar_url: "https://example.com/avatar.png"
               widget_color: "#1F93FF"
@@ -51,7 +51,7 @@ responses:
               enable_email_collect: true
               csat_survey_enabled: true
               timezone: "America/Los_Angeles"
-              business_name: "clord"
+              business_name: "nerix"
               hmac_mandatory: true
             logo:
               id: 123

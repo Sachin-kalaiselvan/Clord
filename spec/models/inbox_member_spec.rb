@@ -8,7 +8,7 @@ RSpec.describe InboxMember do
   describe '#DestroyAssociationAsyncJob' do
     let(:inbox_member) { create(:inbox_member) }
 
-    # ref: https://github.com/clord/clord/issues/4616
+    # ref: https://github.com/nerix/nerix/issues/4616
     context 'when parent inbox is destroyed' do
       it 'enques and processes DestroyAssociationAsyncJob' do
         perform_enqueued_jobs do

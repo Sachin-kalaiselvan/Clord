@@ -90,7 +90,7 @@ RSpec.describe Avatar::AvatarFromUrlJob do
     end
   end
 
-  # ref: https://github.com/clord/clord/issues/10449
+  # ref: https://github.com/nerix/nerix/issues/10449
   it 'does not raise error when downloaded file has no filename (invalid content)' do
     contact = create(:contact)
     temp_file = Tempfile.new(['invalid', '.xml'])

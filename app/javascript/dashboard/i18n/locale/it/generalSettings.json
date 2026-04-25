@@ -123,11 +123,11 @@
         "CUSTOM_EMAIL_DOMAIN_ENABLED": "Puoi ricevere email nel tuo dominio personalizzato ora."
       }
     },
-    "UPDATE_clord": "È disponibile un aggiornamento {latestclordVersion} per clord. Aggiorna la tua istanza.",
+    "UPDATE_nerix": "È disponibile un aggiornamento {latestnerixVersion} per nerix. Aggiorna la tua istanza.",
     "LEARN_MORE": "Scopri di più",
-    "PAYMENT_PENDING": "Il tuo pagamento è in sospeso. Aggiorna le informazioni di pagamento per continuare a utilizzare clord",
-    "UPGRADE": "Aggiorna per continuare a usare clord",
-    "LIMITS_UPGRADE": "Il tuo account ha superato i limiti di utilizzo, aggiorna il tuo piano per continuare a utilizzare clord",
+    "PAYMENT_PENDING": "Il tuo pagamento è in sospeso. Aggiorna le informazioni di pagamento per continuare a utilizzare nerix",
+    "UPGRADE": "Aggiorna per continuare a usare nerix",
+    "LIMITS_UPGRADE": "Il tuo account ha superato i limiti di utilizzo, aggiorna il tuo piano per continuare a utilizzare nerix",
     "OPEN_BILLING": "Apri fatturazione"
   },
   "FORMS": {

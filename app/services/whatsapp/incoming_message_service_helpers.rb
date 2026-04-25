@@ -25,7 +25,7 @@ module Whatsapp::IncomingMessageServiceHelpers
   end
 
   def message_content(message)
-    # TODO: map interactive messages back to button messages in clord
+    # TODO: map interactive messages back to button messages in nerix
     message.dig(:text, :body) ||
       message.dig(:button, :text) ||
       message.dig(:interactive, :button_reply, :title) ||

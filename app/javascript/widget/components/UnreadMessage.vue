@@ -51,7 +51,7 @@ export default {
       // eslint-disable-next-line
       const displayImage = this.useInboxAvatarForBot
         ? this.inboxAvatarUrl
-        : '/assets/images/clord_bot.png';
+        : '/assets/images/nerix_bot.png';
       if (this.isSenderExist(this.sender)) {
         const { avatar_url: avatarUrl } = this.sender;
         return avatarUrl;

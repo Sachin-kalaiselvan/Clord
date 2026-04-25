@@ -9,8 +9,8 @@ import { emitter } from 'shared/helpers/mitt';
 import {
   ANALYTICS_IDENTITY,
   ANALYTICS_RESET,
-  clord_RESET,
-  clord_SET_USER,
+  nerix_RESET,
+  nerix_SET_USER,
 } from '../../constants/appEvents';
 
 Cookies.defaults = { sameSite: 'Lax' };
@@ -21,7 +21,7 @@ export const setLoadingStatus = (state, status) => {
 };
 
 export const setUser = user => {
-  emitter.emit(clord_SET_USER, { user });
+  emitter.emit(nerix_SET_USER, { user });
   emitter.emit(ANALYTICS_IDENTITY, { user });
 };
 
@@ -77,7 +77,7 @@ export const deleteIndexedDBOnLogout = async () => {
 };
 
 export const clearCookiesOnLogout = () => {
-  emitter.emit(clord_RESET);
+  emitter.emit(nerix_RESET);
   emitter.emit(ANALYTICS_RESET);
   clearBrowserSessionCookies();
   clearLocalStorageOnLogout();

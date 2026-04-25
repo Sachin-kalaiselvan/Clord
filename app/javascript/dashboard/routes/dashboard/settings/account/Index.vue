@@ -60,7 +60,7 @@ export default {
       getAccount: 'accounts/getAccount',
       uiFlags: 'accounts/getUIFlags',
       isFeatureEnabledonAccount: 'accounts/isFeatureEnabledonAccount',
-      isOnclordCloud: 'globalConfig/isOnclordCloud',
+      isOnnerixCloud: 'globalConfig/isOnnerixCloud',
     }),
     showAudioTranscriptionConfig() {
       return this.isFeatureEnabledonAccount(
@@ -239,7 +239,7 @@ export default {
     </div>
     <AudioTranscription v-if="showAudioTranscriptionConfig" />
     <AccountId />
-    <div v-if="!uiFlags.isFetchingItem && isOnclordCloud">
+    <div v-if="!uiFlags.isFetchingItem && isOnnerixCloud">
       <AccountDelete />
     </div>
     <BuildInfo />

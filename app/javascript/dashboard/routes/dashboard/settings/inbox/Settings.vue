@@ -112,7 +112,7 @@ export default {
     ...mapGetters({
       accountId: 'getCurrentAccountId',
       isFeatureEnabledonAccount: 'accounts/isFeatureEnabledonAccount',
-      isOnclordCloud: 'globalConfig/isOnclordCloud',
+      isOnnerixCloud: 'globalConfig/isOnnerixCloud',
       uiFlags: 'inboxes/getUIFlags',
       portals: 'portals/allPortals',
     }),
@@ -124,10 +124,10 @@ export default {
     },
     showContinuityToggle() {
       if (this.isInboundEmailEnabled) return true;
-      return this.isOnclordCloud;
+      return this.isOnnerixCloud;
     },
     isContinuityDisabled() {
-      return this.isOnclordCloud && !this.isInboundEmailEnabled;
+      return this.isOnnerixCloud && !this.isInboundEmailEnabled;
     },
     continuityDescription() {
       if (this.isContinuityDisabled) {

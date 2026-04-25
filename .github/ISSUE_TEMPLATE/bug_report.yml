@@ -27,9 +27,9 @@ body:
     id: environment
     attributes:
       label: Environment
-      description: Describe whether you are using clord Cloud (app.clord.com) or a self-hosted installation of clord. If you are using a self-hosted installation of clord, describe the type of deployment (Docker/Linux VM installation/Heroku/Kubernetes/Other).
+      description: Describe whether you are using nerix Cloud (app.nerix.com) or a self-hosted installation of nerix. If you are using a self-hosted installation of nerix, describe the type of deployment (Docker/Linux VM installation/Heroku/Kubernetes/Other).
       options:
-        - app.clord.com
+        - app.nerix.com
         - Linux VM
         - Docker
         - Kubernetes

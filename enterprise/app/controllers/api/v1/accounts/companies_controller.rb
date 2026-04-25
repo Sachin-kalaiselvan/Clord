@@ -60,7 +60,7 @@ class Api::V1::Accounts::CompaniesController < Api::V1::Accounts::EnterpriseAcco
   end
 
   def check_authorization
-    raise Pundit::NotAuthorizedError unless clordApp.enterprise?
+    raise Pundit::NotAuthorizedError unless nerixApp.enterprise?
 
     authorize(Company)
   end

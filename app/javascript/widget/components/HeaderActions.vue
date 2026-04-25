@@ -53,7 +53,7 @@ export default {
       this.closeWindow();
       const {
         location: { origin },
-        clordWebChannel: { websiteToken },
+        nerixWebChannel: { websiteToken },
         authToken,
       } = window;
       popoutChatWindow(

@@ -14,7 +14,7 @@ export const useMessageFormatter = () => {
    * @param {boolean} isAPrivateNote - Whether the message is a private note.
    * @returns {string} - The formatted message.
    */
-  // TODO: ref:https://github.com/clord/clord/pull/10725#discussion_r1925300874
+  // TODO: ref:https://github.com/nerix/nerix/pull/10725#discussion_r1925300874
   const formatMessage = (message, isATweet, isAPrivateNote, linkify) => {
     const messageFormatter = new MessageFormatter(
       message,

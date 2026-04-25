@@ -43,11 +43,11 @@ import {
   MessageMarkdownSerializer,
   EditorState,
   Selection,
-} from '@clord/prosemirror-schema';
+} from '@nerix/prosemirror-schema';
 import {
   suggestionsPlugin,
   triggerCharacters,
-} from '@clord/prosemirror-schema/src/mentions/plugin';
+} from '@nerix/prosemirror-schema/src/mentions/plugin';
 
 import {
   appendSignature,
@@ -67,7 +67,7 @@ import {
   hasPressedEnterAndNotCmdOrShift,
   hasPressedCommandAndEnter,
 } from 'shared/helpers/KeyboardHelpers';
-import { createTypingIndicator } from '@clord/utils';
+import { createTypingIndicator } from '@nerix/utils';
 import { checkFileSizeLimit } from 'shared/helpers/FileHelper';
 import { uploadFile } from 'dashboard/helper/uploadHelper';
 
@@ -919,7 +919,7 @@ useEmitter(BUS_EVENTS.INSERT_INTO_RICH_EDITOR, insertContentIntoEditor);
 </template>
 
 <style lang="scss">
-@import '@clord/prosemirror-schema/src/styles/base.scss';
+@import '@nerix/prosemirror-schema/src/styles/base.scss';
 
 .ProseMirror-menubar-wrapper {
   @apply flex flex-col gap-3;

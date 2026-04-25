@@ -3,7 +3,7 @@ export const loadedEventConfig = () => {
     event: 'loaded',
     config: {
       authToken: window.authToken,
-      channelConfig: window.clordWebChannel,
+      channelConfig: window.nerixWebChannel,
     },
   };
 };

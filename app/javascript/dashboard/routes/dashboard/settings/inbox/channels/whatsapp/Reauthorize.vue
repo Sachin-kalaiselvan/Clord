@@ -27,9 +27,9 @@ const { t } = useI18n();
 const isRequestingAuthorization = ref(false);
 const isLoadingFacebook = ref(true);
 
-const whatsappAppId = computed(() => window.clordConfig.whatsappAppId);
+const whatsappAppId = computed(() => window.nerixConfig.whatsappAppId);
 const whatsappConfigurationId = computed(
-  () => window.clordConfig.whatsappConfigurationId
+  () => window.nerixConfig.whatsappConfigurationId
 );
 
 const actionLabel = computed(() => {
@@ -184,7 +184,7 @@ onMounted(async () => {
     // Load Facebook SDK and initialize
     await setupFacebookSdk(
       whatsappAppId.value,
-      window.clordConfig?.whatsappApiVersion
+      window.nerixConfig?.whatsappApiVersion
     );
   } catch (error) {
     useAlert(t('INBOX.REAUTHORIZE.FACEBOOK_LOAD_ERROR'));

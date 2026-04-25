@@ -4,7 +4,7 @@ import { useRoute, useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { useStore, useMapGetter } from 'dashboard/composables/store';
 import { useAlert } from 'dashboard/composables';
-import { debounce } from '@clord/utils';
+import { debounce } from '@nerix/utils';
 import { useUISettings } from 'dashboard/composables/useUISettings';
 import filterQueryGenerator from 'dashboard/helper/filterQueryGenerator';
 

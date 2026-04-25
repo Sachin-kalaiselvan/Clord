@@ -7,7 +7,7 @@ export const isEmptyObject = obj => {
 
 export const sendMessage = msg => {
   window.parent.postMessage(
-    `clord-widget:${JSON.stringify({ ...msg })}`,
+    `nerix-widget:${JSON.stringify({ ...msg })}`,
     '*'
   );
 };
@@ -25,7 +25,7 @@ export const RNHelper = {
   isRNWebView: () => window.ReactNativeWebView,
   sendMessage: msg => {
     window.ReactNativeWebView.postMessage(
-      `clord-widget:${JSON.stringify({ ...msg })}`
+      `nerix-widget:${JSON.stringify({ ...msg })}`
     );
   },
 };

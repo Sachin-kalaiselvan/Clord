@@ -3,7 +3,7 @@ import { dispatchWindowEvent } from '../CustomEventHelper';
 describe('dispatchWindowEvent', () => {
   it('dispatches correct event', () => {
     window.dispatchEvent = vi.fn();
-    dispatchWindowEvent({ eventName: 'clord:ready' });
+    dispatchWindowEvent({ eventName: 'nerix:ready' });
     expect(dispatchEvent).toHaveBeenCalled();
   });
 });

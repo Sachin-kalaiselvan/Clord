@@ -9,7 +9,7 @@ RSpec.describe 'Public Help Center Access', type: :request do
   let!(:article) { create(:article, category: category, portal: portal, account: account, author: agent, status: :published) }
 
   around do |example|
-    with_modified_env FRONTEND_URL: 'https://app.clord.com', HELPCENTER_URL: 'https://help.clord.com' do
+    with_modified_env FRONTEND_URL: 'https://app.nerix.com', HELPCENTER_URL: 'https://help.nerix.com' do
       previous_deployment_env = InstallationConfig.find_by(name: 'DEPLOYMENT_ENV')&.value
       InstallationConfig.where(name: 'DEPLOYMENT_ENV').first_or_initialize.update!(value: 'cloud')
 
@@ -21,9 +21,9 @@ RSpec.describe 'Public Help Center Access', type: :request do
     end
   end
 
-  it 'blocks clord-hosted portal pages when the help center feature is disabled' do
+  it 'blocks nerix-hosted portal pages when the help center feature is disabled' do
     account.disable_features!(:help_center)
-    host! 'help.clord.com'
+    host! 'help.nerix.com'
 
     get "/hc/#{portal.slug}/en"
 

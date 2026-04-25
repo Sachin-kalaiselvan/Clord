@@ -1,6 +1,6 @@
 {
   "LOGIN": {
-    "TITLE": "Přihlásit se do clord",
+    "TITLE": "Přihlásit se do nerix",
     "EMAIL": {
       "LABEL": "E-mailová adresa",
       "PLACEHOLDER": "example{'@'}companyname.com",

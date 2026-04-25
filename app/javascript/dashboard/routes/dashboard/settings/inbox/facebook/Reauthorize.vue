@@ -27,9 +27,9 @@ export default {
   methods: {
     runFBInit() {
       FB.init({
-        appId: window.clordConfig.fbAppId,
+        appId: window.nerixConfig.fbAppId,
         xfbml: true,
-        version: window.clordConfig.fbApiVersion,
+        version: window.nerixConfig.fbApiVersion,
         status: true,
       });
       window.fbSDKLoaded = true;

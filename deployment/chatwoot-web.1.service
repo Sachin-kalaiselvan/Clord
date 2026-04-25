@@ -1,11 +1,11 @@
 [Unit]
 Requires=network.target
-PartOf=clord.target
+PartOf=nerix.target
 
 [Service]
 Type=simple
-User=clord
-WorkingDirectory=/home/clord/clord
+User=nerix
+WorkingDirectory=/home/nerix/nerix
 
 ExecStart=/bin/bash -lc 'bin/rails server -p $PORT -e $RAILS_ENV'
 
@@ -17,10 +17,10 @@ StandardInput=null
 SyslogIdentifier=%p
 LimitNOFILE=65536
 
-Environment="PATH=/home/clord/.rvm/gems/ruby-3.4.4/bin:/home/clord/.rvm/gems/ruby-3.4.4@global/bin:/home/clord/.rvm/rubies/ruby-3.4.4/bin:/home/clord/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/home/clord/.rvm/bin:/home/clord/.rvm/bin"
+Environment="PATH=/home/nerix/.rvm/gems/ruby-3.4.4/bin:/home/nerix/.rvm/gems/ruby-3.4.4@global/bin:/home/nerix/.rvm/rubies/ruby-3.4.4/bin:/home/nerix/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/home/nerix/.rvm/bin:/home/nerix/.rvm/bin"
 Environment="PORT=3000"
 Environment="RAILS_ENV=production"
 Environment="NODE_ENV=production"
 Environment="RAILS_LOG_TO_STDOUT=true"
-Environment="GEM_HOME=/home/clord/.rvm/gems/ruby-3.4.4"
-Environment="GEM_PATH=/home/clord/.rvm/gems/ruby-3.4.4:/home/clord/.rvm/gems/ruby-3.4.4@global"
+Environment="GEM_HOME=/home/nerix/.rvm/gems/ruby-3.4.4"
+Environment="GEM_PATH=/home/nerix/.rvm/gems/ruby-3.4.4:/home/nerix/.rvm/gems/ruby-3.4.4@global"

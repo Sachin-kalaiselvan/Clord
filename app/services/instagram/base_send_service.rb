@@ -23,7 +23,7 @@ class Instagram::BaseSendService < Base::SendOnChannelService
   end
 
   def handle_error(error)
-    clordExceptionTracker.new(error, account: message.account, user: message.sender).capture_exception
+    nerixExceptionTracker.new(error, account: message.account, user: message.sender).capture_exception
   end
 
   def message_params

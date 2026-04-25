@@ -1,4 +1,4 @@
-## Class to generate sample data for a clord test @Account.
+## Class to generate sample data for a nerix test @Account.
 ############################################################
 ### Usage #####
 #

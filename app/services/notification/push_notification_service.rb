@@ -9,7 +9,7 @@ class Notification::PushNotificationService
     notification_subscriptions.each do |subscription|
       send_browser_push(subscription)
       send_fcm_push(subscription)
-      send_push_via_clord_hub(subscription)
+      send_push_via_nerix_hub(subscription)
     end
   end
 
@@ -82,7 +82,7 @@ class Notification::PushNotificationService
     when Errno::ECONNRESET, Net::OpenTimeout, Net::ReadTimeout, Socket::ResolutionError
       Rails.logger.error "WebPush operation error: #{error.message}"
     else
-      clordExceptionTracker.new(error, account: notification.account).capture_exception
+      nerixExceptionTracker.new(error, account: notification.account).capture_exception
       true
     end
   end
@@ -99,19 +99,19 @@ class Notification::PushNotificationService
     remove_subscription_if_error(subscription, response)
   end
 
-  def send_push_via_clord_hub(subscription)
+  def send_push_via_nerix_hub(subscription)
     return if firebase_credentials_present?
-    return unless clord_hub_enabled?
+    return unless nerix_hub_enabled?
     return unless subscription.fcm?
 
-    clordHub.send_push(fcm_options(subscription))
+    nerixHub.send_push(fcm_options(subscription))
   end
 
   def firebase_credentials_present?
     GlobalConfigService.load('FIREBASE_PROJECT_ID', nil) && GlobalConfigService.load('FIREBASE_CREDENTIALS', nil)
   end
 
-  def clord_hub_enabled?
+  def nerix_hub_enabled?
     ActiveModel::Type::Boolean.new.cast(ENV.fetch('ENABLE_PUSH_RELAY_SERVER', true))
   end
 

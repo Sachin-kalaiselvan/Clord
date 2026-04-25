@@ -10,8 +10,8 @@ class Email::FromBuilder < Email::BaseBuilder
                       :microsoft_oauth,
                       :forwarding_own_smtp
                    channel.email
-                 when :imap_clord_smtp,
-                      :forwarding_clord_smtp
+                 when :imap_nerix_smtp,
+                      :forwarding_nerix_smtp
                    channel.verified_for_sending ? channel.email : account_support_email
                  else
                    account_support_email
@@ -26,9 +26,9 @@ class Email::FromBuilder < Email::BaseBuilder
     return :google_oauth if channel.google?
     return :microsoft_oauth if channel.microsoft?
     return :standard_imap_smtp if imap_and_smtp_enabled?
-    return :imap_clord_smtp if imap_enabled_without_smtp?
+    return :imap_nerix_smtp if imap_enabled_without_smtp?
     return :forwarding_own_smtp if forwarding_with_own_smtp?
-    return :forwarding_clord_smtp if forwarding_without_smtp?
+    return :forwarding_nerix_smtp if forwarding_without_smtp?
 
     :unknown
   end

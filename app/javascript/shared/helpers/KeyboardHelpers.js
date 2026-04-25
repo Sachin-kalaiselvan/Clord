@@ -32,7 +32,7 @@ export const hasPressedEnterAndNotCmdOrShift = e => {
 export const hasPressedCommandAndEnter = e => hasPressedMod(e) && isEnter(e);
 
 // If layout is QWERTZ then we add the Shift+keysToModify to fix an known issue
-// https://github.com/clord/clord/issues/9492
+// https://github.com/nerix/nerix/issues/9492
 export const keysToModifyInQWERTZ = new Set(['Alt+KeyP', 'Alt+KeyL']);
 
 export const LAYOUT_QWERTY = 'QWERTY';

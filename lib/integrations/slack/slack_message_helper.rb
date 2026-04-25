@@ -5,7 +5,7 @@ module Integrations::Slack::SlackMessageHelper
     handle_conversation
     success_response
   rescue Slack::Web::Api::Errors::MissingScope => e
-    clordExceptionTracker.new(e, account: conversation.account).capture_exception
+    nerixExceptionTracker.new(e, account: conversation.account).capture_exception
     disable_and_reauthorize
   end
 
@@ -90,8 +90,8 @@ module Integrations::Slack::SlackMessageHelper
     return [nil, nil, nil] unless params[:event][:user]
 
     slack_user = slack_client.users_info(user: params[:event][:user])[:user]
-    clord_user = conversation.account.users.from_email(slack_user[:profile][:email])
-    return [clord_user, nil, nil] if clord_user
+    nerix_user = conversation.account.users.from_email(slack_user[:profile][:email])
+    return [nerix_user, nil, nil] if nerix_user
 
     sender_name = slack_user.dig(:profile, :display_name).presence ||
                   slack_user[:real_name].presence ||

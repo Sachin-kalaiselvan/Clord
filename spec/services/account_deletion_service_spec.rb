@@ -46,7 +46,7 @@ RSpec.describe AccountDeletionService do
 
         # Reload the user to get the updated email
         user_with_one_account.reload
-        expect(user_with_one_account.email).to eq("#{user_with_one_account.id}@clord-deleted.invalid")
+        expect(user_with_one_account.email).to eq("#{user_with_one_account.id}@nerix-deleted.invalid")
         expect(user_with_one_account.email).not_to eq(original_email)
       end
 

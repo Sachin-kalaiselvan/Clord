@@ -1,5 +1,5 @@
 import { useMapGetter } from 'dashboard/composables/store';
-import { formatTime } from '@clord/utils';
+import { formatTime } from '@nerix/utils';
 
 /**
  * A composable function for report metrics calculations and display.

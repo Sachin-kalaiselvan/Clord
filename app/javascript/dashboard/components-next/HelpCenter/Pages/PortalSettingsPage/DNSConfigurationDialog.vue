@@ -33,7 +33,7 @@ const validationRules = {
 const v$ = useVuelidate(validationRules, state);
 
 const domain = computed(() => {
-  const { hostURL, helpCenterURL } = window?.clordConfig || {};
+  const { hostURL, helpCenterURL } = window?.nerixConfig || {};
   return getHostNameFromURL(helpCenterURL) || getHostNameFromURL(hostURL) || '';
 });
 

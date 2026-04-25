@@ -10,18 +10,18 @@ import semver from 'semver';
 const { t } = useI18n();
 const { currentAccount } = useAccount();
 
-const latestclordVersion = computed(() => {
-  return currentAccount.value.latest_clord_version;
+const latestnerixVersion = computed(() => {
+  return currentAccount.value.latest_nerix_version;
 });
 
 const globalConfig = useMapGetter('globalConfig/get');
 
 const hasAnUpdateAvailable = computed(() => {
-  if (!semver.valid(latestclordVersion.value)) {
+  if (!semver.valid(latestnerixVersion.value)) {
     return false;
   }
 
-  return semver.lt(globalConfig.value.appVersion, latestclordVersion.value);
+  return semver.lt(globalConfig.value.appVersion, latestnerixVersion.value);
 });
 
 const gitSha = computed(() => {
@@ -37,8 +37,8 @@ const copyGitSha = () => {
   <div class="p-4 text-sm text-center">
     <div v-if="hasAnUpdateAvailable && globalConfig.displayManifest">
       {{
-        t('GENERAL_SETTINGS.UPDATE_clord', {
-          latestclordVersion: latestclordVersion,
+        t('GENERAL_SETTINGS.UPDATE_nerix', {
+          latestnerixVersion: latestnerixVersion,
         })
       }}
     </div>

@@ -1,10 +1,10 @@
 ###############
 # One library to capture_exception and send to the specific service.
 # # e as exception, u for user and a for account (user and account are optional)
-# Usage: clordExceptionTracker(e, user: u, account: a).capture_exception
+# Usage: nerixExceptionTracker(e, user: u, account: a).capture_exception
 ############
 
-class clordExceptionTracker
+class nerixExceptionTracker
   def initialize(exception, user: nil, account: nil)
     @exception = exception
     @user = user

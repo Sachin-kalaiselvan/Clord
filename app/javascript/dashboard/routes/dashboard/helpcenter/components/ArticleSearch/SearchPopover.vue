@@ -1,5 +1,5 @@
 <script>
-import { debounce } from '@clord/utils';
+import { debounce } from '@nerix/utils';
 import { useAlert } from 'dashboard/composables';
 import { mapGetters } from 'vuex';
 import allLocales from 'shared/constants/locales.js';

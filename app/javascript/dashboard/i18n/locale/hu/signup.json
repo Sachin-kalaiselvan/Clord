@@ -1,11 +1,11 @@
 {
   "REGISTER": {
     "TRY_WOOT": "Fiók létrehozása",
-    "GET_STARTED": "Get started with clord",
+    "GET_STARTED": "Get started with nerix",
     "TITLE": "Regisztrálás",
     "TESTIMONIAL_HEADER": "Már csak egy lépés van hátra",
     "TESTIMONIAL_CONTENT": "Már csak egy lépésre vagy!",
-    "TERMS_ACCEPT": "A fiók létrehozásával elfogadod az <a href=\"https://www.clord.com/terms\">ÁSZF</a> és az <a href=\"https://www.clord.com/privacy-policy\">Adatkezelési nyilatkozat</a> tartalmát",
+    "TERMS_ACCEPT": "A fiók létrehozásával elfogadod az <a href=\"https://www.nerix.com/terms\">ÁSZF</a> és az <a href=\"https://www.nerix.com/privacy-policy\">Adatkezelési nyilatkozat</a> tartalmát",
     "OAUTH": {
       "GOOGLE_SIGNUP": "Regisztráció Google-el"
     },

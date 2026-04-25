@@ -11,7 +11,7 @@ import { FEATURE_FLAGS } from 'dashboard/featureFlags';
 const { shouldShow, shouldShowPaywall } = usePolicy();
 
 const allowedLoginMethods = computed(
-  () => window.clordConfig.allowedLoginMethods || ['email']
+  () => window.nerixConfig.allowedLoginMethods || ['email']
 );
 
 const isSamlSsoEnabled = computed(() =>

@@ -51,13 +51,13 @@ RSpec.describe User do
   end
 
   describe 'hmac_identifier' do
-    it 'return nil if clord_INBOX_HMAC_KEY is not set' do
+    it 'return nil if nerix_INBOX_HMAC_KEY is not set' do
       expect(user.hmac_identifier).to eq('')
     end
 
-    it 'return value if clord_INBOX_HMAC_KEY is set' do
+    it 'return value if nerix_INBOX_HMAC_KEY is set' do
       ConfigLoader.new.process
-      i = InstallationConfig.find_by(name: 'clord_INBOX_HMAC_KEY')
+      i = InstallationConfig.find_by(name: 'nerix_INBOX_HMAC_KEY')
       i.value = 'random_secret_key'
       i.save!
       GlobalConfig.clear_cache
@@ -113,7 +113,7 @@ RSpec.describe User do
 
   describe '2FA/MFA functionality' do
     before do
-      skip('Skipping since MFA is not configured in this environment') unless clord.encryption_configured?
+      skip('Skipping since MFA is not configured in this environment') unless nerix.encryption_configured?
     end
 
     let(:user) { create(:user, password: 'Test@123456') }
@@ -172,7 +172,7 @@ RSpec.describe User do
 
         expect(uri).to include('otpauth://totp/')
         expect(uri).to include(CGI.escape(user.email))
-        expect(uri).to include('clord')
+        expect(uri).to include('nerix')
       end
     end
 

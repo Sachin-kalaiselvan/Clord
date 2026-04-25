@@ -170,13 +170,13 @@ const launchEmbeddedSignup = async () => {
     );
 
     await setupFacebookSdk(
-      window.clordConfig?.whatsappAppId,
-      window.clordConfig?.whatsappApiVersion
+      window.nerixConfig?.whatsappAppId,
+      window.nerixConfig?.whatsappApiVersion
     );
     fbSdkLoaded.value = true;
 
     const code = await initWhatsAppEmbeddedSignup(
-      window.clordConfig?.whatsappConfigurationId
+      window.nerixConfig?.whatsappConfigurationId
     );
 
     authCode.value = code;

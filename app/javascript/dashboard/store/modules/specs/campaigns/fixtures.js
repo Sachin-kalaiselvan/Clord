@@ -26,7 +26,7 @@ export default [
     account_id: 1,
     campaign_type: 'one_off',
     trigger_rules: {
-      url: 'https://clord.com',
+      url: 'https://nerix.com',
       time_on_page: '20',
     },
     inbox: {

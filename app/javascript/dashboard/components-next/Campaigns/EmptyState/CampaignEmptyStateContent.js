@@ -17,7 +17,7 @@ export const ONGOING_CAMPAIGN_EMPTY_STATE_CONTENT = [
     enabled: true,
     campaign_type: 'ongoing',
     trigger_rules: {
-      url: 'https://www.clord.com/features/chatbot/',
+      url: 'https://www.nerix.com/features/chatbot/',
       time_on_page: 10,
     },
     trigger_only_during_business_hours: true,
@@ -42,7 +42,7 @@ export const ONGOING_CAMPAIGN_EMPTY_STATE_CONTENT = [
     enabled: false,
     campaign_type: 'ongoing',
     trigger_rules: {
-      url: 'https://www.clord.com/pricings',
+      url: 'https://www.nerix.com/pricings',
       time_on_page: 10,
     },
     trigger_only_during_business_hours: false,
@@ -60,14 +60,14 @@ export const ONGOING_CAMPAIGN_EMPTY_STATE_CONTENT = [
     },
     sender: {
       id: 1,
-      name: 'clord',
+      name: 'nerix',
     },
-    message: 'Hi! clord here. Need help setting up? Let me know!',
+    message: 'Hi! nerix here. Need help setting up? Let me know!',
     campaign_status: 'active',
     enabled: false,
     campaign_type: 'ongoing',
     trigger_rules: {
-      url: 'https://{*.}?clord.com/apps/account/*/settings/inboxes/new/',
+      url: 'https://{*.}?nerix.com/apps/account/*/settings/inboxes/new/',
       time_on_page: 10,
     },
     trigger_only_during_business_hours: false,

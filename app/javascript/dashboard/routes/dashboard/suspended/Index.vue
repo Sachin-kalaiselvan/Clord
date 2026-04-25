@@ -3,13 +3,13 @@ import EmptyState from 'dashboard/components/widgets/EmptyState.vue';
 import { onMounted } from 'vue';
 
 const toggleSupportWidgetVisibility = () => {
-  if (window.$clord) {
-    window.$clord.toggleBubbleVisibility('show');
+  if (window.$nerix) {
+    window.$nerix.toggleBubbleVisibility('show');
   }
 };
 
 const setupListenerForWidgetEvent = () => {
-  window.addEventListener('clord:on-message', () => {
+  window.addEventListener('nerix:on-message', () => {
     toggleSupportWidgetVisibility();
   });
 };

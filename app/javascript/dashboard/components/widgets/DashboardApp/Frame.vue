@@ -61,7 +61,7 @@ export default {
   methods: {
     triggerEvent(event) {
       if (!this.isVisible) return;
-      if (event.data === 'clord-dashboard-app:fetch-info') {
+      if (event.data === 'nerix-dashboard-app:fetch-info') {
         this.onIframeLoad(0);
       }
     },

@@ -47,9 +47,9 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=clord_production
+      - POSTGRES_DB=nerix_production
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=ClordProdPass2024!
+      - POSTGRES_PASSWORD=nerixProdPass2024!
 
   redis:
     image: redis:alpine

@@ -49,7 +49,7 @@ export default {
   },
   data() {
     return {
-      latestclordVersion: null,
+      latestnerixVersion: null,
       reconnectService: null,
     };
   },
@@ -81,7 +81,7 @@ export default {
     this.listenToThemeChanges();
     // If user locale is set, use it; otherwise use account locale
     this.setLocale(
-      this.uiSettings?.locale || window.clordConfig.selectedLocale
+      this.uiSettings?.locale || window.nerixConfig.selectedLocale
     );
   },
   unmounted() {
@@ -107,12 +107,12 @@ export default {
       this.$store.dispatch('setActiveAccount', {
         accountId: this.currentAccountId,
       });
-      const { locale, latest_clord_version: latestclordVersion } =
+      const { locale, latest_nerix_version: latestnerixVersion } =
         this.getAccount(this.currentAccountId);
       const { pubsub_token: pubsubToken } = this.currentUser || {};
       // If user locale is set, use it; otherwise use account locale
       this.setLocale(this.uiSettings?.locale || locale);
-      this.latestclordVersion = latestclordVersion;
+      this.latestnerixVersion = latestnerixVersion;
       vueActionCable.init(this.store, pubsubToken);
       this.reconnectService = new ReconnectService(this.store, this.router);
       window.reconnectService = this.reconnectService;
@@ -136,7 +136,7 @@ export default {
     class="flex flex-col w-full h-screen min-h-0 bg-n-background"
     :dir="isRTL ? 'rtl' : 'ltr'"
   >
-    <UpdateBanner :latest-clord-version="latestclordVersion" />
+    <UpdateBanner :latest-nerix-version="latestnerixVersion" />
     <template v-if="currentAccountId">
       <PendingEmailVerificationBanner v-if="hideOnOnboardingView" />
       <PaymentPendingBanner v-if="hideOnOnboardingView" />

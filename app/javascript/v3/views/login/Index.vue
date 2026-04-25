@@ -85,16 +85,16 @@ export default {
   computed: {
     ...mapGetters({ globalConfig: 'globalConfig/get' }),
     allowedLoginMethods() {
-      return window.clordConfig.allowedLoginMethods || ['email'];
+      return window.nerixConfig.allowedLoginMethods || ['email'];
     },
     showGoogleOAuth() {
       return (
         this.allowedLoginMethods.includes('google_oauth') &&
-        Boolean(window.clordConfig.googleOAuthClientId)
+        Boolean(window.nerixConfig.googleOAuthClientId)
       );
     },
     showSignupLink() {
-      return window.clordConfig.signupEnabled === 'true';
+      return window.nerixConfig.signupEnabled === 'true';
     },
     showSamlLogin() {
       return this.allowedLoginMethods.includes('saml');

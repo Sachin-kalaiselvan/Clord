@@ -3,7 +3,7 @@ class Enterprise::Billing::CancelCloudSubscriptionsService
 
   def perform
     return if stripe_customer_id.blank?
-    return unless clordApp.clord_cloud?
+    return unless nerixApp.nerix_cloud?
 
     subscriptions.each do |subscription|
       next if subscription.cancel_at_period_end

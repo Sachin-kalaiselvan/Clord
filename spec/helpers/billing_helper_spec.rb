@@ -7,7 +7,7 @@ RSpec.describe BillingHelper do
 
     before do
       create(:installation_config, {
-               name: 'clord_CLOUD_PLANS',
+               name: 'nerix_CLOUD_PLANS',
                value: [
                  {
                    'name' => 'Hacker',

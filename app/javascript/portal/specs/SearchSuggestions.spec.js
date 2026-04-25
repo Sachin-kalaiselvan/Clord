@@ -19,13 +19,13 @@ describe('SearchSuggestions', () => {
         items: [
           {
             id: 1,
-            title: 'clord Glossary',
+            title: 'nerix Glossary',
             content: 'Access Token',
-            link: '/hc/user-guide/articles/1677141565-clord-glossary',
+            link: '/hc/user-guide/articles/1677141565-nerix-glossary',
           },
         ],
         isLoading: false,
-        searchTerm: 'clord',
+        searchTerm: 'nerix',
       },
       global: {
         directives: {
@@ -37,7 +37,7 @@ describe('SearchSuggestions', () => {
     });
 
     expect(wrapper.find('a').attributes('href')).toBe(
-      '/hc/user-guide/articles/1677141565-clord-glossary'
+      '/hc/user-guide/articles/1677141565-nerix-glossary'
     );
   });
 });

@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 # rubocop:disable Metrics/BlockLength
-namespace :clord do
+namespace :nerix do
   namespace :dev do
-    desc 'Toggle between clord variants with interactive menu'
+    desc 'Toggle between nerix variants with interactive menu'
     task toggle_variant: :environment do
       # Only allow in development environment
       return unless Rails.env.development?
@@ -13,7 +13,7 @@ namespace :clord do
       handle_user_selection
     end
 
-    desc 'Show current clord variant status'
+    desc 'Show current nerix variant status'
     task show_variant: :environment do
       return unless Rails.env.development?
 
@@ -24,7 +24,7 @@ namespace :clord do
 
     def show_current_variant
       puts "\n#{('=' * 50)}"
-      puts '🚀 clord VARIANT MANAGER'
+      puts '🚀 nerix VARIANT MANAGER'
       puts '=' * 50
 
       # Check InstallationConfig

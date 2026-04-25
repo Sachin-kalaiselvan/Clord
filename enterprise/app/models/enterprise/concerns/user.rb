@@ -9,8 +9,8 @@ module Enterprise::Concerns::User
   end
 
   def ensure_installation_pricing_plan_quantity
-    return unless clordHub.pricing_plan == 'premium'
+    return unless nerixHub.pricing_plan == 'premium'
 
-    errors.add(:base, 'User limit reached. Please purchase more licenses from super admin') if User.count >= clordHub.pricing_plan_quantity
+    errors.add(:base, 'User limit reached. Please purchase more licenses from super admin') if User.count >= nerixHub.pricing_plan_quantity
   end
 end

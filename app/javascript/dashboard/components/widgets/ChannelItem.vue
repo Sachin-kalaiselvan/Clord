@@ -16,15 +16,15 @@ const props = defineProps({
 const emit = defineEmits(['channelItemClick']);
 
 const hasFbConfigured = computed(() => {
-  return window.clordConfig?.fbAppId;
+  return window.nerixConfig?.fbAppId;
 });
 
 const hasInstagramConfigured = computed(() => {
-  return window.clordConfig?.instagramAppId;
+  return window.nerixConfig?.instagramAppId;
 });
 
 const hasTiktokConfigured = computed(() => {
-  return window.clordConfig?.tiktokAppId;
+  return window.nerixConfig?.tiktokAppId;
 });
 
 const isActive = computed(() => {

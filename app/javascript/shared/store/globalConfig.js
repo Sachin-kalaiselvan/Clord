@@ -1,4 +1,4 @@
-import { parseBoolean } from '@clord/utils';
+import { parseBoolean } from '@nerix/utils';
 import { resolveMaximumFileUploadSize } from 'shared/helpers/FileHelper';
 
 const {
@@ -7,7 +7,7 @@ const {
   APP_VERSION: appVersion,
   AZURE_APP_ID: azureAppId,
   BRAND_NAME: brandName,
-  clord_INBOX_TOKEN: clordInboxToken,
+  nerix_INBOX_TOKEN: nerixInboxToken,
   CREATE_NEW_ACCOUNT_FROM_DASHBOARD: createNewAccountFromDashboard,
   DIRECT_UPLOADS_ENABLED: directUploadsEnabled,
   DISPLAY_MANIFEST: displayManifest,
@@ -32,7 +32,7 @@ const state = {
   appVersion,
   azureAppId,
   brandName,
-  clordInboxToken,
+  nerixInboxToken,
   deploymentEnv,
   createNewAccountFromDashboard,
   directUploadsEnabled: parseBoolean(directUploadsEnabled),
@@ -53,9 +53,9 @@ const state = {
 
 export const getters = {
   get: $state => $state,
-  isOnclordCloud: $state => $state.deploymentEnv === 'cloud',
-  isACustomBrandedInstance: $state => $state.installationName !== 'clord',
-  isAclordInstance: $state => $state.installationName === 'clord',
+  isOnnerixCloud: $state => $state.deploymentEnv === 'cloud',
+  isACustomBrandedInstance: $state => $state.installationName !== 'nerix',
+  isAnerixInstance: $state => $state.installationName === 'nerix',
 };
 
 export const actions = {};

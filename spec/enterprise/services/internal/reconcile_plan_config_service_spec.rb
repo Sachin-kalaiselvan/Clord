@@ -6,7 +6,7 @@ RSpec.describe Internal::ReconcilePlanConfigService do
 
     context 'when pricing plan is community' do
       before do
-        allow(clordHub).to receive(:pricing_plan).and_return('community')
+        allow(nerixHub).to receive(:pricing_plan).and_return('community')
       end
 
       it 'disables the premium features for accounts' do
@@ -25,33 +25,33 @@ RSpec.describe Internal::ReconcilePlanConfigService do
       it 'creates a premium config reset warning if config was modified' do
         create(:installation_config, name: 'INSTALLATION_NAME', value: 'custom-name')
         service.perform
-        expect(Redis::Alfred.get(Redis::Alfred::clord_INSTALLATION_CONFIG_RESET_WARNING)).to eq('true')
+        expect(Redis::Alfred.get(Redis::Alfred::nerix_INSTALLATION_CONFIG_RESET_WARNING)).to eq('true')
       end
 
       it 'will not create a premium config reset warning if config is not modified' do
-        create(:installation_config, name: 'INSTALLATION_NAME', value: 'clord')
+        create(:installation_config, name: 'INSTALLATION_NAME', value: 'nerix')
         service.perform
-        expect(Redis::Alfred.get(Redis::Alfred::clord_INSTALLATION_CONFIG_RESET_WARNING)).to be_nil
+        expect(Redis::Alfred.get(Redis::Alfred::nerix_INSTALLATION_CONFIG_RESET_WARNING)).to be_nil
       end
 
       it 'updates the premium configs to default' do
         create(:installation_config, name: 'INSTALLATION_NAME', value: 'custom-name')
         create(:installation_config, name: 'LOGO', value: '/custom-path/logo.svg')
         service.perform
-        expect(InstallationConfig.find_by(name: 'INSTALLATION_NAME').value).to eq('clord')
+        expect(InstallationConfig.find_by(name: 'INSTALLATION_NAME').value).to eq('nerix')
         expect(InstallationConfig.find_by(name: 'LOGO').value).to eq('/brand-assets/logo.svg')
       end
     end
 
     context 'when pricing plan is not community' do
       before do
-        allow(clordHub).to receive(:pricing_plan).and_return('enterprise')
+        allow(nerixHub).to receive(:pricing_plan).and_return('enterprise')
       end
 
       it 'unset premium config warning on upgrade' do
-        Redis::Alfred.set(Redis::Alfred::clord_INSTALLATION_CONFIG_RESET_WARNING, true)
+        Redis::Alfred.set(Redis::Alfred::nerix_INSTALLATION_CONFIG_RESET_WARNING, true)
         service.perform
-        expect(Redis::Alfred.get(Redis::Alfred::clord_INSTALLATION_CONFIG_RESET_WARNING)).to be_nil
+        expect(Redis::Alfred.get(Redis::Alfred::nerix_INSTALLATION_CONFIG_RESET_WARNING)).to be_nil
       end
 
       it 'does not disable the premium features for accounts' do

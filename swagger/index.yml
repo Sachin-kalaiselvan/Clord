@@ -1,16 +1,16 @@
 openapi: '3.1.0'
 info:
-  title: clord
-  description: This is the API documentation for clord server.
+  title: nerix
+  description: This is the API documentation for nerix server.
   version: 1.1.0
-  termsOfService: https://www.clord.com/terms-of-service/
+  termsOfService: https://www.nerix.com/terms-of-service/
   contact:
-    email: hello@clord.com
+    email: hello@nerix.com
   license:
     name: MIT License
     url: https://opensource.org/licenses/MIT
 servers:
-  - url: https://app.clord.com/
+  - url: https://app.nerix.com/
 paths:
   $ref: ./paths/index.yml
 components:

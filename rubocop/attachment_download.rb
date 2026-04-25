@@ -1,8 +1,8 @@
 require 'rubocop'
 
-module RuboCop::Cop::clord; end
+module RuboCop::Cop::nerix; end
 
-class RuboCop::Cop::clord::AttachmentDownload < RuboCop::Cop::Base
+class RuboCop::Cop::nerix::AttachmentDownload < RuboCop::Cop::Base
   MSG = 'Avoid calling `.file/.blob.download`; use `blob.open` or streaming IO instead.'.freeze
 
   def_node_matcher :unsafe_download?, <<~PATTERN

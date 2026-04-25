@@ -1,5 +1,5 @@
 # ref: https://github.com/jgorset/facebook-messenger#make-a-configuration-provider
-class clordFbProvider < Facebook::Messenger::Configuration::Providers::Base
+class nerixFbProvider < Facebook::Messenger::Configuration::Providers::Base
   def valid_verify_token?(_verify_token)
     GlobalConfigService.load('FB_VERIFY_TOKEN', '')
   end
@@ -15,13 +15,13 @@ class clordFbProvider < Facebook::Messenger::Configuration::Providers::Base
   private
 
   def bot
-    clord::Bot
+    nerix::Bot
   end
 end
 
 Rails.application.reloader.to_prepare do
   Facebook::Messenger.configure do |config|
-    config.provider = clordFbProvider.new
+    config.provider = nerixFbProvider.new
   end
 
   Facebook::Messenger::Bot.on :message do |message|

@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from 'vue';
-import { fileNameWithEllipsis } from '@clord/utils';
+import { fileNameWithEllipsis } from '@nerix/utils';
 
 import Button from 'dashboard/components-next/button/Button.vue';
 

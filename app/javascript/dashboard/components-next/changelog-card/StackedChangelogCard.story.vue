@@ -2,14 +2,14 @@
 import StackedChangelogCard from './StackedChangelogCard.vue';
 
 const imageCards = {
-  id: 'clord-captain',
-  title: 'clord Captain',
-  meta_title: 'clord Captain',
+  id: 'nerix-captain',
+  title: 'nerix Captain',
+  meta_title: 'nerix Captain',
   meta_description:
     'Watch how our latest feature can transform your workflow with powerful automation tools.',
-  slug: 'clord-captain',
+  slug: 'nerix-captain',
   feature_image:
-    'https://www.clord.com/images/captain/captain_thumbnail.jpg',
+    'https://www.nerix.com/images/captain/captain_thumbnail.jpg',
 };
 
 const handleReadMore = () => {

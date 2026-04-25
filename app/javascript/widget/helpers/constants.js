@@ -13,4 +13,4 @@ export const MESSAGE_TYPE = {
   TEMPLATE: 3,
 };
 
-export const WOOT_PREFIX = 'clord-widget:';
+export const WOOT_PREFIX = 'nerix-widget:';

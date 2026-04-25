@@ -4,8 +4,8 @@ describe('#mutations', () => {
   describe('#SET_REFERRER_HOST', () => {
     it('sets referrer host properly', () => {
       const state = { referrerHost: '' };
-      mutations.SET_REFERRER_HOST(state, 'www.clord.com');
-      expect(state.referrerHost).toEqual('www.clord.com');
+      mutations.SET_REFERRER_HOST(state, 'www.nerix.com');
+      expect(state.referrerHost).toEqual('www.nerix.com');
     });
   });
 

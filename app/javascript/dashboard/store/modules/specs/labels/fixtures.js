@@ -9,7 +9,7 @@ export default [
   {
     id: 4,
     title: 'saas-customer',
-    description: 'Customers who have account on app.clord.com',
+    description: 'Customers who have account on app.nerix.com',
     color: '#A8DBCB',
     show_on_sidebar: false,
   },

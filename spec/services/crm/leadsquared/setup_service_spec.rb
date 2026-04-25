@@ -26,11 +26,11 @@ RSpec.describe Crm::Leadsquared::SetupService do
   describe '#setup' do
     context 'when fetching activity types succeeds' do
       let(:started_type) do
-        { 'ActivityEventName' => 'clord Conversation Started', 'ActivityEvent' => 1001 }
+        { 'ActivityEventName' => 'nerix Conversation Started', 'ActivityEvent' => 1001 }
       end
 
       let(:transcript_type) do
-        { 'ActivityEventName' => 'clord Conversation Transcript', 'ActivityEvent' => 1002 }
+        { 'ActivityEventName' => 'nerix Conversation Transcript', 'ActivityEvent' => 1002 }
       end
 
       context 'when all required types exist' do
@@ -59,7 +59,7 @@ RSpec.describe Crm::Leadsquared::SetupService do
 
           allow(activity_client).to receive(:create_activity_type)
             .with(
-              name: 'clord Conversation Transcript',
+              name: 'nerix Conversation Transcript',
               score: 0,
               direction: 0
             )
@@ -104,7 +104,7 @@ RSpec.describe Crm::Leadsquared::SetupService do
       required_types = service.send(:activity_types)
       conversation_type = required_types.find { |t| t[:setting_key] == 'conversation_activity_code' }
       expect(conversation_type).to include(
-        name: 'clord Conversation Started',
+        name: 'nerix Conversation Started',
         score: 0,
         direction: 0,
         setting_key: 'conversation_activity_code'
@@ -115,7 +115,7 @@ RSpec.describe Crm::Leadsquared::SetupService do
       required_types = service.send(:activity_types)
       transcript_type = required_types.find { |t| t[:setting_key] == 'transcript_activity_code' }
       expect(transcript_type).to include(
-        name: 'clord Conversation Transcript',
+        name: 'nerix Conversation Transcript',
         score: 0,
         direction: 0,
         setting_key: 'transcript_activity_code'

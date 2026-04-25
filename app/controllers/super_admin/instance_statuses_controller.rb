@@ -1,18 +1,18 @@
 class SuperAdmin::InstanceStatusesController < SuperAdmin::ApplicationController
   def show
     @metrics = {}
-    clord_version
+    nerix_version
     sha
     postgres_status
     redis_metrics
-    clord_edition
+    nerix_edition
     instance_meta
   end
 
-  def clord_edition
-    @metrics['clord edition'] = if clordApp.enterprise?
+  def nerix_edition
+    @metrics['nerix edition'] = if nerixApp.enterprise?
                                      'Enterprise'
-                                   elsif clordApp.custom?
+                                   elsif nerixApp.custom?
                                      'Custom'
                                    else
                                      'Community'
@@ -23,8 +23,8 @@ class SuperAdmin::InstanceStatusesController < SuperAdmin::ApplicationController
     @metrics['Database Migrations'] = ActiveRecord::Base.connection.migration_context.needs_migration? ? 'pending' : 'completed'
   end
 
-  def clord_version
-    @metrics['clord version'] = clord.config[:version]
+  def nerix_version
+    @metrics['nerix version'] = nerix.config[:version]
   end
 
   def sha

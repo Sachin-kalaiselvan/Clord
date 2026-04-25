@@ -4,7 +4,7 @@ import {
   removeSignature,
   extractTextFromMarkdown,
 } from 'dashboard/helper/editorHelper';
-import { createTypingIndicator } from '@clord/utils';
+import { createTypingIndicator } from '@nerix/utils';
 
 const TYPING_INDICATOR_IDLE_TIME = 4000;
 export default {

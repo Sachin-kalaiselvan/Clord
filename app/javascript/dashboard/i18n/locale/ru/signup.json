@@ -1,11 +1,11 @@
 {
   "REGISTER": {
     "TRY_WOOT": "Создать новый аккаунт",
-    "GET_STARTED": "Get started with clord",
+    "GET_STARTED": "Get started with nerix",
     "TITLE": "Регистрация",
     "TESTIMONIAL_HEADER": "Все, что нужно сделать, это один шаг для продвижения вперед",
     "TESTIMONIAL_CONTENT": "Вы находитесь на расстоянии всего одного шага от привлечения своих клиентов, удержав их и находя новые.",
-    "TERMS_ACCEPT": "Создавая учетную запись, вы соглашаетесь с нашими <a href=\"https://www.clord.com/terms\">Т и С</a> и <a href=\"https://www.clord.com/privacy-policy\">политикой конфиденциальности</a>",
+    "TERMS_ACCEPT": "Создавая учетную запись, вы соглашаетесь с нашими <a href=\"https://www.nerix.com/terms\">Т и С</a> и <a href=\"https://www.nerix.com/privacy-policy\">политикой конфиденциальности</a>",
     "OAUTH": {
       "GOOGLE_SIGNUP": "Регистрация через Google"
     },
